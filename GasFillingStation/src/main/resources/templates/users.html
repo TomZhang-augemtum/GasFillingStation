@@ -73,6 +73,22 @@
             <pagenation go-page="gotoPage(page)" total-count="totalCount" change-size="changeRowNums(num)"></pagenation>
         </div>
     </div>
+    <div class="addUser" ng-show="leftNav=='addUser'">
+        <div class="add-user border">
+            <div class="table">
+                <div class="title block-title-backcolor">
+                    <select>
+                        <option>添加顾客</option>
+                        <option>添加员工</option>
+                    </select>
+                </div>
+                <div>
+
+                </div>
+            </div>
+            <pagenation go-page="gotoPage(page)" total-count="totalCount" change-size="changeRowNums(num)"></pagenation>
+        </div>
+    </div>
 </div>
 <script type="text/javascript" src="/js/jquery.min.js"></script>
 <script type="text/javascript" src="/js/common.js"></script>

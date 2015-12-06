@@ -20,7 +20,7 @@ public class Car {
     private String cylinderNumber;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "type")
+    @JoinColumn(name = "typeid")
     private CarType type;
 
     public void setType(CarType type) {
