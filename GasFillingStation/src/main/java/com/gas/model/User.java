@@ -29,8 +29,20 @@ public class User {
     private Company company;
 
     @OneToOne
+    @JoinColumn(name = "id", referencedColumnName = "userid")
+    private Car car;
+
+    @OneToOne
     @JoinColumn(name = "roleid")
     private Role role;
+
+    public Car getCar() {
+        return car;
+    }
+
+    public void setCars(Car car) {
+        this.car = car;
+    }
 
     public Company getCompany() {
         return company;

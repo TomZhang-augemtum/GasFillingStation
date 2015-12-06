@@ -1,9 +1,12 @@
 package com.gas.model;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -14,8 +17,19 @@ public class Car {
     private Long id;
     private String carNumber;
     private int userid;
-    private int type;
     private String cylinderNumber;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "type")
+    private CarType type;
+
+    public void setType(CarType type) {
+        this.type = type;
+    }
+
+    public CarType getType() {
+        return type;
+    }
 
     public Long getId() {
         return id;
@@ -39,14 +53,6 @@ public class Car {
 
     public void setUserid(int userid) {
         this.userid = userid;
-    }
-
-    public int getType() {
-        return type;
-    }
-
-    public void setType(int type) {
-        this.type = type;
     }
 
     public String getCylinderNumber() {

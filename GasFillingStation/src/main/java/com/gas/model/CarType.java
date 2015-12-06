@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
 @Entity
-public class CardType {
+public class CarType {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @NotNull

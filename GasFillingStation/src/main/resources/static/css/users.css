@@ -1,0 +1,130 @@
+/* -------------- users common css ------------------ */
+.users {
+    padding: 10px;
+}
+.users .page-title {
+    background-color: #bfbfbf;
+    padding: 5px;
+    margin-bottom: 15px;
+}
+.users .page-title img{
+    width: 20px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+.users .page-title span{
+    vertical-align: middle;
+    margin-left: 5px;
+    cursor: pointer;
+    color: black;
+}
+.users .player .block-title{
+    padding: 5px 0 5px 10px;
+}
+.users .topborder {
+    border-top: 1px solid #bfbfbf;
+}
+.users .rightborder {
+    border-right: 1px solid #bfbfbf;
+}
+.users .bottomborder {
+    border-bottom: 1px solid #bfbfbf;
+}
+.users .leftborder {
+    border-left: 1px solid #bfbfbf;
+}
+/* -------------- users left-nav css ------------------ */
+.users .left-nav {
+    display: inline-block;
+    width: 130px;
+    float:left;
+    min-height: 780px;
+}
+.users .left-nav li{
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+}
+.users .left-nav .leftactive{
+    background-color: #bfbfbf;
+    color: white;
+}
+
+/* -------------- employee list css ------------------ */
+.users .main .employee-list{
+    margin-left: 140px;
+}
+.users .main .employee-list{
+    min-height: 750px;
+}
+.users .main .table{
+    min-height: 750px;
+}
+.users .main .employee-list .title{
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.users .main .employee-list .col{
+    display: inline-block;
+    text-align: center;
+    line-height: 30px;
+}
+.users .main .employee-list .col1{
+    width: 15%;
+    cursor: pointer;
+}
+.users .main .employee-list .col2{
+    width: 10%;
+}
+.users .main .employee-list .col3{
+    width: 15%;
+}
+.users .main .employee-list .col4{
+    width: 140px;
+}
+.users .main .employee-list .col5{
+    width: 170px;
+}
+.users .main .employee-list .col6{
+    width: 150px;
+}
+/* -------------- customer list css ------------------ */
+.users .customer .customer-list{
+    margin-left: 140px;
+}
+.users .customer .customer-list{
+    min-height: 750px;
+}
+.users .customer .table{
+    min-height: 750px;
+}
+.users .customer .customer-list .title{
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.users .customer .customer-list .col{
+    display: inline-block;
+    text-align: center;
+    line-height: 30px;
+}
+.users .customer .customer-list .col1{
+    width: 15%;
+    cursor: pointer;
+}
+.users .customer .customer-list .col2{
+    width: 10%;
+}
+.users .customer .customer-list .col3{
+    width: 15%;
+}
+.users .customer .customer-list .col4{
+    width: 140px;
+}
+.users .customer .customer-list .col5{
+    width: 170px;
+}
+.users .customer .customer-list .col6{
+    width: 150px;
+}

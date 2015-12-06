@@ -35,7 +35,7 @@ public class LoginController {
         }
         request.getSession().setAttribute("user", loginuser);
         model.addAttribute("users", userService.getUserList());
-        return "dashboard";
+        return "redirect:" + loginuser.getRole().getMenus().get(0).getUrl();
     }
 
     @RequestMapping(value = "/api/logout", method = RequestMethod.GET)

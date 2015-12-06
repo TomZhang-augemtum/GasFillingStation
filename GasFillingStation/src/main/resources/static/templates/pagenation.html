@@ -1,0 +1,14 @@
+<div class="pagenation">
+    <span>行数:</span>
+    <select ng-change="changePageSize()" ng-model="pageSize">
+        <option value=5>5</option>
+        <option value=10>10</option>
+        <option value=15>15</option>
+        <option value=20>20</option>
+    </select>
+    <span class="goto">跳到</span>
+    <input type="text" />
+    <span>页   共{{totalPage}}页</span>
+    <img src="/img/kiosks/leftError.png" ng-click="turnPage('pre')"/>
+    <img src="/img/kiosks/rightError.png" ng-click="turnPage('next')"/>
+</div>

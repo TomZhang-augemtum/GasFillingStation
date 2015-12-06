@@ -38,4 +38,21 @@ public class UserService {
     public List<User> getUserList() {
         return userDao.findAll();
     }
+
+
+    public List<User> getEmployeeListByPagenation(int offset, int limit, String sort) {
+        return userDao.findEmployeeByPagenation(offset, limit, sort);
+    }
+
+    public List<User> getCustomerListByPagenation(int offset, int limit, String sort) {
+        return userDao.findCustomerByPagenation(offset, limit, sort);
+    }
+
+    public int getCustomerCount() {
+        return userDao.customerCount();
+    }
+
+    public int getEmployeeCount() {
+        return userDao.employeeCoun();
+    }
 }

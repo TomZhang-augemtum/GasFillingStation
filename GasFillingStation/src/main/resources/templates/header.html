@@ -12,28 +12,15 @@
             <div class="photo"></div>
             <div class="info">
                 <span class="username" th:text="${session.user.name}"></span> <span
-                    class="role" th:text="${session.user.company.name}"></span>
+                    class="role" th:text="${session.user.role.name}"></span>
             </div>
         </div>
-        <div class="logout-search">
-            <div class="logout">
-                <a href="#">Sign out...</a>
-            </div>
-            <div class="search">
-                <div class="search-input">
-                    <input type="text" placeholder="search..." />
-                </div>
-                <div class="search-icon"></div>
-            </div>
+        <div class="logout">
+            <a href="#">登出</a>
         </div>
         <div class="navigation">
             <ul class="display-title">
-                <li class="display-title-item" ng-class="{active:navigation=='HOME'}"><a th:href="@{/}">用户管理</a></li>
-                <li class="display-title-item" ng-class="{active:navigation=='HOME'}"><a th:href="@{/}">子站管理</a></li>
-                <li class="display-title-item" ng-class="{active:navigation=='KIOSKS'}"><a th:href="@{/kiosks}">业务处理</a></li>
-                <li class="display-title-item" ng-class="{active:navigation=='PLAYERS'}"><a th:href="@{/players}">数据查询</a></li>
-                <li class="display-title-item" ng-class="{active:navigation=='PROMOTIONS'}"><a th:href="@{/}">报表生成</a></li>
-                <li class="display-title-item" ng-class="{active:navigation=='CONTENT'}"><a th:href="@{/kiosks}">系统设置</a></li>
+                <li class="display-title-item" th:each="menu,userStat:${session.user.role.menus}"><a th:href="@{${menu.url}}" th:text="${menu.name}"></a></li>
             </ul>
         </div>
     </div>

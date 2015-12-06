@@ -21,4 +21,28 @@ public class UserController {
     public List<User> index(HttpServletRequest request, Model model) {
         return userService.getUserList();
     }
+
+    @RequestMapping("/api/employee/list/Pagenation")
+    public List<User> employeeListByPagenation(HttpServletRequest request, Model model, int limit, int offset,
+            String sort) {
+        System.out.println(sort);
+        return userService.getEmployeeListByPagenation(offset, limit, sort);
+    }
+
+    @RequestMapping("/api/employee/list/count")
+    public int employeeListCount(HttpServletRequest request, Model model) {
+        return userService.getEmployeeCount();
+    }
+
+    @RequestMapping("/api/customer/list/Pagenation")
+    public List<User> customerListByPagenation(HttpServletRequest request, Model model, int limit, int offset,
+            String sort) {
+        System.out.println(sort);
+        return userService.getCustomerListByPagenation(offset, limit, sort);
+    }
+
+    @RequestMapping("/api/customer/list/count")
+    public int customerListCount(HttpServletRequest request, Model model) {
+        return userService.getCustomerCount();
+    }
 }
