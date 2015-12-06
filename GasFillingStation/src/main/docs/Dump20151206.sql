@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `gas` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `gas`;
 -- MySQL dump 10.13  Distrib 5.7.9, for Win64 (x86_64)
 --
 -- Host: localhost    Database: gas
@@ -170,7 +168,7 @@ CREATE TABLE `company` (
 
 LOCK TABLES `company` WRITE;
 /*!40000 ALTER TABLE `company` DISABLE KEYS */;
-INSERT INTO `company` VALUES (1,'totalcompant',1,'上海','123321232321',100000000),(2,'上海分公司',2,'上海','2332123',552931),(3,'北京分公司',3,'北京','3212321',45123),(4,'太原分公司',4,'太原','3321',12341);
+INSERT INTO `company` VALUES (1,'母站',1,'上海','123321232321',100000000),(2,'上海分公司',2,'上海','2332123',552931),(3,'北京分公司',3,'北京','3212321',45123),(4,'太原分公司',4,'太原','3321',12341);
 /*!40000 ALTER TABLE `company` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -321,7 +319,7 @@ CREATE TABLE `user` (
   `cardid` varchar(18) DEFAULT NULL,
   `companyid` int(11) DEFAULT NULL,
   `number` varchar(45) DEFAULT NULL,
-  `role` int(11) DEFAULT NULL,
+  `roleid` int(11) DEFAULT NULL,
   `lastLoginDate` date DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
@@ -347,4 +345,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-12-04 22:01:09
+-- Dump completed on 2015-12-06  8:10:10
