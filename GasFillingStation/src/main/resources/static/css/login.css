@@ -1,0 +1,89 @@
+/* ----------------------- login --------------------- */
+#login {
+    text-align: center;
+    margin-top: 12%;
+    margin-left: 35%;
+}
+body {
+    border: none;
+}
+#resend-password {
+    width: 400px;
+    margin-top: 12%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 15px;
+    font-family: Shruti-eot, Shruti-ttf;
+    background-color: #F8F8F8;
+    padding: 5px 0;
+    text-align: center;
+}
+
+#resend-password-title {
+    width: 350px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#resend-password-content {
+    width: 310px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+
+#resend-password-content p {
+    margin: 0;
+    padding: 0;
+}
+
+#resend-password-center {
+    width: 310px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+
+#login-input {
+    background-image: url(/img/login/login_02.png);
+    background-repeat: no-repeat;
+    padding: 10px;
+    height: 200px;
+    width: 420px;
+    margin-top: -5px;
+    font-family: Shruti-eot, Shruti-ttf;
+}
+
+#login-input div {
+    margin-left: 10px;
+    margin-top: 17px;
+}
+
+#login-input  span {
+    font-size: 14px;
+}
+
+#login-input  input {
+    border: 0 none;
+    background-image: url(/img/login/login_04.png);
+    background-repeat: no-repeat;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    height: 15px;
+    width: 357px;
+}
+
+#login-button {
+    background-image: url(/img/login/login_03.png);
+    background-repeat: no-repeat;
+    text-align: center;
+    width: 413px;
+    height: 75px;
+    margin-top: -15px;
+}
+
+#login-button  img {
+    margin-top: 10px;
+}

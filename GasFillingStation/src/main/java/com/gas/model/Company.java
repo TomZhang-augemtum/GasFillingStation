@@ -17,6 +17,11 @@ public class Company {
     private String location;
     private String phone;
     private double freeGasNumber;
+
+    // @OneToMany
+    // @JoinColumn(name = "id", table = "user")
+    // private List<User> users;
+
     public Long getId() {
         return id;
     }

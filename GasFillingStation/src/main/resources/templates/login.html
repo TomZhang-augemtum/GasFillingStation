@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<script type="text/javascript">
+	function login(){
+		document.loginForm.submit();
+	}
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link th:href="@{/css/common.css}" rel="stylesheet"/>
+<link th:href="@{/css/login.css}" rel="stylesheet"/>
+<title>加气站管理系统!</title>
+</head>
+<body align="center">
+<div id="login">
+	<form action="/api/login" method="post" id="loginForm" name="loginForm">
+		<div id="login-title">
+			<img th:src="@{/img/login/login_01.png}" />
+		</div>
+		<div id="login-input">
+			<div>
+                <span th:text="${errorMessage}"></span>
+				<span>&nbsp;&nbsp;Name</span>
+				<input type="text" name="name" maxlength="30" height="40" />
+			</div>
+			<div>
+				<span>&nbsp;&nbsp;Password</span>
+				<input type="password" name="password" maxlength="30" height="40" />
+			</div>
+			<div class="font-size12">
+				Forgot Password? <a href="/kiosk/admin/resendpassword.action">Reset Password</a>						
+			</div>
+		</div>
+		<div id="login-button">
+			<a href="javascript:void(0)" onclick="login()"><img th:src="@{/img/login/login_b.png}" /></a>
+		</div>
+		<input type="submit" style="display:block;overflow:hidden;width:0px;height:0px;border:0px;position:absolute" />
+	</form>
+</div>
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+.add-kiosk {
+    padding: 10px;
+}
+.add-kiosk .title {
+    padding-left: 10px;
+    paddint-top: 5px;
+    padding-bottom: 5px;
+    background-color: #eee;
+    margin-bottom: 10px;
+}
+.add-kiosk .title img {
+    width: 20px;
+    vertical-align: middle;
+}
+.add-kiosk .title span {
+    vertical-align: middle;
+    color: black;
+}
+/*-------------------- add kiosk setting------------*/
+.add-kiosk .setting .setting-title {
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom:5px;
+}
+.add-kiosk .setting .setting-content {
+    display: inline-block;
+    width:50%;
+    border-right: 1px solid #bfbfbf;
+}
+.add-kiosk .setting .setting-info {
+    display: inline-block;
+    width:49%;
+    vertical-align: top;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.add-kiosk .setting .setting-content .col {
+    display: inline-block;
+    padding-left: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width:49%;
+    box-sizing: border-box;
+}
+.add-kiosk .setting .setting-content .col div{
+    padding-left: 10px;
+}
+.add-kiosk .setting .setting-content .col select{
+    width: 200px;
+    border: 2px solid;
+    box-sizing: border-box;
+    padding-left: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+.add-kiosk .setting .setting-content .col1 input{
+     line-height: 30px;
+    border: 2px solid;
+    outline: none;
+    padding-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 200px;
+    box-sizing: border-box;
+}
+.add-kiosk .setting .setting-content .col2 {
+    vertical-align: top;
+}
+.add-kiosk .setting .setting-content .col2 .submit {
+    padding: 0;
+    width: 200px;
+    border: 2px solid;
+    line-height: 40px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+    cursor: pointer;
+}
+/*-------------------- add kiosk result------------*/
+.add-kiosk .result{
+    padding: 10px;
+}
+.add-kiosk .result div{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.add-kiosk .result .result-btn{
+    margin-top: 40px;
+    line-height: 40px;
+    margin-left: 40px;
+    margin-bottom: 30px;
+    display: inline-block;
+    width: 200px;
+    text-align: center;
+    color: black;
+    cursor: pointer;
+}

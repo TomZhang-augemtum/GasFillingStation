@@ -1,0 +1,318 @@
+/*Public css*/
+html {
+    height: 100%;
+}
+body {
+    width: 98%;
+    min-width: 1420px;
+    min-height: 97%;
+    margin: 1%;
+    padding: 0;
+    font-family: "Microsoft YaHei";
+    box-sizing: border-box;
+    border: 1px solid black;
+}
+
+h1,h2,h3,h4,h5,h6,ol,ul,li,dl,dt,dd,form,img,p,div,a {
+    margin: 0;
+    padding: 0;
+    border: none;
+    list-style-type: none;
+    text-align: left;
+}
+a {
+    text-decoration: none;
+}
+
+a {
+    color: #009ACD;
+}
+
+a:hover {
+    color: #AE5300;
+}
+
+.sortableselect {
+    color: #AE5300;
+}
+.border {
+    border: 1px solid black;
+}
+.block-title-backcolor {
+    background-color: #bfbfbf;
+}
+.none {
+    display: none;
+}
+
+.t_center {
+    text-align: center;
+}
+
+.pad_L10 {
+    padding-left: 10px;
+}
+
+.pad_R10 {
+    padding-right: 10px;
+}
+
+.pad_T10 {
+    padding-top: 10px;
+}
+
+.pad_B10 {
+    padding-bottom: 10px;
+}
+
+.underline {
+    text-decoration: underline
+}
+
+.line {
+    border: 1px #EC90D4 solid;
+}
+
+.center-line {
+    margin: 20px 0 10px 0;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 0;
+    border-top: 2px solid #F8F8F8;
+}
+
+.left {
+    float: left
+}
+
+.right {
+    float: right
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.clear {
+    clear: both;
+    height: 1px;
+    margin-top: -1px;
+    overflow: hidden;
+}
+
+.even_number {
+    background-color: #F8F8F8;
+}
+
+.correct_answer1 {
+    background-color: #AE5300;
+    width: 9%;
+}
+
+.correct_answer0 {
+    width: 9%;
+}
+
+.scroll_h1 {
+    overflow: auto;
+    height: 325px;
+}
+
+.scroll_h2 {
+    overflow: auto;
+    height: 375px;
+}
+
+.scroll_h3 {
+    overflow: auto;
+    height: 225px;
+}
+
+.font-size12 {
+    font-size: 13px;
+}
+
+.ellipsis {
+    word-wrap: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+}
+
+@font-face {
+    font-family: Shrutib-ttf;
+    src: url(/fonts/shrutib.ttf);
+}
+
+@font-face {
+    font-family: Shrutib-eot;
+    src: url(/fonts/shrutib.eot);
+}
+
+@font-face {
+    font-family: Shruti-ttf;
+    src: url(/fonts/shruti.ttf);
+}
+
+@font-face {
+    font-family: Shruti-eot;
+    src: url(/fonts/shruti.eot);
+}
+
+@font-face {
+    font-family: Segoeui-eot;
+    src: url(/fonts/segoeui.eot);
+}
+
+@font-face {
+    font-family: Segoeui-ttf;
+    src: url(/fonts/segoeui.ttf);
+}
+
+/* ----------------------- header --------------------- */
+#header {
+    width:100%;
+    height: 72px;
+    border-bottom: 1px solid black;
+}
+#header div {
+    display: inline-block;
+}
+#header .userinfo {
+    padding: 10px;
+    float: left;
+    min-width: 200px;
+    width:20%;
+}
+#header .userinfo .photo{
+    width: 50px;
+    height: 50px;
+    border: 1px solid black;
+    border-radius: 5px;
+    display: inline-block;
+    float: left;
+    margin-right: 10px;
+}
+#header .userinfo .info{
+    width: 100px;
+    height: 50px;
+    display: inline-block;
+}
+#header .userinfo .info span{
+    display: inline-block;
+    width: 100%;
+}
+#header .userinfo .info .username{
+    font-size: 24px;
+    font-weight: bold;
+}
+#header .userinfo .info .role{
+    font-size: 16px;
+    font-style: italic;
+}
+#header .logout-search {
+    width: 78%;
+    padding-top:10px;
+}
+#header .logout-search .logout{
+    float: left;
+    text-decoration: underline;
+}
+#header .logout-search .logout a{
+    color: black;
+}
+#header .logout-search .search{
+    float: right;
+}
+#header .logout-search .search .search-input{
+    border-radius: 10px;
+    border: 1px solid black;
+    position: relative;
+    top: -6px;
+}
+#header .logout-search .search .search-input input{
+    width: 90%;
+    margin-left: 5%;
+    border: none;
+    outline: none;
+}
+#header .logout-search .search .search-icon{
+    width: 21px;
+    height: 21px;
+    border: 1px solid black;
+    border-radius: 7px
+}
+#header .navigation ul,#header .navigation li{
+    display: inline-block;
+}
+#header .navigation {
+    padding-left: 150px;
+}
+#header .navigation li{
+    cursor: pointer;
+}
+#header .navigation li a{
+    color: black;
+}
+#header .navigation .display-title-item {
+    width: 140px;
+    text-align: center;
+    line-height: 32px;
+}
+#header .navigation .active {
+    border-radius: 0px 15px 0px 0px;
+    background-color: #d9d9d9;
+    font-weight: bold;
+}
+#header .navigation .display-title-item img {
+    width: 17px;
+    margin-left: 8px;
+}
+#header .images {
+    float: right;
+    padding-right: 20px;
+}
+#header .images img{
+    width: 17px;
+    margin-left: 8px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+#header .add-list {
+    border: 1px solid black;
+    background-color: white;
+    position: absolute;
+    right: 0px;
+    z-index: 5;
+    width: 210px;
+    line-height: 30px;
+}
+#header .add-list li{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+#header .add-list li:hover{
+    background-color: #d9d9d9;
+}
+#header .add-list li a{
+    color: black;
+    text-decoration: none;
+}
+#header .navigation .hide-title {
+    position: absolute;
+    width: 150px;
+    top: 91px;
+    border: 1px solid black;
+    border-top: none;
+    background-color: white;
+}
+#header .navigation .hide-title li{
+    padding-left: 20px;
+    display: block;
+}
+#header .navigation .hide-title li:hover{
+    background-color: #d9d9d9;
+}

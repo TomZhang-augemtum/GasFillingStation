@@ -1,0 +1,178 @@
+/* -------------- players common css ------------------ */
+.players {
+    padding: 10px;
+}
+.players .page-title {
+    background-color: #bfbfbf;
+    padding: 5px;
+    margin-bottom: 15px;
+}
+.players .page-title img{
+    width: 20px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+.players .page-title span{
+    vertical-align: middle;
+    margin-left: 5px;
+    cursor: pointer;
+    color: black;
+}
+.players .pagenation {
+    text-align: right;
+    padding-right: 20px;
+    padding-bottom: 10px;
+}
+.players .pagenation img{
+    width: 12px;
+}
+.players .pagenation input{
+    width: 30px;
+}
+.players .player .block-title{
+    padding: 5px 0 5px 10px;
+}
+/* -------------- players list css ------------------ */
+.players .main .palyers-list{
+    min-height: 750px;
+}
+.players .main .table{
+    min-height: 750px;
+}
+.players .main .palyers-list .title{
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.players .main .palyers-list .title input{
+    text-align: center;
+    border: 1px solid;
+    margin-left: 5px;
+}
+.players .main .palyers-list .title .sort-input{
+    margin-right: 10px;
+}
+.players .main .palyers-list .title .sort{
+    margin-left: 40px;
+}
+.players .main .palyers-list li{
+    display: inline-block;
+}
+.players .main .palyers-list .col{
+    width: 10%;
+    padding: 10px 0px 0px 10px;
+    text-align: center;
+}
+.players .main .palyers-list .col1{
+    width: 15%;
+    text-align: left;
+    cursor: pointer;
+}
+/* -------------- player information css ------------------ */
+.players .player{
+}
+.players .player .player-info {
+    width: 55%;
+    display: inline-block;
+    height: 340px;
+    box-sizing: border-box;
+}
+
+.players .player .player-info .block-title .btn-edit{
+    display: inline-block;
+    width: 150px;
+    background-color: white;
+    text-align: center;
+    float: right;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.players .player .player-info .avatar{
+    display: inline-block;
+    height: 100%;
+    vertical-align: top;
+}
+.players .player .player-info .info-items{
+    display: inline-block;
+}
+.players .player .player-info .info-items .info-item span{
+    display: inline-block;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    vertical-align: middle;
+}
+.players .player .player-info .info-items .col1{
+    width: 120px;
+    text-align: right;
+}
+.players .player .player-info .info-items .col2{
+    width: 200px;
+    text-align: left;
+    margin-left: 10px;
+    font-weight: bolder;
+}
+.players .player .player-info .info-items .col3{
+    width: 120px;
+    text-align: right;
+}
+.players .player .player-info .info-items .col4{
+    text-align: left;
+    margin-left: 10px;
+    font-weight: bolder;
+}
+
+.players .player .player-status {
+    width: 44%;
+    display: inline-block;
+    height: 340px;
+    box-sizing: border-box;
+}
+.players .player .player-status .status-item .col1{
+    width: 24%;
+    display: inline-block;
+    margin-top:10px;
+    text-align: right;
+    margin-right: 10px;
+    line-height: 30px;
+}
+.players .player .player-status .status-item .col2{
+    font-weight: bolder;
+}
+.players .player .player-status .status-item .col3{
+    display: inline-block;
+    vertical-align: text-top;
+}
+.players .player .player-status .btn-group{
+    margin-top: 50px;
+}
+.players .player .player-status .btn-group .btn-players{
+    width: 47%;
+    display: inline-block;
+    box-sizing: border-box;
+    text-align: center;
+    border: 2px solid;
+    line-height: 40px;
+    margin-top: 10px;
+}
+.players .player .player-status .btn-group .btn-col2{
+    margin-right: 10px;
+}
+.players .player .player-status .btn-group .btn-col1{
+    margin-left: 10px;
+}
+
+.players .player .player-profile {
+    width: 55%;
+    display: inline-block;
+    height: 420px;
+    box-sizing: border-box;
+    margin-top: 10px;
+}
+
+.players .player .player-history {
+    width: 44%;
+    display: inline-block;
+    height: 420px;
+    box-sizing: border-box;
+    margin-top: 10px;
+}

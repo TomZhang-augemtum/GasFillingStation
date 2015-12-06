@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link th:href="@{/css/dashboard.css}" rel="stylesheet"/>
+<title>Welcome to Bridge LBN!</title>
+</head>
+<body>
+<div th:include="header" style="width:100%;"></div>
+<div class="system-status" ng-controller="user">
+  <div class="table border">
+    <div class="block-title-backcolor">System Status</div>
+    <ul class="column">
+      <li><span>Active Heartbeats</span></li>
+      <li><span>Missed Heartbeats</span></li>
+      <li><span>Reported Errors</span></li>
+      <li><span>DB Status</span></li>
+      <li><span>Server Status</span></li>
+      <li><span>Updates</span></li>
+    </ul>
+    <ul class="value">
+      <li><span>340</span></li>
+      <li><span>10</span></li>
+      <li><span>2</span></li>
+      <li><span>OK</span></li>
+      <li><span>OK</span></li>
+      <li><span>200/350</span></li>
+    </ul>
+  </div>
+</div>
+<div class="system-performance">
+  <div class="main-table border">
+    <div class="main-table-head block-title-backcolor">System performance</div>
+    <div class="main-table-title">
+      <span class="main-table-title-first">Metric</span>
+      <span class="main-table-title-two">Total</span>
+      <span class="main-table-title-two">1d</span>
+      <span class="main-table-title-two">7d</span>
+      <span class="main-table-title-two">28d</span>
+    </div>
+    <div class="main-talbe-body">
+      <div>
+        <span class="main-table-title-first">Kiosks</span>
+        <span class="main-table-title-two">350</span>
+        <span class="main-table-title-two">5<span class="increase">(+1)</span></span>
+        <span class="main-table-title-two">10<span class="increase">(+2)</span></span>
+        <span class="main-table-title-two">80<span class="increase">(+40)</span></span>
+      </div>
+      <div>
+        <span class="main-table-title-first">Locations</span>
+        <span class="main-table-title-two">120</span>
+        <span class="main-table-title-two">0<span class="reduce">(-1)</span></span>
+        <span class="main-table-title-two">5<span class="increase">(+1)</span></span>
+        <span class="main-table-title-two">14<span class="increase">(+4)</span></span>
+      </div>
+      <div>
+        <span class="main-table-title-first">Promotions</span>
+        <span class="main-table-title-two">90</span>
+        <span class="main-table-title-two">-</span>
+        <span class="main-table-title-two">-</span>
+        <span class="main-table-title-two">90<span class="increase">(+7)</span></span>
+      </div>
+      <div>
+        <span class="main-table-title-first">Engagements</span>
+        <span class="main-table-title-two">1,9000,000</span>
+        <span class="main-table-title-two">1500<span class="increase">(+145)</span></span>
+        <span class="main-table-title-two">1200<span class="increase">(+1500)</span></span>
+        <span class="main-table-title-two">4700<span class="increase">(+5000)</span></span>
+      </div>
+      <div>
+        <span class="main-table-title-first">Registrations</span>
+        <span class="main-table-title-two">800,000</span>
+        <span class="main-table-title-two">12(-)</span>
+        <span class="main-table-title-two">94<span class="increase">(+3)</span></span>
+        <span class="main-table-title-two">387<span class="increase">(+21)</span></span>
+      </div>
+      <div>
+        <span class="main-table-title-first">Earnings</span>
+        <span class="main-table-title-two">$5000,000.00</span>
+        <span class="main-table-title-two">$400.00<span class="increase">(+15.00)</span></span>
+        <span class="main-table-title-two">$3,000.00<span class="increase">(+100.00)</span></span>
+        <span class="main-table-title-two">$11,000<span class="increase">(+500.00)</span></span>
+      </div>
+      <div>
+        <span class="main-table-title-first">Active Users</span>
+        <span class="main-table-title-two">-</span>
+        <span class="main-table-title-two">700<span class="increase">(+30)</span></span>
+        <span class="main-table-title-two">4,000<span class="increase">(+200)</span></span>
+        <span class="main-table-title-two">10,000<span class="increase">(+1,000)</span></span>
+      </div>
+      <div>
+        <span class="main-table-title-first">Coupons Printed</span>
+        <span class="main-table-title-two">1,500,000</span>
+        <span class="main-table-title-two">1,200<span class="increase">(+100)</span></span>
+        <span class="main-table-title-two">8,000<span class="reduce">(-50)</span></span>
+        <span class="main-table-title-two">42,000</span>
+      </div>
+      <div>
+        <span class="main-table-title-first">Coupons Redeemed</span>
+        <span class="main-table-title-two">250,000</span>
+        <span class="main-table-title-two">150<span class="increase">(+20)</span></span>
+        <span class="main-table-title-two">1000<span class="reduce">(-10)</span></span>
+        <span class="main-table-title-two">5,000<span class="increase">(+100)</span></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="chart">
+  <div class="chart-content border">
+    <div class="title block-title-backcolor">
+      <span>Live Kiosks</span>
+      <select></select>
+      <select></select>
+    </div>
+    <canvas id="myChart" height="400"></canvas>
+    <div class="line-style">
+      <div class="chart-line" style="border-top: 5px solid rgba(220,220,220,1);"></div>
+      <span>Total</span>
+      <div class="chart-line" style="border-top: 5px solid rgba(151,187,205,1);"></div>
+      <span>Active</span>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript" src="/js/Chart.js"></script>
+<script type="text/javascript" src="/js/dashboard.js"></script>
+</body>
+</html>

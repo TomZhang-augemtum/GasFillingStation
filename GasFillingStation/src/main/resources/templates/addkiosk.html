@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link th:href="@{css/addkiosk.css}" rel="stylesheet" />
+<title>Welcome to Bridge LBN!</title>
+</head>
+<body>
+<div th:include="header" style="width:100%;"></div>
+<div class="add-kiosk" ng-controller="addkiosk">
+    <div class="title">
+        <a th:href="@{/}">
+            <img th:src="@{/img/kiosks/backError.png}" />
+            <span>Back to Home</span>
+        </a>
+    </div>
+    <div class="setting border">
+        <div class="setting-title block-title-backcolor"><strong>Add a Kiosk</strong></div>
+        <div ng-show="addKiosk=='setting'">
+            <div class="setting-content">
+                <div class="col col1">
+                    <div>Kiosk Name</div>
+                    <input type="text" value="Westifiled Tampa 1" />
+                    <div>Franchisee</div>
+                    <select>
+                        <option selected="selected">ACME Machines</option>
+                    </select>
+                    <div>Kiosk Model</div>
+                    <select>
+                        <option selected="selected">Dual Screen</option>
+                    </select>
+                </div>
+                <div class="col col2">
+                    <div>Kiosk Location</div>
+                    <select>
+                        <option selected="selected">Westifiled Tampa</option>
+                    </select>
+                    <div style="margin-top: 15px;">Playlist</div>
+                    <select>
+                        <option selected="selected">Dual Screen Mall</option>
+                    </select>
+                    <div class="submit" ng-click="submitAddKiosk()">Submit</div>
+                </div>
+            </div>
+            <div class="setting-info">You are now adding a kiosk to the system. Once it has been added, the selected Franchisee will be able to register it using the code they were emailed.</div>
+        </div>
+        <div ng-show="addKiosk=='result'" class="result">
+            <div class="result-title">Kiosk added successfully.</div>
+            <div class="result-id">KIOSK ID: K20140308-C2P-001</div>
+            <div class="result-msg">Your username and password to register the kiosk has been sent to <a href="javascript:void(0)">someone@somewhere.com</a></div>
+            <span class="result-btn btn-add-another border" ng-click="addAnother()"><strong>Add Another Kiosk</strong></span>
+            <a th:href="@{/}" class="result-btn btn-return-home border"><strong>Return Home</strong></a>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript" src="/js/common.js"></script>
+<script type="text/javascript" src="/js/addkiosk.js"></script>
+</body>
+</html>

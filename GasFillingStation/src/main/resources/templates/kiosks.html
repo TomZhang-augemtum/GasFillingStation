@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link th:href="@{css/kiosks.css}" rel="stylesheet" />
+<title>Welcome to Bridge LBN!</title>
+</head>
+<body>
+<div th:include="header" style="width:100%;"></div>
+<div class="kiosks" ng-controller="kiosks">
+    <div class="main" ng-show="kiosksShow=='main'">
+        <div class="title">
+            <div class="num">TOTAL KIOSKS: <strong>4,231(4,100 active)</strong></div>
+            <div class="sort">
+                <span>SORT BY:</span>
+                <input type="text" value="ID#"/>
+            </div>
+            <div class="filter">
+                <span>FILTER:</span>
+                <input type="text" value="SHOW ALL"/>
+            </div>
+        </div>
+        <div class="table">
+            <ul class="table-title">
+                <li class="col col3 underline"><span>ID#</span></li>
+                <li class="col col1 underline"><span>Retailer</span></li>
+                <li class="col underline"><span>Location Type</span></li>
+                <li class="col col1 underline"><span>Franchisee</span></li>
+                <li class="col col1 underline"><span>City</span></li>
+                <li class="col underline"><span>State</span></li>
+                <li class="col underline"><span>Earnings</span></li>
+                <li class="col col2 underline"><span>Alerts</span></li>
+            </ul>
+            <ul class="table-item" ng-repeat="item in lists">
+                <li class="col col3"><span class="ellipsis underline col4" ng-click="changePage('detail')">K20140308-C2P-001</span></li>
+                <li class="col col1"><span class="ellipsis underline col4">Creative Gaming-Retailer</span></li>
+                <li class="col"><span>Mall</span></li>
+                <li class="col col1"><span class="ellipsis underline col4">Lightning Distribution</span></li>
+                <li class="col col1"><span class="ellipsis">FTWALTION BEACH</span></li>
+                <li class="col"><span>FL</span></li>
+                <li class="col"><span>$0.00</span></li>
+                <li class="col">
+                    <img th:src="@{/img/kiosks/neterror.png}" />
+                    <img th:src="@{/img/kiosks/print.png}" />
+                </li>
+            </ul>
+        </div>
+        <div class="pagenation">
+            <span>Show Rows:</span>
+            <select>
+                <option selected="selected">25</option>
+            </select>
+            <span class="goto">Go to</span>
+            <input type="text" />
+            <span>1-25 of 62</span>
+            <img th:src="@{/img/kiosks/leftError.png}"/>
+            <img th:src="@{/img/kiosks/rightError.png}"/>
+        </div>
+    </div>
+    <div class="detail" ng-show="kiosksShow=='detail'">
+        <div class="title">
+            <img th:src="@{/img/kiosks/backError.png}" ng-click="changePage('main')"/>
+            <span ng-click="changePage('main')">Back to Kiosk List</span>
+        </div>
+        <div class="information border">
+            <div class="name block-title-backcolor"><strong>Kiosk Information</strong></div>
+            <div><span class="col1">ID</span><span>K20140308-C2P-001</span></div>
+            <div><span class="col1">Format</span><span>Dual Screen</span></div>
+            <div><span class="col1">Activated</span><span>3/8/2014 3:14 p.m.</span></div>
+            <div>
+                <span class="col1">Location</span>
+                <span class="col2">
+                    <select>
+                        <option selected="selected">Tampa Westifield</option>
+                    </select>
+                    <div>1 Laguna St</div>
+                    <div>Ft Walton Beach, FL 33558</div>
+                    <div>408-667-3700</div>
+                </span>
+            </div>
+            <div>
+                <span class="col1">Franchisee</span>
+                <span class="col2">
+                    <div>ACME Machines</div>
+                    <div>john Smith</div>
+                    <div><a herf="script:void(0)">jsmith@acmemach.com</a></div>
+                    <div>301-555-5555</div>
+                </span>
+            </div>
+        </div>
+        <div class="settings border">
+            <div class="name block-title-backcolor"><strong>Kiosk Settings</strong><span>UPDATE</span></div>
+            <div class="tag" ng-click="clickTag($event)">
+                <div class="border">
+                    <span style="background-color:#f57d2e;">DUAL SCREEN</span>
+                    <span style="background-color:#7cb759;">TAMPA WESTIFIELD</span>
+                    <span style="background-color:#bf9000;">ACME Macheiness</span>
+                    <span style="background-color:#587ecb;">X WESTFIELD TEST</span>
+                    <input type="text" />
+                </div>
+            </div>
+            <div class="info">
+                <div>
+                    <span class="col1">Game Volume</span>
+                    <select>
+                        <option elsected="true">Mute</option>
+                    </select>
+                </div>
+                <div>
+                    <span class="col1">Attract Volume</span>
+                    <select>
+                        <option elsected="true">Medium</option>
+                    </select>
+                </div>
+                <div>
+                    <span class="col1">Sleep Start</span>
+                    <select>
+                        <option elsected="true">8 pm</option>
+                    </select>
+                </div>
+                <div>
+                    <span class="col1">Sleep End</span>
+                    <select>
+                        <option elsected="true">8 am</option>
+                    </select>
+                </div>
+                <div>
+                    <span class="col1">Program</span>
+                    <select>
+                        <option elsected="true">Dual Screen Mall</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="status border">
+            <div class="name block-title-backcolor"><strong>Kiosk Status</strong></div>
+            <div class="status-info">
+                <div><span class="col1">Status</span><span>Connected</span></div>
+                <div><span class="col1">Pointing At</span><span>Production</span></div>
+                <div>
+                    <span class="col1">Last Connect</span>
+                    <span class="col2">
+                        <div>Today</div>
+                        <div>6:42 p.m.</div>
+                    </span>
+                </div>
+                <div><span class="col1">Paper</span><span>OK</span></div>
+                <div><span class="col1">Errors</span><span>None</span></div>
+            </div>
+            <div class="status-btn border">Point to Staging</div>
+            <div class="status-btn border">Make Test Unit</div>
+            <div class="status-btn border" ng-click="changePage('log')">View Logs</div>
+            <div class="status-btn border" ng-click="changePage('program')">View Program</div>
+        </div>
+        <div class="performance border">
+            <div class="name block-title-backcolor"><strong>Kiosk Performance</strong></div>
+            <ul class="table">
+                <li>
+                    <span class="col1">Metric</span>
+                    <span>1d</span>
+                    <span>7d</span>
+                    <span>28d</span>
+                    <span>percentile</span>
+                </li>
+                <li>
+                    <span class="col1">Engagements</span>
+                    <span>42(+4)</span>
+                    <span>305(+41)</span>
+                    <span>1,302(+200)</span>
+                    <span>Top 20%</span>
+                </li>
+                <li>
+                    <span class="col1">Engagements</span>
+                    <span>42(+4)</span>
+                    <span>305(+41)</span>
+                    <span>1,302(+200)</span>
+                    <span>Top 20%</span>
+                </li>
+                <li>
+                    <span class="col1">Engagements</span>
+                    <span>42(+4)</span>
+                    <span>305(+41)</span>
+                    <span>1,302(+200)</span>
+                    <span>Top 20%</span>
+                </li>
+                <li>
+                    <span class="col1">Engagements</span>
+                    <span>42(+4)</span>
+                    <span>305(+41)</span>
+                    <span>1,302(+200)</span>
+                    <span>Top 20%</span>
+                </li>
+                <li>
+                    <span class="col1">Engagements</span>
+                    <span>42(+4)</span>
+                    <span>305(+41)</span>
+                    <span>1,302(+200)</span>
+                    <span>Top 20%</span>
+                </li>
+            </ul>
+        </div>
+        <div class="chart border">
+            <div class="name block-title-backcolor"><strong>Performance</strong></div>
+            <div class="chart-canvas"><canvas id="myChart" height="180"></canvas></div>
+        </div>
+    </div>
+    <div class="view-log" ng-show="kiosksShow=='log'">
+        <div class="title">
+            <img th:src="@{/img/kiosks/backError.png}" ng-click="changePage('detail')"/>
+            <span ng-click="changePage('detail')">Back to K20140308-C2P-001(Tampa Westifield) </span>
+        </div>
+        <div class="border">
+            <div class="log-table">
+                <div class="block-title-backcolor"><strong>Kiosk Log</strong></div>
+            </div>
+            <div class="log-content">
+                <ul>
+                    <li class="col1">Timestamp</li>
+                    <li class="col2">Severity</li>
+                    <li class="col3">Message</li>
+                </ul>
+                <ul ng-repeat="item in kioskLogs">
+                    <li class="col1">8/3/2015 08:15:12 am</li>
+                    <li class="col2">CRITICALL</li>
+                    <li class="col3">Out of Memory crash in SHELL.EXE.System Rebooted</li>
+                </ul>
+            </div>
+            <div class="pagenation">
+                <span>Show Rows:</span>
+                <select>
+                    <option selected="selected">25</option>
+                </select>
+                <span class="goto">Go to</span>
+                <input type="text" />
+                <span>1-25 of 62</span>
+                <img th:src="@{/img/kiosks/leftError.png}"/>
+                <img th:src="@{/img/kiosks/rightError.png}"/>
+            </div>
+        </div>
+    </div>
+    <div class="view-program" ng-show="kiosksShow=='program'">
+        <div class="title">
+            <img th:src="@{/img/kiosks/backError.png}" ng-click="changePage('detail')"/>
+            <span ng-click="changePage('detail')">Back to K20140308-C2P-001(Tampa Westifield)</span>
+        </div>
+        <div class="border">
+            <div class="program-table">
+                <div class="block-title-backcolor"><strong>DUAL SCREEN MALL</strong></div>
+            </div>
+            <div class="program-content">
+                <ul>
+                    <li class="col underline col1">CONTENT TYPE</li>
+                    <li class="col underline">PROMO TYPE</li>
+                    <li class="col underline col3">CONTENT</li>
+                    <li class="col underline col1">VIEWS</li>
+                    <li class="col underline col1">DURATION</li>
+                    <li class="col underline col1">SCHEDULE</li>
+                </ul>
+                <ul ng-repeat="item in kioskLogs">
+                    <li class="col col1">VIDEO(MP4)</li>
+                    <li class="col">Featured Instant Win</li>
+                    <li class="col col3"><a href="javascript:void(0)">Weclome to saav.mp4</a></li>
+                    <li class="col col1">12,489</li>
+                    <li class="col col1">0:23</li>
+                    <li class="col col1">9/1-10/31</li>
+                </ul>
+            </div>
+            <div class="pagenation">
+                <span>Show Rows:</span>
+                <select>
+                    <option selected="selected">25</option>
+                </select>
+                <span class="goto">Go to</span>
+                <input type="text" />
+                <span>1-25 of 62</span>
+                <img th:src="@{/img/kiosks/leftError.png}"/>
+                <img th:src="@{/img/kiosks/rightError.png}"/>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript" src="/js/common.js"></script>
+<script type="text/javascript" src="/js/Chart.js"></script>
+<script type="text/javascript" src="/js/kiosks.js"></script>
+</body>
+</html>

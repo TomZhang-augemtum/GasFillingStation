@@ -1,0 +1,115 @@
+body {
+    width: 100%;
+    height: 100%;
+}
+.system-performance {
+    width: 60%;
+    display: inline-block;
+    padding: 10px;
+    box-sizing: border-box;
+    height: 280px;
+    margin-top: 10px;
+}
+.system-performance .main-table {
+    width:100%;
+    position: relative;
+    height: 100%;
+}
+.system-performance .main-table-head {
+    padding-left: 10px;
+    height: 25px;
+    line-height: 25px;
+}
+.system-performance .main-table-title {
+    background-color: #eee;
+}
+.system-performance .main-table-title-first {
+    width: 20%;
+    display: inline-block;
+    text-align: right;
+}
+.system-performance .main-table-title-two {
+    width: 19%;
+    display: inline-block;
+    text-align: center;  
+}
+.system-performance .main-table .increase {
+    color: green;
+}
+.system-performance .main-table .reduce {
+    color: red;
+}
+.system-status {
+    width: 39%;
+    height: 280px;
+    display: inline-block;
+    padding: 10px;
+    box-sizing: border-box;
+    vertical-align: bottom;
+    float: right;
+    margin-top: 10px;
+}
+.system-status .table{
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+}
+.system-status .table div{
+    padding-left: 10px;
+}
+.system-status .column{
+    width: 60%;
+    display: inline-block;
+    padding-right: 10px;
+    
+}
+.system-status .column li{
+    text-align: right;
+    line-height: 39px;
+}
+.system-status .value{
+    width: 35%;
+    display: inline-block;
+}
+.system-status .value li{
+    text-align: left;
+    line-height: 39px;
+}
+.chart {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-top: 10px;
+}
+.chart .chart-content{
+    width: 100%;
+}
+.chart .chart-content .title span{
+    margin-left: 10px;
+}
+.chart .chart-content .title select{
+    float: right;
+    margin-right: 10px;
+    width: 150px;
+}
+.chart .line-style {
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.chart .line-style span{
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    vertical-align: middle;
+}
+.chart .chart-line {
+    height: 1px;
+    display: inline-block;
+    width: 30px;
+    vertical-align: middle;
+}
+#myChart {
+    margin-top: 20px;
+    box-sizing: border-box;
+}

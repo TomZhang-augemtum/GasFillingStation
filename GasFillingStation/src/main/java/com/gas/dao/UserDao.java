@@ -8,6 +8,5 @@ import com.gas.model.User;
 
 public interface UserDao extends PagingAndSortingRepository<User, Long> {
     User findByName(String name);
-    void createUser(User user);
     List<User> findAll();
 }

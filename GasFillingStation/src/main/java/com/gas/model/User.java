@@ -6,6 +6,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -18,10 +21,32 @@ public class User {
     private String password;
     private String phone;
     private String cardid;
-    private int companyid;
     private String number;
-    private String role;
     private Date lastLoginDate;
+
+    @ManyToOne
+    @JoinColumn(name = "companyid")
+    private Company company;
+
+    @OneToOne
+    @JoinColumn(name = "roleid")
+    private Role role;
+
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
 
     public String getPhone() {
         return phone;
@@ -39,28 +64,12 @@ public class User {
         this.cardid = cardid;
     }
 
-    public int getCompanyid() {
-        return companyid;
-    }
-
-    public void setCompanyid(int companyid) {
-        this.companyid = companyid;
-    }
-
     public String getNumber() {
         return number;
     }
 
     public void setNumber(String number) {
         this.number = number;
-    }
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
     }
 
     public Date getLastLoginDate() {

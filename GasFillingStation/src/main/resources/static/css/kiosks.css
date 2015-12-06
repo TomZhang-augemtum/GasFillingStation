@@ -1,0 +1,306 @@
+/* -------------- kiosk common css ------------------ */
+.kiosks {
+    padding: 10px;
+}
+.kiosks .title {
+    background-color: #bfbfbf;
+    padding: 5px;
+    margin-bottom: 15px;
+}
+.kiosks .pagenation {
+    text-align: right;
+    padding-right: 20px;
+    padding-bottom: 10px;
+}
+.kiosks .pagenation img{
+    width: 12px;
+}
+.kiosks .pagenation input{
+    width: 30px;
+}
+/* -------------- kiosk list css ------------------ */
+.kiosks .main .title .num{
+    display: inline-block;
+}
+.kiosks .main .title .filter{
+    display: inline-block;
+    float: right;
+}
+.kiosks .main .title .sort{
+    display: inline-block;
+    float: right;
+    margin-right: 60px;
+    margin-left: 40px;
+}
+.kiosks .main .title input{
+    text-align: center;
+}
+.kiosks .main .table {
+    height: 720px;
+}
+.kiosks .main .table .table-title{
+    padding-left: 10px;
+}
+.kiosks .main .table .table-item{
+    padding-left: 10px;
+}
+.kiosks .main .table .table-item span{
+    width: 98%;
+}
+.kiosks .main .table .col{
+    display: inline-block;
+    width: 10%;
+}
+.kiosks .main .table .col1{
+    width: 15%;
+}
+.kiosks .main .table .col2{
+    text-align:center;
+}
+.kiosks .main .table .col3{
+	cursor: pointer;
+    width: 12%;
+}
+.kiosks .main .table .col4{
+    color:  #176ec5;
+}
+.kiosks .main .pagenation{
+    text-align: right;
+    padding-right: 40px;
+    position: relative;
+    top: 20px;
+}
+.kiosks .main .pagenation .goto{
+    background-color: #e6e6e6;
+}
+.kiosks .main .pagenation img{
+    width: 12px;
+    margin-left: 5px;
+}
+.kiosks .main .pagenation input{
+    width: 30px;
+}
+/* -------------- kiosk detail css ------------------ */
+.kiosks .detail .title img{
+    width: 20px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+.kiosks .detail .title span{
+    vertical-align: middle;
+    margin-left: 5px;
+    cursor: pointer;
+}
+.kiosks .detail .information{
+    display:inline-block;
+    min-width: 350px;
+    width: 30%;
+    height: 315px;
+    vertical-align: top;
+}
+.kiosks .detail .name{
+    padding: 5px;
+}
+.kiosks .detail .information .col1{
+    display:inline-block;
+    width: 100px;
+    text-align: right;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+.kiosks .detail .information .col2{
+    display:inline-block;
+    vertical-align: text-top;
+}
+.kiosks .detail .settings{
+    display:inline-block;
+    height: 315px;
+    margin-left: 10px;
+    min-width: 350px;
+    width: 39%;
+    vertical-align: top;
+}
+.kiosks .detail .settings .name span{
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: white;
+    border: 1px solid;
+    float: right;
+}
+.kiosks .detail .settings .tag{
+    padding: 10px;
+    height: 100px;
+}
+.kiosks .detail .settings .tag div{
+    height: 100%;
+    padding: 5px;
+    font-size: 10px;
+}
+.kiosks .detail .settings .tag div span{
+    white-space: nowrap;
+    padding-left:10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    display: inline-block;
+    margin-bottom: 5px;
+    color: white;
+}
+.kiosks .detail .settings .tag div input{
+    border: none;
+    outline: none;
+    padding-left:5px;
+    width: 80px;
+}
+.kiosks .detail .settings .info{
+    margin-top:10px;
+}
+.kiosks .detail .settings .info div{
+    line-height: 30px;
+}
+.kiosks .detail .settings .info .col1{
+    display: inline-block;
+    width: 40%;
+    text-align:right;
+    padding-right:10px;
+}
+.kiosks .detail .settings .info select{
+    width: 150px;
+}
+.kiosks .detail .status{
+    display:inline-block;
+    height: 543px;
+    float: right;
+    width: 29%;
+}
+.kiosks .detail .status .status-info{
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+.kiosks .detail .status .status-info div{
+    line-height: 30px;
+}
+.kiosks .detail .status .status-info .col1{
+    display: inline-block;
+    width: 40%;
+    text-align: right;
+    padding-right: 20px;
+}
+.kiosks .detail .status .status-info .col2{
+    display: inline-block;
+    vertical-align: top;
+}
+.kiosks .detail .status .status-btn{
+    margin-left:2%;
+    margin-right:2%;
+    width: 96%;
+    height: 50px;
+    line-height: 50px;
+    margin-bottom:10px;
+    text-align: center;
+    cursor: pointer;
+}
+.kiosks .detail .performance{
+    display:inline-block;
+    width: 70%;
+    min-width: 807px;
+    margin-top: 10px;
+}
+.kiosks .detail .performance .table{
+    margin-bottom: 5px;
+}
+.kiosks .detail .performance .table span{
+    width: 19%;
+    display: inline-block;
+    text-align: center;
+}
+.kiosks .detail .performance .table li:nth-child(1){
+    background-color: #eee;
+}
+.kiosks .detail .performance .table li{
+    line-height: 30px;
+}
+.kiosks .detail .performance .table .col1{
+    text-align:right;
+}
+.kiosks .detail .chart{
+    display:inline-block;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 10px;
+    height: 220px;
+}
+.kiosks .detail .chart-canvas{
+    width:100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-sizing: border-box;
+}
+/*----------------------- view log css ------------------------*/
+.kiosks .view-log .title img {
+    width: 20px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+.kiosks .view-log .title span {
+    vertical-align: middle;
+    cursor: pointer;
+}
+.kiosks .view-log .log-table div{
+    padding-left: 10px; 
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.kiosks .view-log .log-content{
+    height: 700px;
+}
+.kiosks .view-log .log-content ul{
+    padding-left: 10px;
+    line-height: 25px;
+}
+.kiosks .view-log .log-content ul:nth-child(1){
+    background-color: #eee;
+}
+.kiosks .view-log .log-content li{
+    display: inline-block;
+}
+.kiosks .view-log .log-content .col1{
+    width: 20%;
+}
+.kiosks .view-log .log-content .col2{
+    width: 10%;
+}
+
+/* --------------- program view css ------------ */
+.kiosks .view-program .title img {
+    width: 20px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+.kiosks .view-program .title span {
+    vertical-align: middle;
+    cursor: pointer;
+}
+.kiosks .view-program .program-table div {
+    padding-left: 10px;
+    paddint-top: 5px;
+    padding-bottom: 5px;
+}
+.kiosks .view-program .program-content {
+    height: 700px;
+}
+.kiosks .view-program .program-content .col{
+    width: 15%;
+    display: inline-block;
+    line-height: 28px;
+}
+.kiosks .view-program .program-content .col1{
+    width: 10%;
+}
+.kiosks .view-program .program-content .col3{
+    width: 25%;
+}
+.kiosks .view-program .program-content ul{
+    padding-left: 10px;
+    line-height: 25px;
+}
