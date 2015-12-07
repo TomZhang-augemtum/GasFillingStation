@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Company {
@@ -11,14 +13,41 @@ public class Company {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
-    private int leadingUser;
     private String location;
     private String phone;
     private double freeGasNumber;
+    // private int leadingUser;
 
     // @OneToMany
-    // @JoinColumn(name = "id", table = "user")
+    // @JoinColumn(name = "companyid", table = "user")
     // private List<User> users;
+    //
+    // public List<User> getUsers() {
+    // return users;
+    // }
+    //
+    // public void setUsers(List<User> users) {
+    // this.users = users;
+    // }
+
+    @OneToOne
+    @JoinColumn(name = "leadingUser")
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+    // public int getLeadingUser() {
+    // return leadingUser;
+    // }
+    //
+    // public void setLeadingUser(int leadingUser) {
+    // this.leadingUser = leadingUser;
+    // }
 
     public Long getId() {
         return id;
@@ -31,14 +60,6 @@ public class Company {
     }
     public void setName(String name) {
         this.name = name;
-    }
-
-    public int getLeadingUser() {
-        return leadingUser;
-    }
-
-    public void setLeadingUser(int leadingUser) {
-        this.leadingUser = leadingUser;
     }
 
     public String getLocation() {

@@ -16,4 +16,16 @@ public class CompanyService {
     public List<Company> getCompanyList() {
         return companyDao.findAll();
     }
+
+    public List<Company> getCompanyListByPagenation(int offset, int limit, String sort) {
+        return companyDao.findCompanyByPagenation(offset, limit, sort);
+    }
+
+    public int getCompanyCount() {
+        return companyDao.companyCount();
+    }
+
+    public Company save(Company company) {
+        return companyDao.save(company);
+    }
 }

@@ -1,20 +1,20 @@
-app && app.controller('users', function($scope, $http) {
-  $scope.users = [];
+app && app.controller('substation', function($scope, $http) {
+  $scope.companys = [];
   $scope.currentPage = 1;
   $scope.pageSize = 20;
   $scope.sort = 'id desc';
-  $scope.userType = 'customer';
   $scope.showAddUser = false;
   
-  _loadUsers = function() {
+  _loadCompanys = function() {
     var offset = ($scope.currentPage - 1) * $scope.pageSize;
     var limit = $scope.pageSize;
     console.log(offset);
     console.log(limit);
-    $http.get("/api/employee/list/Pagenation" + "?offset=" + offset + "&limit=" + limit + "&sort=" + $scope.sort).success(function(data){
-      $scope.users = data;
+    $http.get("/api/company/list/Pagenation" + "?offset=" + offset + "&limit=" + limit + "&sort=" + $scope.sort).success(function(data){
+      $scope.companys = data;
+      console.log(data);
     })    
-    $http.get("/api/employee/list/count").success(function(data){
+    $http.get("/api/company/list/count").success(function(data){
       $scope.totalCount = data;
     })    
   };
@@ -24,16 +24,16 @@ app && app.controller('users', function($scope, $http) {
     } else {
       $scope.sort = sort + " desc";
     }
-    _loadUsers();
+    _loadCompanys();
   };
   $scope.gotoPage = function(page) {
     $scope.currentPage = page
-    _loadUsers();
+    _loadCompanys();
   };
   $scope.changeRowNums = function(num) {
     $scope.currentPage = 1;
     $scope.pageSize = num;
-    _loadUsers();
+    _loadCompanys();
   };
   $scope.showAddUserPopup = function() {
     $scope.adduser = {};
@@ -43,7 +43,7 @@ app && app.controller('users', function($scope, $http) {
     $scope.showAddUser = false;
   }
   $scope.saveEmployee = function() {
-    $.post("/api/employee/save",{
+    $.post("/api/company/save",{
       "id": $scope.adduser.id,
       "name": $scope.adduser.name,
       "number": $scope.adduser.number,
@@ -52,28 +52,25 @@ app && app.controller('users', function($scope, $http) {
       "company.id": $scope.adduser.company.id
     }).success(function(data){
       $scope.showAddUser = false;
-      _loadUsers();
+      _loadCompanys();
     })
   }
   $scope.resetEmployee = function() {
     $scope.adduser = {};
   }
   $scope.deleteUser = function(id) {
-    $.get("/api/user/delete",{
+    $.get("/api/company/delete",{
       "id": id
     }).success(function(data){
-      _loadUsers();
+      _loadCompanys();
     })
   }
   $scope.editUser = function(id) {
-    $scope.users.forEach(function(user){
+    $scope.companys.forEach(function(user){
       user.id == id && ($scope.adduser = user);
     })
     $scope.adduser.company.id += "";
     $scope.showAddUser = true;
   }
-  _loadUsers();
-  $http.get('/api/company/list').success(function(data){
-    $scope.companys = data;
-  })
+  _loadCompanys();
 })

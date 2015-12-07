@@ -2,33 +2,33 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link th:href="@{/css/users.css}" rel="stylesheet" />
+<link th:href="@{/css/substation.css}" rel="stylesheet" />
 <title>加气站管理系统</title>
 </head>
 <body>
 <div th:include="header" style="width:100%;"></div>
-<div class="users" ng-controller="users">
+<div class="substation" ng-controller="substation">
     <div class="main">
         <div class="employee-list border">
             <div class="table">
                 <div class="title block-title-backcolor">
-                    <span class="ng-cloak">员工总数:<strong>{{totalCount}}</strong></span>
-                    <span class="addUserBtn" ng-click="showAddUserPopup()">添加员工</span>
+                    <span class="ng-cloak">站点总数:<strong>{{totalCount}}</strong></span>
+                    <span class="addUserBtn" ng-click="showAddUserPopup()">添加子站</span>
                 </div>
                 <ul class="table-title">
-                    <li class="col col1 underline" ng-click="changeSort('name')">姓名</li>
-                    <li class="col col2 underline" ng-click="changeSort('number')">工号</li>
-                    <li class="col col3 underline" ng-click="changeSort('companyid')">公司</li>
+                    <li class="col col1 underline" ng-click="changeSort('name')">公司名</li>
+                    <li class="col col2 underline" ng-click="changeSort('number')">位置</li>
+                    <li class="col col3 underline" ng-click="changeSort('companyid')">负责人</li>
                     <li class="col col4">手机号</li>
-                    <li class="col col5">身份证</li>
+                    <li class="col col5">剩余气体量</li>
                     <li class="col col6">操作</li>
                 </ul>
-                <ul class="table-content ng-cloak" ng-repeat="user in users">
-                    <li class="col col1 underline"><a href="javascript:void(0)" ng-click="changePage('detail')">{{user.name}}</a></li>
-                    <li class="col col2">{{user.number}}</li>
-                    <li class="col col3">{{user.company.name}}</li>
-                    <li class="col col4">{{user.phone}}</li>
-                    <li class="col col5">{{user.cardid}}</li>
+                <ul class="table-content ng-cloak" ng-repeat="company in companys">
+                    <li class="col col1 underline"><a href="javascript:void(0)" ng-click="changePage('detail')">{{company.name}}</a></li>
+                    <li class="col col2">{{company.number}}</li>
+                    <li class="col col3">{{company.company.name}}</li>
+                    <li class="col col4">{{company.phone}}</li>
+                    <li class="col col5">{{company.cardid}}</li>
                     <li class="col col6">
                         <span class="underline" ng-click="editUser(user.id)">编辑</span>
                         <span class="underline">禁用</span>
@@ -53,7 +53,7 @@
                     <li class="col col5">身份证</li>
                     <li class="col col6">操作</li>
                 </ul>
-                <ul class="table-content" ng-repeat="user in users">
+                <ul class="table-content" ng-repeat="user in substation">
                     <li class="col col1 underline"><a href="javascript:void(0)" ng-click="changePage('detail')">{{user.name}}</a></li>
                     <li class="col col2">{{user.car.carNumber}}</li>
                     <li class="col col3">{{user.company.name}}</li>
@@ -107,6 +107,6 @@
 </div>
 <script type="text/javascript" src="/js/jquery.min.js"></script>
 <script type="text/javascript" src="/js/common.js"></script>
-<script type="text/javascript" src="/js/users.js"></script>
+<script type="text/javascript" src="/js/substation.js"></script>
 </body>
 </html>
