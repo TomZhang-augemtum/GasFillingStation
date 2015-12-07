@@ -8,18 +8,12 @@
 <body>
 <div th:include="header" style="width:100%;"></div>
 <div class="users" ng-controller="users">
-    <div class="left-nav">
-        <ul>
-            <li class="topborder bottomborder" ng-class="{leftactive:leftNav=='employee'}" ng-click="changeLeftNav('employee')">员工管理</li>
-            <li ng-class="{leftactive:leftNav=='customer'}" ng-click="changeLeftNav('customer')">客户管理</li>
-            <li class="topborder bottomborder" ng-class="{leftactive:leftNav=='addUser'}" ng-click="changeLeftNav('addUser')">添加用户</li>
-        </ul>
-    </div>
-    <div class="main" ng-show="leftNav=='employee'">
+    <div class="main">
         <div class="employee-list border">
             <div class="table">
                 <div class="title block-title-backcolor">
                     <span>员工总数:<strong>{{totalCount}}</strong></span>
+                    <span class="addUserBtn" ng-click="showAddUserPopup()">添加员工</span>
                 </div>
                 <ul class="table-title">
                     <li class="col col1 underline" ng-click="changeSort('name')">姓名</li>
@@ -38,13 +32,14 @@
                     <li class="col col6">
                         <span class="underline">编辑</span>
                         <span class="underline">禁用</span>
+                        <span class="underline" ng-click="deleteUser(user.id)">删除</span>
                     </li>
                 </ul>
             </div>
             <pagenation go-page="gotoPage(page)" total-count="totalCount" change-size="changeRowNums(num)"></pagenation>
         </div>
     </div>
-    <div class="customer" ng-show="leftNav=='customer'">
+<!--     <div class="customer" ng-show="leftNav=='customer'">
         <div class="customer-list border">
             <div class="table">
                 <div class="title block-title-backcolor">
@@ -72,21 +67,41 @@
             </div>
             <pagenation go-page="gotoPage(page)" total-count="totalCount" change-size="changeRowNums(num)"></pagenation>
         </div>
-    </div>
-    <div class="addUser" ng-show="leftNav=='addUser'">
-        <div class="add-user border">
-            <div class="table">
+    </div> -->
+
+    <div class="addUser ng-hide" ng-show="showAddUser">
+        <div class="addUserMask"></div>
+        <div class="table">
                 <div class="title block-title-backcolor">
-                    <select>
-                        <option>添加顾客</option>
-                        <option>添加员工</option>
+                    <span style="font-size: 14pt;">添加员工</span>
+                    <span class="close right" ng-click="closeAddUserPopup()">X</span>
+                </div>
+                <div class="item">
+                    <span class="col col1">姓名:</span>
+                    <input type="text" class="col col2" ng-model="adduser.name"/>
+                </div>
+                <div class="item">
+                    <span class="col col1">工号:</span>
+                    <input type="text" class="col col2" ng-model="adduser.number"/>
+                </div>
+                <div class="item">
+                    <span class="col col1">手机号:</span>
+                    <input type="text" class="col col2" ng-model="adduser.phone"/>
+                </div>
+                <div class="item">
+                    <span class="col col1">身份证号:</span>
+                    <input type="text" class="col col2" ng-model="adduser.cardid" />
+                </div>
+                <div class="item">
+                    <span class="col col1">所属站点:</span>
+                    <select class="col col2" ng-model="adduser.companyid">
+                        <option ng-repeat="item in companys" value="{{item.id}}">{{item.name}}</option>
                     </select>
                 </div>
-                <div>
-
+                <div class="btngroup">
+                    <span class="btn btn-reset" ng-click="resetEmployee()">清除</span>
+                    <span class="btn btn-submit" ng-click="saveEmployee()">提交</span>
                 </div>
-            </div>
-            <pagenation go-page="gotoPage(page)" total-count="totalCount" change-size="changeRowNums(num)"></pagenation>
         </div>
     </div>
 </div>

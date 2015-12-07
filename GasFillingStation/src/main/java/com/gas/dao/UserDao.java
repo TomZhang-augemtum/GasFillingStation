@@ -26,4 +26,8 @@ public interface UserDao extends PagingAndSortingRepository<User, Long> {
     int employeeCoun();
 
     List<User> findAll();
+
+    User save(User user);
+
+    void delete(User user);
 }

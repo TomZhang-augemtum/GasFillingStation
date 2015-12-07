@@ -18,9 +18,7 @@
     cursor: pointer;
     color: black;
 }
-.users .player .block-title{
-    padding: 5px 0 5px 10px;
-}
+
 .users .topborder {
     border-top: 1px solid #bfbfbf;
 }
@@ -33,27 +31,8 @@
 .users .leftborder {
     border-left: 1px solid #bfbfbf;
 }
-/* -------------- users left-nav css ------------------ */
-.users .left-nav {
-    display: inline-block;
-    width: 130px;
-    float:left;
-    min-height: 780px;
-}
-.users .left-nav li{
-    text-align: center;
-    line-height: 40px;
-    cursor: pointer;
-}
-.users .left-nav .leftactive{
-    background-color: #bfbfbf;
-    color: white;
-}
 
 /* -------------- employee list css ------------------ */
-.users .main .employee-list{
-    margin-left: 140px;
-}
 .users .main .employee-list{
     min-height: 750px;
 }
@@ -64,6 +43,16 @@
     padding-left: 10px;
     padding-top: 5px;
     padding-bottom: 5px;
+}
+.users .main .employee-list .addUserBtn{
+    width: 100px;
+    border: 1px solid;
+    display: inline-block;
+    text-align: center;
+    background-color: white;
+    float: right;
+    margin-right: 20px;
+    cursor: pointer;
 }
 .users .main .employee-list .col{
     display: inline-block;
@@ -89,57 +78,64 @@
 .users .main .employee-list .col6{
     width: 150px;
 }
-/* -------------- customer list css ------------------ */
-.users .customer .customer-list{
-    margin-left: 140px;
-}
-.users .customer .customer-list{
-    min-height: 750px;
-}
-.users .customer .table{
-    min-height: 750px;
-}
-.users .customer .customer-list .title{
-    padding-left: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
-.users .customer .customer-list .col{
-    display: inline-block;
-    text-align: center;
-    line-height: 30px;
-}
-.users .customer .customer-list .col1{
-    width: 15%;
-    cursor: pointer;
-}
-.users .customer .customer-list .col2{
-    width: 10%;
-}
-.users .customer .customer-list .col3{
-    width: 15%;
-}
-.users .customer .customer-list .col4{
-    width: 140px;
-}
-.users .customer .customer-list .col5{
-    width: 170px;
-}
-.users .customer .customer-list .col6{
-    width: 150px;
-}
+
 /* --------------add user css ------------------ */
-.users .addUser .add-user{
-    margin-left: 140px;
-}
-.users .addUser .add-user{
-    min-height: 750px;
+.users .addUser .addUserMask{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.5;
 }
 .users .addUser .table{
-    min-height: 750px;
+    display: inline-block;
+    background-color: white;
+    width: 400px;
+    position: absolute;
+    top: 30%;
+    left: 30%;
 }
-.users .addUser .add-user .title{
-    padding-left: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+.users .addUser .table .title{
+    line-height: 40px;
+    text-align: left;
+    padding-left: 20px;
+}
+.users .addUser .table .title .close{
+    margin-right: 20px;
+    cursor: pointer;
+}
+.users .addUser .table .col{
+    display: inline-block;
+    height: 30px;
+    margin-top: 10px;
+}
+.users .addUser .table .col1{
+    width: 130px;
+    text-align: right;
+}
+.users .addUser .table .col2{
+    width: 200px;
+    box-sizing: border-box;
+}
+.users .addUser .table .btngroup{
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+.users .addUser .table .btngroup .btn{
+    border: 1px solid;
+    line-height: 30px;
+    display: inline-block;
+    width: 120px;
+    text-align: center;
+}
+.users .addUser .table .btngroup .btn-reset{
+    margin-left: 50px;
+    cursor: pointer;
+}
+.users .addUser .table .btngroup .btn-submit{
+    float: right;
+    margin-right: 50px;
+    cursor: pointer;
 }

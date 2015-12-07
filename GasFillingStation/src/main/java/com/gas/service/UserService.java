@@ -55,4 +55,12 @@ public class UserService {
     public int getEmployeeCount() {
         return userDao.employeeCoun();
     }
+
+    public void saveUser(User user) {
+        userDao.save(user);
+    }
+
+    public void deleteUser(User user) {
+        userDao.delete(user);
+    }
 }
