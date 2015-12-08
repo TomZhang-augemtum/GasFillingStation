@@ -56,11 +56,15 @@ public class UserService {
         return userDao.employeeCoun();
     }
 
-    public void saveUser(User user) {
-        userDao.save(user);
+    public User saveUser(User user) {
+        return userDao.save(user);
     }
 
     public void deleteUser(User user) {
         userDao.delete(user);
+    }
+
+    public User findOne(Long id) {
+        return userDao.findOne(id);
     }
 }

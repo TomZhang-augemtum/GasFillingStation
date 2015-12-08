@@ -1,0 +1,59 @@
+/* -------------- business common css ------------------ */
+.business {
+    padding: 10px;
+}
+.business .page-title {
+    background-color: #bfbfbf;
+    padding: 5px;
+    margin-bottom: 15px;
+}
+.business .page-title img{
+    width: 20px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+.business .page-title span{
+    vertical-align: middle;
+    margin-left: 5px;
+    cursor: pointer;
+    color: black;
+}
+
+.business .topborder {
+    border-top: 1px solid #bfbfbf;
+}
+.business .rightborder {
+    border-right: 1px solid #bfbfbf;
+}
+.business .bottomborder {
+    border-bottom: 1px solid #bfbfbf;
+}
+.business .leftborder {
+    border-left: 1px solid #bfbfbf;
+}
+/* -------------- left-nav css ------------------ */
+.business .left-nav {
+    min-height: 770px;
+    width: 200px;
+    display: inline-block;
+    box-sizing: border-box;
+}
+.business .left-nav .left-nav-item{
+    line-height: 40px;
+    text-align: center;
+    box-sizing: border-box;
+    font-size: 16pt;
+    cursor: pointer;
+}
+.business .left-nav .leftActive{
+    background-color: #ebebeb;
+}
+/* -------------- business css ------------------ */
+.business .main {
+    margin-left: 220px;
+}
+/* -------------- cost css ------------------ */
+.business .main .business-block {
+    min-height: 770px;
+    box-sizing: border-box;
+}

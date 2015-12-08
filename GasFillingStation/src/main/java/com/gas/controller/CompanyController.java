@@ -30,12 +30,17 @@ public class CompanyController {
     }
 
     @RequestMapping("/api/company/list/count")
-    public int customerListCount(HttpServletRequest request, Model model) {
+    public int companyListCount(HttpServletRequest request, Model model) {
         return companyService.getCompanyCount();
     }
 
     @RequestMapping(value = "/api/company/save", method = RequestMethod.POST)
-    public void saveEmployee(HttpServletRequest request, Company company) {
+    public void save(HttpServletRequest request, Company company) {
         companyService.save(company);
+    }
+
+    @RequestMapping("/api/company/delete")
+    public void delete(HttpServletRequest request, Company company) {
+        companyService.delete(company);
     }
 }

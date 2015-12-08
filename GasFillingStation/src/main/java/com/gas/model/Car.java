@@ -14,7 +14,7 @@ public class Car {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String carNumber;
-    private int userid;
+    private Long userid;
     private String cylinderNumber;
 
     @ManyToOne(fetch = FetchType.EAGER)
@@ -45,11 +45,11 @@ public class Car {
         this.carNumber = carNumber;
     }
 
-    public int getUserid() {
+    public Long getUserid() {
         return userid;
     }
 
-    public void setUserid(int userid) {
+    public void setUserid(Long userid) {
         this.userid = userid;
     }
 

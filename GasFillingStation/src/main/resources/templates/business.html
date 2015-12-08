@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link th:href="@{/css/business.css}" rel="stylesheet" />
+<title>加气站管理系统</title>
+</head>
+<body>
+<div th:include="header" style="width:100%;"></div>
+<div class="business" ng-controller="business">
+    <div class="left-nav border left">
+        <div class="title block-title">
+            <span>业务类型</span>
+        </div>
+        <div class="left-nav-item " ng-class="{leftActive:currentBusiness=='cost'}" ng-click="changeBusiness('cost')">消费</div>
+        <div class="left-nav-item" ng-class="{leftActive:currentBusiness=='recharge'}" ng-click="changeBusiness('recharge')">充值</div>
+        <div class="left-nav-item" ng-class="{leftActive:currentBusiness=='faka'}" ng-click="changeBusiness('faka')">发卡</div>
+        <div class="left-nav-item" ng-class="{leftActive:currentBusiness=='guashi'}" ng-click="changeBusiness('guashi')">挂失</div>
+        <div class="left-nav-item" ng-class="{leftActive:currentBusiness=='jihuo'}" ng-click="changeBusiness('jihuo')">激活</div>
+        <div class="left-nav-item" ng-class="{leftActive:currentBusiness=='cardlist'}" ng-click="changeBusiness('cardlist')">卡列表</div>
+    </div>
+    <div class="main">
+        <div class="business-block cost border" ng-show="currentBusiness=='cost'">
+            <div class="title block-title">
+                <span>消费</span>
+            </div>
+            <div>
+                <div>
+                    <span>用户卡号:</span>
+                    <input type="text" />
+                </div>
+                <div>
+                    <span>加气量:</span>
+                    <input type="text" />
+                </div>
+                <div>
+                    <span>单价:</span>
+                    <input type="text" />
+                </div>
+                <div>
+                    <span>总价:</span>
+                    <input type="text" />
+                </div>
+                <div>
+                    <span>清除</span>
+                    <span>提交</span>
+                </div>
+            </div>
+        </div>
+        <div class="business-block recharge border" ng-show="currentBusiness=='recharge'">
+            <div class="title block-title">
+                <span>充值</span>
+            </div>
+            <div>
+                <div>
+                    <span>用户卡号:</span>
+                    <input type="text" />
+                </div>
+                <div>
+                    <span>卡号确认:</span>
+                    <input type="text" />
+                </div>
+                <div>
+                    <span>充值金额:</span>
+                    <input type="text" />
+                </div>
+                <div>
+                    <span>清除</span>
+                    <span>提交</span>
+                </div>
+            </div>
+        </div>
+        <div class="business-block faka border" ng-show="currentBusiness=='faka'">
+            <div class="title block-title">
+                <span>发卡</span>
+            </div>
+            <div>
+                <div>
+                    <span>姓名:</span>
+                    <input type="text" ng-model="faka.user.name"/>
+                </div>
+                <div>
+                    <span>手机号:</span>
+                    <input type="text" ng-model="faka.user.phone"/>
+                </div>
+                <div>
+                    <span>身份证号:</span>
+                    <input type="text" ng-model="faka.user.cardid"/>
+                </div>
+                <div>
+                    <span>车牌号:</span>
+                    <input type="text" ng-model="faka.car.number"/>
+                </div>
+                <div>
+                    <span>车类型:</span>
+                    <select ng-model="faka.car.typeid">
+                        <option ng-repeat="type in faka.cartypes" value="{{type.id}}">{{type.name}}</option>
+                    </select>
+                </div>
+                <div>
+                    <span>清除</span>
+                    <span ng-click="faka.submit()">提交</span>
+                </div>
+            </div>
+        </div>
+        <div class="business-block guashi border" ng-show="currentBusiness=='guashi'">
+            <div class="title block-title">
+                <span>挂失</span>
+            </div>
+            <div>
+                <div>
+                    <span>用户卡号:</span>
+                    <input type="text" />
+                </div>
+                <div>
+                    <span>身份证号:</span>
+                    <input type="text" />
+                </div>
+                <div>
+                    <span>清除</span>
+                    <span>提交</span>
+                </div>
+            </div>
+        </div>
+        <div class="business-block jihuo border" ng-show="currentBusiness=='jihuo'">
+            <div class="title block-title">
+                <span>激活</span>
+            </div>
+            <div>
+                <div>
+                    <span>用户卡号:</span>
+                    <input type="text" />
+                </div>
+                <div>
+                    <span>身份证号:</span>
+                    <input type="text" />
+                </div>
+                <div>
+                    <span>清除</span>
+                    <span>提交</span>
+                </div>
+            </div>
+        </div>
+        <div class="business-block cardlist border" ng-show="currentBusiness=='cardlist'">
+            <div class="title block-title">
+                <span>列表</span>
+            </div>
+            <div></div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript" src="/js/common.js"></script>
+<script type="text/javascript" src="/js/business.js"></script>
+</body>
+</html>

@@ -3,7 +3,7 @@ app && app.controller('substation', function($scope, $http) {
   $scope.currentPage = 1;
   $scope.pageSize = 20;
   $scope.sort = 'id desc';
-  $scope.showAddUser = false;
+  $scope.showAddSubStation = false;
   
   _loadCompanys = function() {
     var offset = ($scope.currentPage - 1) * $scope.pageSize;
@@ -35,42 +35,40 @@ app && app.controller('substation', function($scope, $http) {
     $scope.pageSize = num;
     _loadCompanys();
   };
-  $scope.showAddUserPopup = function() {
-    $scope.adduser = {};
-    $scope.showAddUser = true;
+  $scope.addSubStationPopup = function() {
+    $scope.addSubStation = {};
+    $scope.showAddSubStation = true;
   }
-  $scope.closeAddUserPopup = function() {
-    $scope.showAddUser = false;
+  $scope.closeaddSubStationPopup = function() {
+    $scope.showAddSubStation = false;
   }
-  $scope.saveEmployee = function() {
+  $scope.submit = function() {
     $.post("/api/company/save",{
-      "id": $scope.adduser.id,
-      "name": $scope.adduser.name,
-      "number": $scope.adduser.number,
-      "phone": $scope.adduser.phone,
-      "cardid": $scope.adduser.cardid,
-      "company.id": $scope.adduser.company.id
+      "id": $scope.addSubStation.id,
+      "name": $scope.addSubStation.name,
+      "location": $scope.addSubStation.location,
+      "leadingUser": $scope.addSubStation.leadingUser,
+      "freeGasNumber": $scope.addSubStation.freeGasNumber
     }).success(function(data){
-      $scope.showAddUser = false;
+      $scope.showAddSubStation = false;
       _loadCompanys();
     })
   }
-  $scope.resetEmployee = function() {
-    $scope.adduser = {};
+  $scope.reset = function() {
+    $scope.addSubStation = {};
   }
-  $scope.deleteUser = function(id) {
+  $scope.deleteCompany = function(id) {
     $.get("/api/company/delete",{
       "id": id
     }).success(function(data){
       _loadCompanys();
     })
   }
-  $scope.editUser = function(id) {
-    $scope.companys.forEach(function(user){
-      user.id == id && ($scope.adduser = user);
+  $scope.editCompany = function(id) {
+    $scope.companys.forEach(function(company){
+      company.id == id && ($scope.addSubStation = company);
     })
-    $scope.adduser.company.id += "";
-    $scope.showAddUser = true;
+    $scope.showAddSubStation = true;
   }
   _loadCompanys();
 })

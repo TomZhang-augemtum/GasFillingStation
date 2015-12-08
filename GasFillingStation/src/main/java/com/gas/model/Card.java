@@ -6,30 +6,41 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Card {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private int userid;
     private String type;
     private double balance;
-    private int state;
     private Date createDate;
+
+    @OneToOne(optional = false)
+    @JoinColumn(name = "userid")
+    private User user;
+
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "state")
+    private CardState state;
+
     public Long getId() {
         return id;
     }
     public void setId(Long id) {
         this.id = id;
     }
-    public int getUserid() {
-        return userid;
-    }
-    public void setUserid(int userid) {
-        this.userid = userid;
+
+    public User getUser() {
+        return user;
     }
 
+    public void setUser(User user) {
+        this.user = user;
+    }
     public String getType() {
         return type;
     }
@@ -46,11 +57,11 @@ public class Card {
         this.balance = balance;
     }
 
-    public int getState() {
+    public CardState getState() {
         return state;
     }
 
-    public void setState(int state) {
+    public void setState(CardState state) {
         this.state = state;
     }
 

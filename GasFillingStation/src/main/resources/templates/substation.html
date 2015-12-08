@@ -13,7 +13,7 @@
             <div class="table">
                 <div class="title block-title-backcolor">
                     <span class="ng-cloak">站点总数:<strong>{{totalCount}}</strong></span>
-                    <span class="addUserBtn" ng-click="showAddUserPopup()">添加子站</span>
+                    <span class="addUserBtn" ng-click="addSubStationPopup()">添加子站</span>
                 </div>
                 <ul class="table-title">
                     <li class="col col1 underline" ng-click="changeSort('name')">公司名</li>
@@ -25,82 +25,45 @@
                 </ul>
                 <ul class="table-content ng-cloak" ng-repeat="company in companys">
                     <li class="col col1 underline"><a href="javascript:void(0)" ng-click="changePage('detail')">{{company.name}}</a></li>
-                    <li class="col col2">{{company.number}}</li>
-                    <li class="col col3">{{company.company.name}}</li>
+                    <li class="col col2">{{company.location}}</li>
+                    <li class="col col3">{{company.leader}}</li>
                     <li class="col col4">{{company.phone}}</li>
-                    <li class="col col5">{{company.cardid}}</li>
+                    <li class="col col5">{{company.freeGasNumber}}</li>
                     <li class="col col6">
-                        <span class="underline" ng-click="editUser(user.id)">编辑</span>
-                        <span class="underline">禁用</span>
-                        <span class="underline" ng-click="deleteUser(user.id)">删除</span>
+                        <span class="underline" ng-click="editCompany(company.id)">编辑</span>
+                        <span class="underline" ng-click="deleteCompany(company.id)">删除</span>
                     </li>
                 </ul>
             </div>
             <pagenation go-page="gotoPage(page)" total-count="totalCount" change-size="changeRowNums(num)"></pagenation>
         </div>
     </div>
-<!--     <div class="customer" ng-show="leftNav=='customer'">
-        <div class="customer-list border">
-            <div class="table">
-                <div class="title block-title-backcolor">
-                    <span>客户总数:<strong>{{totalCount}}</strong></span>
-                </div>
-                <ul class="table-title">
-                    <li class="col col1 underline" ng-click="changeSort('name')">姓名</li>
-                    <li class="col col2 underline" ng-click="changeSort('number')">车牌号</li>
-                    <li class="col col3 underline" ng-click="changeSort('companyid')">车类型</li>
-                    <li class="col col4">手机号</li>
-                    <li class="col col5">身份证</li>
-                    <li class="col col6">操作</li>
-                </ul>
-                <ul class="table-content" ng-repeat="user in substation">
-                    <li class="col col1 underline"><a href="javascript:void(0)" ng-click="changePage('detail')">{{user.name}}</a></li>
-                    <li class="col col2">{{user.car.carNumber}}</li>
-                    <li class="col col3">{{user.company.name}}</li>
-                    <li class="col col4">{{user.phone}}</li>
-                    <li class="col col5">{{user.cardid}}</li>
-                    <li class="col col6">
-                        <span class="underline">编辑</span>
-                        <span class="underline">禁用</span>
-                    </li>
-                </ul>
-            </div>
-            <pagenation go-page="gotoPage(page)" total-count="totalCount" change-size="changeRowNums(num)"></pagenation>
-        </div>
-    </div> -->
-
-    <div class="addUser ng-hide" ng-show="showAddUser">
-        <div class="addUserMask"></div>
+    <div class="addSubStation ng-hide" ng-show="showAddSubStation">
+        <div class="addSubStationMask"></div>
         <div class="table">
                 <div class="title block-title-backcolor">
-                    <span style="font-size: 14pt;">添加员工</span>
-                    <span class="close right" ng-click="closeAddUserPopup()">X</span>
+                    <span style="font-size: 14pt;">添加子站</span>
+                    <span class="close right" ng-click="closeaddSubStationPopup()">X</span>
                 </div>
                 <div class="item">
-                    <span class="col col1">姓名:</span>
-                    <input type="text" class="col col2" ng-model="adduser.name"/>
+                    <span class="col col1">子站名:</span>
+                    <input type="text" class="col col2" ng-model="addSubStation.name"/>
                 </div>
                 <div class="item">
-                    <span class="col col1">工号:</span>
-                    <input type="text" class="col col2" ng-model="adduser.number"/>
+                    <span class="col col1">位置:</span>
+                    <input type="text" class="col col2" ng-model="addSubStation.location"/>
                 </div>
                 <div class="item">
-                    <span class="col col1">手机号:</span>
-                    <input type="text" class="col col2" ng-model="adduser.phone"/>
+                    <span class="col col1">负责人工号:</span>
+                    <input type="text" class="col col2" ng-model="addSubStation.leadingUser"/>
                 </div>
                 <div class="item">
-                    <span class="col col1">身份证号:</span>
-                    <input type="text" class="col col2" ng-model="adduser.cardid" />
-                </div>
-                <div class="item">
-                    <span class="col col1">所属站点:</span>
-                    <select class="col col2" ng-model="adduser.company.id">
-                        <option ng-repeat="item in companys" value="{{item.id}}">{{item.name}}</option>
-                    </select>
+                    <span class="col col1">剩余气体量:</span>
+                    <input type="text" class="col col2" ng-model="addSubStation.freeGasNumber" />
                 </div>
                 <div class="btngroup">
-                    <span class="btn btn-reset" ng-click="resetEmployee()">清除</span>
-                    <span class="btn btn-submit" ng-click="saveEmployee()">提交</span>
+                    <span class="btn btn-reset" ng-click="reset()">清除</span>
+                    <span class="btn btn-submit" ng-click="submit()">提交</span>
                 </div>
         </div>
     </div>

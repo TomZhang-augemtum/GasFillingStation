@@ -4,8 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.Transient;
 
 @Entity
 public class Company {
@@ -16,7 +15,7 @@ public class Company {
     private String location;
     private String phone;
     private double freeGasNumber;
-    // private int leadingUser;
+    private int leadingUser;
 
     // @OneToMany
     // @JoinColumn(name = "companyid", table = "user")
@@ -29,25 +28,24 @@ public class Company {
     // public void setUsers(List<User> users) {
     // this.users = users;
     // }
+    @Transient
+    private String leader;
 
-    @OneToOne
-    @JoinColumn(name = "leadingUser")
-    private User user;
-
-    public User getUser() {
-        return user;
+    public String getLeader() {
+        return leader;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setLeader(String leader) {
+        this.leader = leader;
     }
-    // public int getLeadingUser() {
-    // return leadingUser;
-    // }
-    //
-    // public void setLeadingUser(int leadingUser) {
-    // this.leadingUser = leadingUser;
-    // }
+
+    public int getLeadingUser() {
+        return leadingUser;
+    }
+
+    public void setLeadingUser(int leadingUser) {
+        this.leadingUser = leadingUser;
+    }
 
     public Long getId() {
         return id;

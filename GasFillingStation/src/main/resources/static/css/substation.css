@@ -32,7 +32,7 @@
     border-left: 1px solid #bfbfbf;
 }
 
-/* -------------- employee list css ------------------ */
+/* -------------- substation list css ------------------ */
 .substation .main .employee-list{
     min-height: 750px;
 }
@@ -82,8 +82,8 @@
     cursor: pointer;
 }
 
-/* --------------add user css ------------------ */
-.substation .addUser .addUserMask{
+/* --------------add substation css ------------------ */
+.substation .addSubStation .addSubStationMask{
     position: absolute;
     top: 0px;
     left: 0px;
@@ -92,7 +92,7 @@
     background-color: black;
     opacity: 0.5;
 }
-.substation .addUser .table{
+.substation .addSubStation .table{
     display: inline-block;
     background-color: white;
     width: 400px;
@@ -100,44 +100,44 @@
     top: 30%;
     left: 30%;
 }
-.substation .addUser .table .title{
+.substation .addSubStation .table .title{
     line-height: 40px;
     text-align: left;
     padding-left: 20px;
 }
-.substation .addUser .table .title .close{
+.substation .addSubStation .table .title .close{
     margin-right: 20px;
     cursor: pointer;
 }
-.substation .addUser .table .col{
+.substation .addSubStation .table .col{
     display: inline-block;
     height: 30px;
     margin-top: 10px;
 }
-.substation .addUser .table .col1{
+.substation .addSubStation .table .col1{
     width: 130px;
     text-align: right;
 }
-.substation .addUser .table .col2{
+.substation .addSubStation .table .col2{
     width: 200px;
     box-sizing: border-box;
 }
-.substation .addUser .table .btngroup{
+.substation .addSubStation .table .btngroup{
     margin-top: 30px;
     margin-bottom: 20px;
 }
-.substation .addUser .table .btngroup .btn{
+.substation .addSubStation .table .btngroup .btn{
     border: 1px solid;
     line-height: 30px;
     display: inline-block;
     width: 120px;
     text-align: center;
 }
-.substation .addUser .table .btngroup .btn-reset{
+.substation .addSubStation .table .btngroup .btn-reset{
     margin-left: 50px;
     cursor: pointer;
 }
-.substation .addUser .table .btngroup .btn-submit{
+.substation .addSubStation .table .btngroup .btn-submit{
     float: right;
     margin-right: 50px;
     cursor: pointer;
