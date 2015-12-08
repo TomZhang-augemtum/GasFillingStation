@@ -15,13 +15,15 @@ public class Card {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String type;
     private double balance;
     private Date createDate;
 
     @OneToOne(optional = false)
     @JoinColumn(name = "userid")
     private User user;
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "typeid")
+    private CardType type;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "state")
@@ -41,14 +43,14 @@ public class Card {
     public void setUser(User user) {
         this.user = user;
     }
-    public String getType() {
+
+    public CardType getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(CardType type) {
         this.type = type;
     }
-
     public double getBalance() {
         return balance;
     }

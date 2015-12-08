@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.6.24, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.9, for Win64 (x86_64)
 --
 -- Host: localhost    Database: gas
 -- ------------------------------------------------------
--- Server version	5.6.24
+-- Server version	5.6.27
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -52,7 +52,7 @@ DROP TABLE IF EXISTS `card`;
 CREATE TABLE `card` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `userid` int(11) DEFAULT NULL,
-  `type` varchar(45) DEFAULT NULL,
+  `typeid` int(11) DEFAULT NULL,
   `balance` double DEFAULT NULL,
   `state` int(11) DEFAULT NULL,
   `createDate` date DEFAULT NULL,
@@ -66,7 +66,7 @@ CREATE TABLE `card` (
 
 LOCK TABLES `card` WRITE;
 /*!40000 ALTER TABLE `card` DISABLE KEYS */;
-INSERT INTO `card` VALUES (1,1,'1',0,1,'2015-12-08'),(2,2,'1',0,1,'2015-12-08');
+INSERT INTO `card` VALUES (1,1,1,0,1,'2015-12-08'),(2,2,1,0,1,'2015-12-08');
 /*!40000 ALTER TABLE `card` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -119,6 +119,31 @@ LOCK TABLES `cardstate` WRITE;
 /*!40000 ALTER TABLE `cardstate` DISABLE KEYS */;
 INSERT INTO `cardstate` VALUES (1,'激活',NULL),(2,'挂失',NULL),(3,'注销',NULL);
 /*!40000 ALTER TABLE `cardstate` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cardtype`
+--
+
+DROP TABLE IF EXISTS `cardtype`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cardtype` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) DEFAULT NULL,
+  `desc` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cardtype`
+--
+
+LOCK TABLES `cardtype` WRITE;
+/*!40000 ALTER TABLE `cardtype` DISABLE KEYS */;
+INSERT INTO `cardtype` VALUES (1,'管理卡',NULL),(2,'员工卡',NULL),(3,'普通卡',NULL);
+/*!40000 ALTER TABLE `cardtype` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -357,6 +382,29 @@ INSERT INTO `rolemenu` VALUES (1,1),(1,2),(1,3),(1,4),(1,5),(1,6),(2,3),(2,4),(2
 UNLOCK TABLES;
 
 --
+-- Table structure for table `setting`
+--
+
+DROP TABLE IF EXISTS `setting`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `setting` (
+  `key` varchar(45) NOT NULL,
+  `value` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`key`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `setting`
+--
+
+LOCK TABLES `setting` WRITE;
+/*!40000 ALTER TABLE `setting` DISABLE KEYS */;
+/*!40000 ALTER TABLE `setting` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `user`
 --
 
@@ -397,4 +445,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-12-08 18:19:16
+-- Dump completed on 2015-12-08 22:35:53
