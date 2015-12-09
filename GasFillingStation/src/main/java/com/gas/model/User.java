@@ -23,6 +23,7 @@ public class User implements Serializable {
     private String name;
     private String password;
     private String phone;
+    private String idcard;
     private String cardid;
     private String number;
     private Date lastLoginDate;
@@ -31,7 +32,8 @@ public class User implements Serializable {
     @JoinColumn(name = "companyid")
     private Company company;
 
-    @OneToOne(mappedBy = "user")
+    @OneToOne
+    @JoinColumn(name = "carid")
     private Car car;
 
     @OneToOne
@@ -60,6 +62,14 @@ public class User implements Serializable {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public String getIdcard() {
+        return idcard;
+    }
+
+    public void setIdcard(String idcard) {
+        this.idcard = idcard;
     }
 
     public String getPhone() {

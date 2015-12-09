@@ -9,7 +9,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 
 @Entity
 public class Car implements Serializable {
@@ -26,17 +25,6 @@ public class Car implements Serializable {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "typeid")
     private CarType type;
-    @OneToOne(optional = false)
-    @JoinColumn(name = "userid")
-    private User user;
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
 
     public void setType(CarType type) {
         this.type = type;

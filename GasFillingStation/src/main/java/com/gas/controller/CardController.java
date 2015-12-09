@@ -46,24 +46,28 @@ public class CardController {
 
     @RequestMapping(value = "/api/card/save", method = RequestMethod.POST)
     public void save(HttpServletRequest request, User user, Car car) {
-        Role role = new Role();
-        role.setId(3L);
-        user.setRole(role);
-        User res = userService.saveUser(user);
-
-        car.setUser(user);
-        carService.save(car);
-
         CardType type = new CardType();
         type.setId(3L);
 
-        Card card = new Card();
         UUID uuid = UUID.randomUUID();
-        card.setUser(user);
+        Card card = new Card();
         card.setBalance(0);
         card.setId(uuid.toString());
         card.setType(type);
-        cardService.save(card);
+        Card recard = cardService.save(card);
+
+        carService.save(car);
+
+        Role role = new Role();
+        role.setId(3L);
+        user.setRole(role);
+        user.setCar(car);
+        user.setCardid(uuid.toString());
+        User res = userService.saveUser(user);
+
+
+
+
     }
 
     @RequestMapping("/api/card/delete")

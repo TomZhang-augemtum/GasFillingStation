@@ -29,6 +29,7 @@ public interface UserDao extends PagingAndSortingRepository<User, Long> {
 
     User save(User user);
 
+    User findByCardid(String id);
     @Query(value = "select name from User where id = :id ", nativeQuery = true)
     String findNameById(@Param("id") Long id);
 

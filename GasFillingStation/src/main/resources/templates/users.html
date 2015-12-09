@@ -28,7 +28,7 @@
                     <li class="col col2">{{user.number}}</li>
                     <li class="col col3">{{user.company.name}}</li>
                     <li class="col col4">{{user.phone}}</li>
-                    <li class="col col5">{{user.cardid}}</li>
+                    <li class="col col5">{{user.idcard}}</li>
                     <li class="col col6">
                         <span class="underline" ng-click="editUser(user.id)">编辑</span>
                         <span class="underline">禁用</span>
@@ -39,35 +39,6 @@
             <pagenation go-page="gotoPage(page)" total-count="totalCount" change-size="changeRowNums(num)"></pagenation>
         </div>
     </div>
-<!--     <div class="customer" ng-show="leftNav=='customer'">
-        <div class="customer-list border">
-            <div class="table">
-                <div class="title block-title-backcolor">
-                    <span>客户总数:<strong>{{totalCount}}</strong></span>
-                </div>
-                <ul class="table-title">
-                    <li class="col col1 underline" ng-click="changeSort('name')">姓名</li>
-                    <li class="col col2 underline" ng-click="changeSort('number')">车牌号</li>
-                    <li class="col col3 underline" ng-click="changeSort('companyid')">车类型</li>
-                    <li class="col col4">手机号</li>
-                    <li class="col col5">身份证</li>
-                    <li class="col col6">操作</li>
-                </ul>
-                <ul class="table-content" ng-repeat="user in users">
-                    <li class="col col1 underline"><a href="javascript:void(0)" ng-click="changePage('detail')">{{user.name}}</a></li>
-                    <li class="col col2">{{user.car.carNumber}}</li>
-                    <li class="col col3">{{user.company.name}}</li>
-                    <li class="col col4">{{user.phone}}</li>
-                    <li class="col col5">{{user.cardid}}</li>
-                    <li class="col col6">
-                        <span class="underline">编辑</span>
-                        <span class="underline">禁用</span>
-                    </li>
-                </ul>
-            </div>
-            <pagenation go-page="gotoPage(page)" total-count="totalCount" change-size="changeRowNums(num)"></pagenation>
-        </div>
-    </div> -->
 
     <div class="addUser ng-hide" ng-show="showAddUser">
         <div class="addUserMask"></div>

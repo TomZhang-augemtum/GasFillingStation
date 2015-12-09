@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+import javax.persistence.Transient;
 
 @Entity
 public class Card {
@@ -15,15 +15,14 @@ public class Card {
     private double balance;
     private Date createDate;
 
-    @OneToOne(optional = false)
-    @JoinColumn(name = "userid")
+    @Transient
     private User user;
     @ManyToOne(optional = false)
     @JoinColumn(name = "typeid")
     private CardType type;
 
     @ManyToOne(optional = false)
-    @JoinColumn(name = "state")
+    @JoinColumn(name = "stateid")
     private CardState state;
 
     public String getId() {

@@ -27,6 +27,5 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="src/main/java/com/gas/wechat/java/lib/commons-codec-1.9.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
