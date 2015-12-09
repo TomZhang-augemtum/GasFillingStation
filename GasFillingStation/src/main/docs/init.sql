@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.9, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 5.6.24, for Win64 (x86_64)
 --
 -- Host: localhost    Database: gas
 -- ------------------------------------------------------
--- Server version	5.6.27
+-- Server version	5.6.24
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -29,7 +29,7 @@ CREATE TABLE `car` (
   `typeid` int(11) DEFAULT NULL,
   `cylinderNumber` varchar(64) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +38,7 @@ CREATE TABLE `car` (
 
 LOCK TABLES `car` WRITE;
 /*!40000 ALTER TABLE `car` DISABLE KEYS */;
-INSERT INTO `car` VALUES (1,'晋A666666',1,1,'abc123456789'),(2,'123',5,NULL,NULL),(3,'321321',6,1,NULL),(4,'321',7,1,NULL);
+INSERT INTO `car` VALUES (1,'晋A666666',1,1,'abc123456789'),(5,'123',9,1,NULL);
 /*!40000 ALTER TABLE `car` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -50,14 +50,14 @@ DROP TABLE IF EXISTS `card`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `card` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` varchar(64) NOT NULL DEFAULT '',
   `userid` int(11) DEFAULT NULL,
   `typeid` int(11) DEFAULT NULL,
   `balance` double DEFAULT NULL,
   `state` int(11) DEFAULT NULL,
   `createDate` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -66,7 +66,7 @@ CREATE TABLE `card` (
 
 LOCK TABLES `card` WRITE;
 /*!40000 ALTER TABLE `card` DISABLE KEYS */;
-INSERT INTO `card` VALUES (1,1,1,0,1,'2015-12-08'),(2,2,1,0,1,'2015-12-08');
+INSERT INTO `card` VALUES ('535aa2c8-b77f-423c-baba-9e27863da4c2',9,3,0,NULL,NULL);
 /*!40000 ALTER TABLE `card` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -423,7 +423,7 @@ CREATE TABLE `user` (
   `lastLoginDate` date DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -432,7 +432,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'admin','admin','18234134166','140602199205079013',1,'yt00522',1,NULL),(2,'shanghai','shanghai','1233212321','12312312312321321',2,'iyi23321',2,NULL),(3,'beijing','beijing','1231231233','213123123213213123',3,'3213321',2,NULL),(4,'taiyuan','taiyuan','12332134213','321321312412312312',4,'3213412',2,NULL),(5,NULL,NULL,'123','321',NULL,NULL,3,NULL),(6,'123',NULL,'321','321',NULL,NULL,3,NULL),(7,'421',NULL,'321','412',NULL,NULL,3,NULL);
+INSERT INTO `user` VALUES (1,'admin','admin','18234134166','140602199205079013',1,'yt00522',1,NULL),(2,'shanghai','shanghai','1233212321','12312312312321321',2,'iyi23321',2,NULL),(3,'beijing','beijing','1231231233','213123123213213123',3,'3213321',2,NULL),(4,'taiyuan','taiyuan','12332134213','321321312412312312',4,'3213412',2,NULL),(9,'123',NULL,'321','1123',NULL,NULL,3,NULL);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -445,4 +445,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-12-08 22:35:53
+-- Dump completed on 2015-12-09 17:52:34

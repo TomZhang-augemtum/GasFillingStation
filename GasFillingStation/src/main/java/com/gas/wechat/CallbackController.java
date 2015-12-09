@@ -17,4 +17,16 @@ public class CallbackController {
         System.out.println(echostr);
         return echostr;
     }
+
+    @RequestMapping("/wechat/test")
+    public boolean hehe(HttpServletRequest request, String msg_signature, String timestamp, String nonce,
+            String echostr) {
+        Boolean flag = new Boolean(true);
+        test(flag);
+        return flag.booleanValue();
+    }
+
+    public void test(Boolean flag) {
+        flag = new Boolean(false);
+    }
 }

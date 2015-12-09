@@ -1,6 +1,7 @@
 package com.gas.controller;
 
 import java.util.List;
+import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.gas.model.Car;
 import com.gas.model.Card;
+import com.gas.model.CardType;
 import com.gas.model.Role;
 import com.gas.model.User;
 import com.gas.service.CarService;
@@ -48,9 +50,20 @@ public class CardController {
         role.setId(3L);
         user.setRole(role);
         User res = userService.saveUser(user);
-        car.setUserid(res.getId());
+
+        car.setUser(user);
         carService.save(car);
+
+        CardType type = new CardType();
+        type.setId(3L);
+
         Card card = new Card();
+        UUID uuid = UUID.randomUUID();
+        card.setUser(user);
+        card.setBalance(0);
+        card.setId(uuid.toString());
+        card.setType(type);
+        cardService.save(card);
     }
 
     @RequestMapping("/api/card/delete")

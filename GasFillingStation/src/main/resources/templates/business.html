@@ -145,7 +145,28 @@
             <div class="title block-title">
                 <span>列表</span>
             </div>
-            <div></div>
+            <div class="table">
+                <ul>
+                    <li class="col1">卡号</li>
+                    <li class="col2">用户名</li>
+                    <li class="col3">手机号</li>
+                    <li class="col4">车牌号</li>
+                    <li class="col5">余额</li>
+                    <li class="col6">卡类型</li>
+                    <li class="col7">卡状态</li>
+                    <li class="col8">操作</li>
+                </ul>
+                <ul ng-repeat="card in cardlist.cards">
+                    <li class="col1">{{card.id}}</li>
+                    <li class="col2">{{card.user.name}}</li>
+                    <li class="col3">{{card.user.number}}</li>
+                    <li class="col4">{{card.user.car.carNumber}}</li>
+                    <li class="col5">{{card.id}}</li>
+                    <li class="col6">{{card.type.name}}</li>
+                    <li class="col7">{{card.state.name}}</li>
+                    <li class="col8">操作</li>
+                </ul>
+            </div>
         </div>
     </div>
 </div>

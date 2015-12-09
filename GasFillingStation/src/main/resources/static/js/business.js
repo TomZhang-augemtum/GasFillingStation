@@ -32,7 +32,8 @@ app && app.controller('business', function($scope, $http) {
   
   $scope.cardlist.init = function() {
     $.get("/api/card/list/pagenation").success(function(data){
-      console.log(data.content);
+      $scope.$apply($scope.cardlist.cards = data.content);
+      console.log($scope.cardlist.cards);
     })
   }
 })

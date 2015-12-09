@@ -1,5 +1,7 @@
 package com.gas.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -7,19 +9,34 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity
-public class Car {
+public class Car implements Serializable {
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String carNumber;
-    private Long userid;
     private String cylinderNumber;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "typeid")
     private CarType type;
+    @OneToOne(optional = false)
+    @JoinColumn(name = "userid")
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public void setType(CarType type) {
         this.type = type;
@@ -43,14 +60,6 @@ public class Car {
 
     public void setCarNumber(String carNumber) {
         this.carNumber = carNumber;
-    }
-
-    public Long getUserid() {
-        return userid;
-    }
-
-    public void setUserid(Long userid) {
-        this.userid = userid;
     }
 
     public String getCylinderNumber() {

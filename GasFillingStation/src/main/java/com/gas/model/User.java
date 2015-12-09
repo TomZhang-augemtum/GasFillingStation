@@ -1,5 +1,6 @@
 package com.gas.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -11,7 +12,11 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 @Entity
-public class User {
+public class User implements Serializable {
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -21,13 +26,12 @@ public class User {
     private String cardid;
     private String number;
     private Date lastLoginDate;
-
+    
     @ManyToOne
     @JoinColumn(name = "companyid")
     private Company company;
 
-    @OneToOne
-    @JoinColumn(name = "id", referencedColumnName = "userid")
+    @OneToOne(mappedBy = "user")
     private Car car;
 
     @OneToOne
@@ -38,7 +42,7 @@ public class User {
         return car;
     }
 
-    public void setCars(Car car) {
+    public void setCar(Car car) {
         this.car = car;
     }
 
