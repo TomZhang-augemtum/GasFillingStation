@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.6.24, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.9, for Win64 (x86_64)
 --
 -- Host: localhost    Database: gas
 -- ------------------------------------------------------
--- Server version	5.6.24
+-- Server version	5.6.27
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -25,11 +25,10 @@ DROP TABLE IF EXISTS `car`;
 CREATE TABLE `car` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `carNumber` varchar(45) DEFAULT NULL,
-  `userid` int(11) DEFAULT NULL,
   `typeid` int(11) DEFAULT NULL,
   `cylinderNumber` varchar(64) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +37,6 @@ CREATE TABLE `car` (
 
 LOCK TABLES `car` WRITE;
 /*!40000 ALTER TABLE `car` DISABLE KEYS */;
-INSERT INTO `car` VALUES (1,'晋A666666',1,1,'abc123456789'),(5,'123',9,1,NULL);
 /*!40000 ALTER TABLE `car` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -51,10 +49,9 @@ DROP TABLE IF EXISTS `card`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `card` (
   `id` varchar(64) NOT NULL DEFAULT '',
-  `userid` int(11) DEFAULT NULL,
   `typeid` int(11) DEFAULT NULL,
   `balance` double DEFAULT NULL,
-  `state` int(11) DEFAULT NULL,
+  `stateid` int(11) DEFAULT NULL,
   `createDate` date DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -66,7 +63,7 @@ CREATE TABLE `card` (
 
 LOCK TABLES `card` WRITE;
 /*!40000 ALTER TABLE `card` DISABLE KEYS */;
-INSERT INTO `card` VALUES ('535aa2c8-b77f-423c-baba-9e27863da4c2',9,3,0,NULL,NULL);
+INSERT INTO `card` VALUES ('535aa2c8-b77f-423c-baba-9e27863da4c2',1,0,1,NULL);
 /*!40000 ALTER TABLE `card` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -401,6 +398,7 @@ CREATE TABLE `setting` (
 
 LOCK TABLES `setting` WRITE;
 /*!40000 ALTER TABLE `setting` DISABLE KEYS */;
+INSERT INTO `setting` VALUES ('corpid','wx75a40ad206394845'),('secret','mZnEl0LWLRwj30fqicGcXvbOwbLjB4760ckBIsHNjXwje');
 /*!40000 ALTER TABLE `setting` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -416,14 +414,16 @@ CREATE TABLE `user` (
   `name` varchar(100) DEFAULT NULL,
   `password` varchar(64) DEFAULT NULL,
   `phone` varchar(11) DEFAULT NULL,
-  `cardid` varchar(18) DEFAULT NULL,
+  `cardid` varchar(100) DEFAULT NULL,
   `companyid` int(11) DEFAULT NULL,
   `number` varchar(45) DEFAULT NULL,
   `roleid` int(11) DEFAULT NULL,
+  `carid` int(11) DEFAULT NULL,
   `lastLoginDate` date DEFAULT NULL,
+  `idcard` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -432,7 +432,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'admin','admin','18234134166','140602199205079013',1,'yt00522',1,NULL),(2,'shanghai','shanghai','1233212321','12312312312321321',2,'iyi23321',2,NULL),(3,'beijing','beijing','1231231233','213123123213213123',3,'3213321',2,NULL),(4,'taiyuan','taiyuan','12332134213','321321312412312312',4,'3213412',2,NULL),(9,'123',NULL,'321','1123',NULL,NULL,3,NULL);
+INSERT INTO `user` VALUES (1,'admin','admin','18234134166','535aa2c8-b77f-423c-baba-9e27863da4c2',1,'yt00522',1,NULL,NULL,'140602199205079013'),(2,'shanghai','shanghai','1233212321','12312312312321321',2,'iyi23321',2,NULL,NULL,NULL),(3,'beijing','beijing','1231231233','213123123213213123',3,'3213321',2,NULL,NULL,NULL),(4,'taiyuan','taiyuan','12332134213','321321312412312312',4,'3213412',2,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -445,4 +445,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-12-09 17:52:34
+-- Dump completed on 2015-12-10 21:15:22
