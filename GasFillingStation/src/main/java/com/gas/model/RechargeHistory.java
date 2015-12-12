@@ -12,8 +12,8 @@ public class RechargeHistory {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private int cardid;
-    private int operatorid;
+    private String cardid;
+    private Long operatorid;
     private double money;
     private double balance;
     private Date time;
@@ -26,19 +26,19 @@ public class RechargeHistory {
         this.id = id;
     }
 
-    public int getCardid() {
+    public String getCardid() {
         return cardid;
     }
 
-    public void setCardid(int cardid) {
+    public void setCardid(String cardid) {
         this.cardid = cardid;
     }
 
-    public int getOperatorid() {
+    public Long getOperatorid() {
         return operatorid;
     }
 
-    public void setOperatorid(int operatorid) {
+    public void setOperatorid(Long operatorid) {
         this.operatorid = operatorid;
     }
 

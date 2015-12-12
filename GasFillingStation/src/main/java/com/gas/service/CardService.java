@@ -1,5 +1,6 @@
 package com.gas.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,8 +9,15 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.gas.dao.CardDao;
+import com.gas.dao.CostHistoryDao;
+import com.gas.dao.RechargeHistoryDao;
 import com.gas.dao.UserDao;
-import com.gas.model.Card;;
+import com.gas.model.Card;
+import com.gas.model.CardState;
+import com.gas.model.CostHistory;
+import com.gas.model.RechargeHistory;
+import com.gas.model.ReturnData;
+import com.gas.model.User;;
 @Service
 public class CardService {
 
@@ -17,6 +25,10 @@ public class CardService {
     private CardDao cardDao;
     @Autowired
     private UserDao userDao;
+    @Autowired
+    private CostHistoryDao costHistoryDao;
+    @Autowired
+    private RechargeHistoryDao rechargeHistoryDao;
 
     public List<Card> getList() {
         List<Card> cards = cardDao.findAll();
@@ -34,6 +46,22 @@ public class CardService {
         cardDao.delete(card);
     }
 
+    public void ban(String id) {
+        Card card = cardDao.findOne(id);
+        CardState state = new CardState();
+        state.setId(2L);
+        card.setState(state);
+        cardDao.save(card);
+    }
+
+    public void unban(String id) {
+        Card card = cardDao.findOne(id);
+        CardState state = new CardState();
+        state.setId(1L);
+        card.setState(state);
+        cardDao.save(card);
+    }
+
     public Page<Card> getListByPagenationAndOrder(Pageable page) {
         Page<Card> cards = cardDao.findAll(page);
         for (Card card : cards.getContent()) {
@@ -41,5 +69,64 @@ public class CardService {
         }
         return cards;
 //        return cards.getContent();
+    }
+
+    public Card findone(String id) {
+        User user = userDao.findByIdcard(id);
+        Card card = cardDao.findOne(user.getCardid());
+        card.setUser(user);
+        return card;
+    }
+
+    public ReturnData cost(CostHistory costHistory, String phone) {
+        ReturnData reData = new ReturnData();
+        User user = userDao.findByPhone(phone);
+        if (user == null) {
+            reData.setCode("error");
+            reData.setMessage("手机号输入有误,请确认！");
+            return reData;
+        }
+        Card card = cardDao.findOne(user.getCardid());
+        Double balance = card.getBalance();
+        Double cost = costHistory.getGasAmount() * costHistory.getPrice();
+        if (balance<cost) {
+            reData.setCode("error");
+            reData.setMessage("余额" + balance + ",不足本次消费,请充值");
+            return reData;
+        } else {
+            card.setBalance(balance - cost);
+            cardDao.save(card);
+            costHistory.setBalance(balance - cost);
+            costHistory.setTotal(costHistory.getPrice() * costHistory.getGasAmount());
+            costHistory.setUserid(user.getId());
+            costHistory.setCompanyid(user.getCompany().getId());
+            costHistory.setTime(new Date());
+            costHistoryDao.save(costHistory);
+            reData.setCode("success");
+            reData.setMessage("余额:" + (balance - cost) + ",本次消费:" + cost);
+            return reData;
+        }
+    }
+
+    public ReturnData recharge(RechargeHistory rechargeHistory, String phone) {
+        ReturnData reData = new ReturnData();
+        User user = userDao.findByPhone(phone);
+        if (user == null) {
+            reData.setCode("error");
+            reData.setMessage("手机号输入有误,请确认！");
+            return reData;
+        }
+        Card card = cardDao.findOne(user.getCardid());
+        Double balance = card.getBalance();
+        Double money = rechargeHistory.getMoney();
+        card.setBalance(balance + money);
+        cardDao.save(card);
+        rechargeHistory.setCardid(card.getId());
+        rechargeHistory.setTime(new Date());
+        rechargeHistoryDao.save(rechargeHistory);
+
+        reData.setCode("success");
+        reData.setMessage("余额:" + (balance + money) + ",本次充值:" + money);
+        return reData;
     }
 }

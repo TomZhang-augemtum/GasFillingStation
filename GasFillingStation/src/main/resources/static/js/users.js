@@ -7,15 +7,11 @@ app && app.controller('users', function($scope, $http) {
   $scope.showAddUser = false;
   
   _loadUsers = function() {
-    var offset = ($scope.currentPage - 1) * $scope.pageSize;
-    var limit = $scope.pageSize;
-    console.log(offset);
-    console.log(limit);
-    $http.get("/api/employee/list/Pagenation" + "?offset=" + offset + "&limit=" + limit + "&sort=" + $scope.sort).success(function(data){
-      $scope.users = data;
-    })    
-    $http.get("/api/employee/list/count").success(function(data){
-      $scope.totalCount = data;
+    $.get("/api/employee/list/Pagenation" + "?offset=" + ($scope.currentPage -1) + "&limit=" + $scope.pageSize + "&sort=" + $scope.sort).success(function(data){
+      $scope.$apply(function(){
+        $scope.totalPages = data.totalPages;
+        $scope.users = data.content;
+      })
     })    
   };
   $scope.changeSort = function(sort) {

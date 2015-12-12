@@ -18,7 +18,7 @@
                 <ul class="table-title">
                     <li class="col col1 underline" ng-click="changeSort('name')">姓名</li>
                     <li class="col col2 underline" ng-click="changeSort('number')">工号</li>
-                    <li class="col col3 underline" ng-click="changeSort('companyid')">公司</li>
+                    <li class="col col3 underline" ng-click="changeSort('company')">公司</li>
                     <li class="col col4">手机号</li>
                     <li class="col col5">身份证</li>
                     <li class="col col6">操作</li>
@@ -36,7 +36,7 @@
                     </li>
                 </ul>
             </div>
-            <pagenation go-page="gotoPage(page)" total-count="totalCount" change-size="changeRowNums(num)"></pagenation>
+            <pagenation go-page="gotoPage(page)" total-pages="totalPages" change-size="changeRowNums(num)"></pagenation>
         </div>
     </div>
 

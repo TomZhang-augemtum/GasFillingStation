@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link th:href="@{/css/data.css}" rel="stylesheet" />
+<title>加气站管理系统</title>
+</head>
+<body>
+<div th:include="header" style="width:100%;"></div>
+<div class="data" ng-controller="data">
+    <div class="main">
+        <div class="company-list border">
+            <div class="table">
+                <div class="title block-title">
+                    <span class="ng-cloak">销售业绩</span>
+                    <span class="right search">查询</span>
+                    <input class="right" type="date" />
+                    <span class="right">到</span>
+                    <input class="right" type="date" />
+                    <span class="right">从</span>
+                </div>
+                <ul class="table-title">
+                    <li class="col col1 underline" ng-click="changeSort('name')">子站名</li>
+                    <li class="col col2 underline" ng-click="changeSort('number')">位置</li>
+                    <li class="col col3 underline" ng-click="changeSort('company')">总销气量</li>
+                    <li class="col col4 underline" ng-click="changeSort('company')">总营业额</li>
+                </ul>
+                <ul class="table-title ng-cloak" ng-repeat="data in saleDatas">
+                    <li class="col col1 underline" ng-click="changeSort('name')">{{data.name}}</li>
+                    <li class="col col2 underline" ng-click="changeSort('number')">{{data.location}}</li>
+                    <li class="col col3 underline" ng-click="changeSort('company')">{{data.gasTotalNum}}</li>
+                    <li class="col col4 underline" ng-click="changeSort('company')">{{data.moneyTotalNum}}</li>
+                </ul>
+            </div>
+            <pagenation go-page="gotoPage(page)" total-pages="totalPages" change-size="changeRowNums(num)"></pagenation>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript" src="/js/common.js"></script>
+<script type="text/javascript" src="/js/data.js"></script>
+</body>
+</html>

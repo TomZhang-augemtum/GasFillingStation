@@ -3,6 +3,11 @@ package com.gas.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import com.gas.dao.CompanyDao;
@@ -20,17 +25,16 @@ public class CompanyService {
         return companyDao.findAll();
     }
 
-    public List<Company> getCompanyListByPagenation(int offset, int limit, String sort) {
-        List<Company> companys = companyDao.findCompanyByPagenation(offset, limit, sort);
+    public Page<Company> getCompanyListByPagenation(int page, int size, String sort) {
+        String[] temp = sort.split(" ");
+        Pageable pageable = new PageRequest(page, size, new Sort(Direction.fromStringOrNull(temp[1]), temp[0]));
+        Page<Company> companys = companyDao.findAll(pageable);
         for (Company company : companys) {
             company.setLeader(userDao.findNameById((long) company.getLeadingUser()));
         }
         return companys;
     }
 
-    public int getCompanyCount() {
-        return companyDao.companyCount();
-    }
 
     public Company save(Company company) {
         company.setPhone(userDao.findPhoneById((long) company.getLeadingUser()));

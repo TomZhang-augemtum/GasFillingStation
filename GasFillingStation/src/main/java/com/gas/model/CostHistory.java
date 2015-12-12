@@ -12,10 +12,12 @@ public class CostHistory {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private int userid;
-    private int operatorid;
+    private Long userid;
+    private Long operatorid;
+    private Long companyid;
     private double gasAmount;
     private double price;
+    private double total;
     private double balance;
     private Date time;
 
@@ -27,19 +29,19 @@ public class CostHistory {
         this.id = id;
     }
 
-    public int getUserid() {
+    public Long getUserid() {
         return userid;
     }
 
-    public void setUserid(int userid) {
+    public void setUserid(Long userid) {
         this.userid = userid;
     }
 
-    public int getOperatorid() {
+    public Long getOperatorid() {
         return operatorid;
     }
 
-    public void setOperatorid(int operatorid) {
+    public void setOperatorid(Long operatorid) {
         this.operatorid = operatorid;
     }
 
@@ -74,4 +76,21 @@ public class CostHistory {
     public void setTime(Date time) {
         this.time = time;
     }
+
+    public double getTotal() {
+        return total;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
+    }
+
+    public Long getCompanyid() {
+        return companyid;
+    }
+
+    public void setCompanyid(Long companyid) {
+        this.companyid = companyid;
+    }
+
 }

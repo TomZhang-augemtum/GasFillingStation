@@ -26,24 +26,24 @@
             </div>
             <div>
                 <div>
-                    <span>用户卡号:</span>
-                    <input type="text" />
+                    <span>用户手机号:</span>
+                    <input ng-model="cost.phoneNumber" type="text" />
                 </div>
                 <div>
                     <span>加气量:</span>
-                    <input type="text" />
+                    <input ng-model="cost.gasAmount" type="text" />
                 </div>
                 <div>
                     <span>单价:</span>
-                    <input type="text" />
+                    <input ng-model="cost.price" type="text" />
                 </div>
                 <div>
                     <span>总价:</span>
-                    <input type="text" />
+                    <input ng-model="cost.totalPrice" type="text" readonly="readonly"/>
                 </div>
                 <div>
                     <span>清除</span>
-                    <span>提交</span>
+                    <span ng-click="cost.submit()">提交</span>
                 </div>
             </div>
         </div>
@@ -53,20 +53,20 @@
             </div>
             <div>
                 <div>
-                    <span>用户卡号:</span>
-                    <input type="text" />
+                    <span>用户手机号:</span>
+                    <input ng-model="recharge.phone" type="text" />
                 </div>
                 <div>
                     <span>卡号确认:</span>
-                    <input type="text" />
+                    <input ng-model="recharge.phoneAgain" type="text" />
                 </div>
                 <div>
                     <span>充值金额:</span>
-                    <input type="text" />
+                    <input ng-model="recharge.money" type="text" />
                 </div>
                 <div>
                     <span>清除</span>
-                    <span>提交</span>
+                    <span ng-click="recharge.submit()">提交</span>
                 </div>
             </div>
         </div>
@@ -108,18 +108,30 @@
                 <span>挂失</span>
             </div>
             <div>
-                <div>
-                    <span>用户卡号:</span>
-                    <input type="text" />
-                </div>
-                <div>
-                    <span>身份证号:</span>
-                    <input type="text" />
-                </div>
-                <div>
-                    <span>清除</span>
-                    <span>提交</span>
-                </div>
+                <span>身份证号:</span>
+                <input ng-model="guashi.idcard" type="text" />
+                <span ng-click="guashi.findCard()">提交</span>
+            </div>
+            <div class="search-result" ng-show="guashi.card">
+                <ul>
+                    <li class="col1">卡号</li>
+                    <li class="col2">用户名</li>
+                    <li class="col3">手机号</li>
+                    <li class="col4">车牌号</li>
+                    <li class="col5">余额</li>
+                    <li class="col6">卡类型</li>
+                    <li class="col7">卡状态</li>
+                </ul>
+                <ul>
+                    <li class="col1">{{guashi.card.id}}</li>
+                    <li class="col2">{{guashi.card.user.name}}</li>
+                    <li class="col3">{{guashi.card.user.number}}</li>
+                    <li class="col4">{{guashi.card.user.car.carNumber}}</li>
+                    <li class="col5">{{guashi.card.balance}}</li>
+                    <li class="col6">{{guashi.card.type.name}}</li>
+                    <li class="col7">{{guashi.card.state.name}}</li>
+                </ul>
+                <span class="btn" ng-click="guashi.unbanCard()">挂失</span>
             </div>
         </div>
         <div class="business-block jihuo border" ng-show="currentBusiness=='jihuo'">
@@ -127,18 +139,30 @@
                 <span>激活</span>
             </div>
             <div>
-                <div>
-                    <span>用户卡号:</span>
-                    <input type="text" />
-                </div>
-                <div>
-                    <span>身份证号:</span>
-                    <input type="text" />
-                </div>
-                <div>
-                    <span>清除</span>
-                    <span>提交</span>
-                </div>
+                <span>身份证号:</span>
+                <input ng-model="jihuo.idcard" type="text" />
+                <span ng-click="jihuo.findCard()">提交</span>
+            </div>
+            <div class="search-result" ng-show="jihuo.card">
+                <ul>
+                    <li class="col1">卡号</li>
+                    <li class="col2">用户名</li>
+                    <li class="col3">手机号</li>
+                    <li class="col4">车牌号</li>
+                    <li class="col5">余额</li>
+                    <li class="col6">卡类型</li>
+                    <li class="col7">卡状态</li>
+                </ul>
+                <ul>
+                    <li class="col1">{{jihuo.card.id}}</li>
+                    <li class="col2">{{jihuo.card.user.name}}</li>
+                    <li class="col3">{{jihuo.card.user.number}}</li>
+                    <li class="col4">{{jihuo.card.user.car.carNumber}}</li>
+                    <li class="col5">{{jihuo.card.balance}}</li>
+                    <li class="col6">{{jihuo.card.type.name}}</li>
+                    <li class="col7">{{jihuo.card.state.name}}</li>
+                </ul>
+                <span class="btn" ng-click="jihuo.unbanCard()">激活</span>
             </div>
         </div>
         <div class="business-block cardlist border" ng-show="currentBusiness=='cardlist'">
@@ -161,12 +185,16 @@
                     <li class="col2">{{card.user.name}}</li>
                     <li class="col3">{{card.user.number}}</li>
                     <li class="col4">{{card.user.car.carNumber}}</li>
-                    <li class="col5">{{card.id}}</li>
+                    <li class="col5">{{card.balance}}</li>
                     <li class="col6">{{card.type.name}}</li>
                     <li class="col7">{{card.state.name}}</li>
-                    <li class="col8">操作</li>
+                    <li class="col8">
+                        <a ng-click="cardlist.banCard(card.id)">禁用</a>
+                        <a ng-click="cardlist.unbanCard(card.id)">激活</a>
+                    </li>
                 </ul>
             </div>
+            <pagenation go-page="cardlist.gotoPage(page)" total-pages="cardlist.totalPages" change-size="changeRowNums(num)"></pagenation>
         </div>
     </div>
 </div>

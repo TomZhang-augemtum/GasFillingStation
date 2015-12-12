@@ -2,6 +2,9 @@ package com.gas.dao;
 
 import java.util.List;
 
+import org.hibernate.annotations.Where;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
@@ -11,19 +14,13 @@ import com.gas.model.User;
 public interface UserDao extends PagingAndSortingRepository<User, Long> {
     User findByName(String name);
 
-    @Query(value = "select * from User where roleid <> 3 order by :sort limit :offset,:size ", nativeQuery = true)
-    List<User> findEmployeeByPagenation(@Param("offset") int offset, @Param("size") int size,
-            @Param("sort") String sort);
+    @Where(clause = "roleid <> 3")
+    Page<User> findAll(Pageable pageable);
+
 
     @Query(value = "select * from User where roleid = 3 order by :sort limit :offset,:size ", nativeQuery = true)
     List<User> findCustomerByPagenation(@Param("offset") int offset, @Param("size") int size,
             @Param("sort") String sort);
-
-    @Query(value = "select count(1) from User where roleid = 3 ", nativeQuery = true)
-    int customerCount();
-
-    @Query(value = "select count(1) from User where roleid <> 3", nativeQuery = true)
-    int employeeCoun();
 
     List<User> findAll();
 
@@ -36,4 +33,8 @@ public interface UserDao extends PagingAndSortingRepository<User, Long> {
     @Query(value = "select phone from User where id = :id ", nativeQuery = true)
     String findPhoneById(@Param("id") Long id);
     void delete(User user);
+
+    User findByIdcard(String id);
+
+    User findByPhone(String phone);
 }

@@ -17,10 +17,10 @@
                 </div>
                 <ul class="table-title">
                     <li class="col col1 underline" ng-click="changeSort('name')">公司名</li>
-                    <li class="col col2 underline" ng-click="changeSort('number')">位置</li>
-                    <li class="col col3 underline" ng-click="changeSort('companyid')">负责人</li>
+                    <li class="col col2 underline" ng-click="changeSort('location')">位置</li>
+                    <li class="col col3">负责人</li>
                     <li class="col col4">手机号</li>
-                    <li class="col col5">剩余气体量</li>
+                    <li class="col col5 underline" ng-click="changeSort('freeGasNumber')">剩余气体量</li>
                     <li class="col col6">操作</li>
                 </ul>
                 <ul class="table-content ng-cloak" ng-repeat="company in companys">
@@ -35,7 +35,7 @@
                     </li>
                 </ul>
             </div>
-            <pagenation go-page="gotoPage(page)" total-count="totalCount" change-size="changeRowNums(num)"></pagenation>
+            <pagenation go-page="gotoPage(page)" total-pages="totalPages" change-size="changeRowNums(num)"></pagenation>
         </div>
     </div>
     <div class="addSubStation ng-hide" ng-show="showAddSubStation">

@@ -6,7 +6,6 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 
 import com.gas.model.Card;
 
-public interface CardDao extends PagingAndSortingRepository<Card, Long> {
+public interface CardDao extends PagingAndSortingRepository<Card, String> {
     List<Card> findAll();
-
 }

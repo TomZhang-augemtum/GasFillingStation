@@ -18,6 +18,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.gas.model.Car;
 import com.gas.model.Card;
 import com.gas.model.CardType;
+import com.gas.model.CostHistory;
+import com.gas.model.RechargeHistory;
+import com.gas.model.ReturnData;
 import com.gas.model.Role;
 import com.gas.model.User;
 import com.gas.service.CarService;
@@ -65,13 +68,39 @@ public class CardController {
         user.setCardid(uuid.toString());
         User res = userService.saveUser(user);
 
-
-
-
     }
 
     @RequestMapping("/api/card/delete")
     public void delete(HttpServletRequest request, Card card) {
         cardService.delete(card);
+    }
+
+    @RequestMapping("/api/card/ban")
+    public void ban(HttpServletRequest request, String id) {
+        cardService.ban(id);
+    }
+
+    @RequestMapping("/api/card/unban")
+    public void unban(HttpServletRequest request, String id) {
+        cardService.unban(id);
+    }
+
+    @RequestMapping("/api/card/one/idcard")
+    public Card findone(HttpServletRequest request, String id) {
+        return cardService.findone(id);
+    }
+
+    @RequestMapping("/api/card/cost")
+    public ReturnData cost(HttpServletRequest request, CostHistory costHistory, String phone) {
+        costHistory.setOperatorid(((User) request.getSession().getAttribute("user")).getId());
+        return cardService.cost(costHistory, phone);
+    }
+
+    @RequestMapping("/api/card/recharge")
+    public ReturnData recharge(HttpServletRequest request, Double money, String phone) {
+        RechargeHistory rechargeHistory = new RechargeHistory();
+        rechargeHistory.setOperatorid(((User) request.getSession().getAttribute("user")).getId());
+        rechargeHistory.setMoney(money);
+        return cardService.recharge(rechargeHistory, phone);
     }
 }

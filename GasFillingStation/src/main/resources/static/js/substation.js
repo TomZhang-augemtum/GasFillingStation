@@ -6,16 +6,9 @@ app && app.controller('substation', function($scope, $http) {
   $scope.showAddSubStation = false;
   
   _loadCompanys = function() {
-    var offset = ($scope.currentPage - 1) * $scope.pageSize;
-    var limit = $scope.pageSize;
-    console.log(offset);
-    console.log(limit);
-    $http.get("/api/company/list/Pagenation" + "?offset=" + offset + "&limit=" + limit + "&sort=" + $scope.sort).success(function(data){
-      $scope.companys = data;
-      console.log(data);
-    })    
-    $http.get("/api/company/list/count").success(function(data){
-      $scope.totalCount = data;
+    $http.get("/api/company/list/Pagenation" + "?offset=" + ($scope.currentPage - 1) + "&limit=" + $scope.pageSize + "&sort=" + $scope.sort).success(function(data){
+      $scope.totalPages = data.totalPages;
+      $scope.companys = data.content;
     })    
   };
   $scope.changeSort = function(sort) {

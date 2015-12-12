@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -24,14 +25,9 @@ public class CompanyController {
     }
 
     @RequestMapping("/api/company/list/Pagenation")
-    public List<Company> companyListByPagenation(HttpServletRequest request, Model model, int limit, int offset,
+    public Page<Company> companyListByPagenation(HttpServletRequest request, Model model, int limit, int offset,
             String sort) {
         return companyService.getCompanyListByPagenation(offset, limit, sort);
-    }
-
-    @RequestMapping("/api/company/list/count")
-    public int companyListCount(HttpServletRequest request, Model model) {
-        return companyService.getCompanyCount();
     }
 
     @RequestMapping(value = "/api/company/save", method = RequestMethod.POST)

@@ -4,6 +4,11 @@ import java.util.List;
 
 import org.hibernate.service.spi.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import com.gas.dao.UserDao;
@@ -40,20 +45,16 @@ public class UserService {
     }
 
 
-    public List<User> getEmployeeListByPagenation(int offset, int limit, String sort) {
-        return userDao.findEmployeeByPagenation(offset, limit, sort);
+    public Page<User> getEmployeeListByPagenation(int page, int size, String sort) {
+        String[] tmp = sort.split(" ");
+        Pageable pageable = new PageRequest(page, size, new Sort(Direction.fromString(tmp[1]), tmp[0]));
+        return userDao.findAll(pageable);
     }
 
-    public List<User> getCustomerListByPagenation(int offset, int limit, String sort) {
-        return userDao.findCustomerByPagenation(offset, limit, sort);
-    }
-
-    public int getCustomerCount() {
-        return userDao.customerCount();
-    }
-
-    public int getEmployeeCount() {
-        return userDao.employeeCoun();
+    public Page<User> getCustomerListByPagenation(int page, int size, String sort) {
+        String[] tmp = sort.split(" ");
+        Pageable pageable = new PageRequest(page, size, new Sort(Direction.fromString(tmp[1]), tmp[0]));
+        return userDao.findAll(pageable);
     }
 
     public User saveUser(User user) {

@@ -10,12 +10,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.gas.model.User;
+import com.gas.service.SettingService;
 import com.gas.service.UserService;
 
 @Controller
 public class LoginController {
     @Autowired
     private UserService userService;
+    @Autowired
+    private SettingService settingService;
     @RequestMapping("/")
     public String index(HttpServletRequest request, Model model) {
         return "login";
@@ -34,7 +37,9 @@ public class LoginController {
             return "login";
         }
         request.getSession().setAttribute("user", loginuser);
-        model.addAttribute("users", userService.getUserList());
+        request.getSession().setAttribute("settings", settingService.findAll());
+        // model.addAttribute("users", userService.getUserList());
+
         return "redirect:" + loginuser.getRole().getMenus().get(0).getUrl();
     }
 

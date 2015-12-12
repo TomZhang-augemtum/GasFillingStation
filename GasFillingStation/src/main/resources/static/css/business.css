@@ -62,6 +62,36 @@
 .business .main .cardlist {
     
 }
+.business .main .cardlist .table {
+    min-height: 720px;
+}
 .business .main .cardlist .table li{
     display: inline-block;
+    width: 10%;
+    text-align:center;
+}
+.business .main .cardlist .table .col1{
+    width: 20%;	
+    vertical-align: middle;
+}
+
+/* -------------- jihuo css ------------------ */
+.business .main .jihuo li{
+    display: inline-block;
+    width: 10%;
+    text-align:center;
+}
+.business .main .jihuo .col1{
+    width: 20%;	
+    vertical-align: middle;
+}
+/* -------------- guashi css ------------------ */
+.business .main .guashi li{
+    display: inline-block;
+    width: 10%;
+    text-align:center;
+}
+.business .main .guashi .col1{
+    width: 20%;	
+    vertical-align: middle;
 }
