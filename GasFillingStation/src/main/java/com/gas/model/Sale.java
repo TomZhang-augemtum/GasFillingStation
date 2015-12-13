@@ -4,6 +4,7 @@ public class Sale {
     private Long id;
     private String name;
     private String location;
+    private String number;
     private double gasTotalNum;
     private double moneyTotalNum;
 
@@ -52,6 +53,14 @@ public class Sale {
 
     public void setMoneyTotalNum(double moneyTotalNum) {
         this.moneyTotalNum = moneyTotalNum;
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
     }
 
 }

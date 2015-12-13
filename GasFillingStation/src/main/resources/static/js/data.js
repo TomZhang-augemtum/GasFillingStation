@@ -51,9 +51,13 @@ app && app.controller("data", function($scope, $http){
       'companyid': 1
     },function(data){
       $scope.$apply(function(){
-        console.log(data);
+        $scope.employee.saleDatas = data.content;
+        $scope.employee.totalPages = data.totalPages;
       })
     })
+  }
+  $scope.closeEmployeeList = function() {
+    $scope.currentTag = "company";
   }
   $scope.$watch('currentTag', function(val){
     $scope[val].init && $scope[val].init();
