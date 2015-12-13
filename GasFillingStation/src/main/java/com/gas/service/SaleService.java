@@ -10,9 +10,15 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import com.gas.dao.CompanyDao;
+import com.gas.dao.UserDao;
 import com.gas.model.Company;
 import com.gas.model.CostHistory;
 import com.gas.model.Sale;
@@ -23,9 +29,11 @@ public class SaleService {
     @Autowired
     private CompanyDao companyDao;
     @Autowired
+    private UserDao userDao;
+    @Autowired
     private EntityManagerFactory entityManagerFactory;
 
-    public List<Sale> getCompany(SalePageableAndSort pageAndSort) {
+    public Page<Sale> getCompany(SalePageableAndSort pageAndSort) {
         EntityManager em = entityManagerFactory.createEntityManager();
         CriteriaBuilder cb = em.getCriteriaBuilder();
         CriteriaQuery<Sale> query = cb.createQuery(Sale.class);
@@ -51,9 +59,71 @@ public class SaleService {
             sale.setName(company.getName());
             sale.setLocation(company.getLocation());
         }
-        return resultList;
+        CriteriaQuery<Long> queryCount = cb.createQuery(Long.class);
+        root = queryCount.from(CostHistory.class);
+        queryCount.where(condition);
+        queryCount.select(cb.count(root));
+        List<Long> totals = em.createQuery(queryCount).getResultList();
+        Long total = 0L;
 
+        for (Long element : totals) {
+            total += element == null ? 0 : element;
+        }
+
+        return new PageImpl<Sale>(resultList, new PageRequest(pageAndSort.getPage(), pageAndSort.getSize(),
+                new Sort(Direction.fromString(pageAndSort.getOrder()), pageAndSort.getOrder())), total);
     }
+
+    public Page<Sale> getEmployee(SalePageableAndSort pageAndSort, Long companyid) {
+        List<Long> ids = userDao.findAllIdByCompanyId(companyid);
+        System.out.println(ids);
+        return null;
+        // EntityManager em = entityManagerFactory.createEntityManager();
+        // CriteriaBuilder cb = em.getCriteriaBuilder();
+        // CriteriaQuery<Sale> query = cb.createQuery(Sale.class);
+        // Root<CostHistory> root = query.from(CostHistory.class);
+        // query.multiselect(root.get("userid").alias("id"),
+        // cb.sum(root.<Double> get("gasAmount")).alias("gasTotalNum"),
+        // cb.sum(root.<Double> get("total")).alias("moneyTotalNum"));
+        // query.groupBy(root.get("companyid"));
+        // String orderColumn = "gas".equals(pageAndSort.getOrderColumn()) ?
+        // "gasAmount" : "moneyTotalNum";
+        // if ("desc".equals(pageAndSort.getOrder())) {
+        // query.orderBy(cb.desc(cb.sum(root.<Double> get(orderColumn))));
+        // } else {
+        // query.orderBy(cb.asc(cb.sum(root.<Double> get(orderColumn))));
+        // }
+        // Predicate condition = cb.and(cb.between(root.get("time"),
+        // pageAndSort.getFromDate(), pageAndSort.getToDate()));
+        // query.where(condition);
+        // query.getGroupRestriction();
+        // List<Sale> resultList =
+        // em.createQuery(query).setFirstResult(pageAndSort.getPage() *
+        // pageAndSort.getSize())
+        // .setMaxResults(pageAndSort.getSize()).getResultList();
+        // Company company = null;
+        // for (Sale sale : resultList) {
+        // company = companyDao.findOne(sale.getId());
+        // sale.setName(company.getName());
+        // sale.setLocation(company.getLocation());
+        // }
+        // CriteriaQuery<Long> queryCount = cb.createQuery(Long.class);
+        // root = queryCount.from(CostHistory.class);
+        // queryCount.where(condition);
+        // queryCount.select(cb.count(root));
+        // List<Long> totals = em.createQuery(queryCount).getResultList();
+        // Long total = 0L;
+        //
+        // for (Long element : totals) {
+        // total += element == null ? 0 : element;
+        // }
+        //
+        // return new PageImpl<Sale>(resultList, new
+        // PageRequest(pageAndSort.getPage(), pageAndSort.getSize(),
+        // new Sort(Direction.fromString(pageAndSort.getOrder()),
+        // pageAndSort.getOrder())), total);
+    }
+
 }
 // CriteriaQuery<Project> criteriaQuery =
 // criteriaBuilder.createQuery(Project.class);

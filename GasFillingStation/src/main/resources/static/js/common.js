@@ -12,7 +12,6 @@ app || function(){
         changeSize: "&"
       },
       link: function($scope) {
-        console.log($scope.totalPages);
         $scope.pageSize = "20";
         $scope.currentPage = 1;
         $scope.changePageSize = function() {

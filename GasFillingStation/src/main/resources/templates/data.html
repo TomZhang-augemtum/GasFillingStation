@@ -9,7 +9,7 @@
 <div th:include="header" style="width:100%;"></div>
 <div class="data" ng-controller="data">
     <div class="main">
-        <div class="company-list border">
+        <div class="company-list border" ng-show="currentTag == 'company'">
             <div class="table">
                 <div class="title block-title">
                     <span class="ng-cloak">销售业绩</span>
@@ -25,14 +25,39 @@
                     <li class="col col3 underline" ng-click="changeSort('company')">总销气量</li>
                     <li class="col col4 underline" ng-click="changeSort('company')">总营业额</li>
                 </ul>
-                <ul class="table-title ng-cloak" ng-repeat="data in saleDatas">
+                <ul class="table-title ng-cloak" ng-repeat="data in company.saleDatas">
+                    <li class="col col1 underline" ng-click="company.showEmployee(data.id, data.name)">{{data.name}}</li>
+                    <li class="col col2 underline">{{data.location}}</li>
+                    <li class="col col3 underline">{{data.gasTotalNum}}</li>
+                    <li class="col col4 underline">{{data.moneyTotalNum}}</li>
+                </ul>
+            </div>
+            <pagenation go-page="company.gotoPage(page)" total-pages="company.totalPages" change-size="company.changeRowNums(num)"></pagenation>
+        </div>
+        <div class="employee-list border" ng-show="currentTag == 'employee'">
+            <div class="table">
+                <div class="title block-title">
+                    <span class="ng-cloak">员工销售业绩({{employee.company}})</span>
+                    <span class="right search">查询</span>
+                    <input class="right" type="date" />
+                    <span class="right">到</span>
+                    <input class="right" type="date" />
+                    <span class="right">从</span>
+                </div>
+                <ul class="table-title">
+                    <li class="col col1 underline" ng-click="changeSort('name')">子站名</li>
+                    <li class="col col2 underline" ng-click="changeSort('number')">位置</li>
+                    <li class="col col3 underline" ng-click="changeSort('company')">总销气量</li>
+                    <li class="col col4 underline" ng-click="changeSort('company')">总营业额</li>
+                </ul>
+                <ul class="table-title ng-cloak" ng-repeat="data in company.saleDatas">
                     <li class="col col1 underline" ng-click="changeSort('name')">{{data.name}}</li>
                     <li class="col col2 underline" ng-click="changeSort('number')">{{data.location}}</li>
                     <li class="col col3 underline" ng-click="changeSort('company')">{{data.gasTotalNum}}</li>
                     <li class="col col4 underline" ng-click="changeSort('company')">{{data.moneyTotalNum}}</li>
                 </ul>
             </div>
-            <pagenation go-page="gotoPage(page)" total-pages="totalPages" change-size="changeRowNums(num)"></pagenation>
+            <pagenation go-page="company.gotoPage(page)" total-pages="company.totalPages" change-size="company.changeRowNums(num)"></pagenation>
         </div>
     </div>
 </div>

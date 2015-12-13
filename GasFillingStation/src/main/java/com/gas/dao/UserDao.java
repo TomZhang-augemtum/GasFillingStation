@@ -37,4 +37,6 @@ public interface UserDao extends PagingAndSortingRepository<User, Long> {
     User findByIdcard(String id);
 
     User findByPhone(String phone);
+
+    List<Long> findAllIdByCompanyId(Long companyid);
 }

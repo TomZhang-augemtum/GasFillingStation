@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.9, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 5.6.24, for Win64 (x86_64)
 --
 -- Host: localhost    Database: gas
 -- ------------------------------------------------------
--- Server version	5.6.27
+-- Server version	5.6.24
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -63,7 +63,7 @@ CREATE TABLE `card` (
 
 LOCK TABLES `card` WRITE;
 /*!40000 ALTER TABLE `card` DISABLE KEYS */;
-INSERT INTO `card` VALUES ('535aa2c8-b77f-423c-baba-9e27863da4c2',1,0,1,NULL);
+INSERT INTO `card` VALUES ('535aa2c8-b77f-423c-baba-9e27863da4c2',1,100,1,NULL);
 /*!40000 ALTER TABLE `card` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -209,10 +209,12 @@ CREATE TABLE `costhistory` (
   `operatorid` int(11) DEFAULT NULL,
   `gasAmount` double DEFAULT NULL,
   `price` double DEFAULT NULL,
+  `companyid` int(11) DEFAULT NULL,
+  `total` double DEFAULT NULL,
   `balance` double DEFAULT NULL,
   `time` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -221,6 +223,7 @@ CREATE TABLE `costhistory` (
 
 LOCK TABLES `costhistory` WRITE;
 /*!40000 ALTER TABLE `costhistory` DISABLE KEYS */;
+INSERT INTO `costhistory` VALUES (1,1,1,12,2,1,24,76,'2015-12-12'),(2,1,1,12,3,1,36,123619,'2015-12-12');
 /*!40000 ALTER TABLE `costhistory` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -285,13 +288,13 @@ DROP TABLE IF EXISTS `rechargehistory`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `rechargehistory` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `cardid` int(11) DEFAULT NULL,
+  `cardid` varchar(64) DEFAULT NULL,
   `operatorid` int(11) DEFAULT NULL,
   `money` double DEFAULT NULL,
   `balance` double DEFAULT NULL,
   `time` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -300,6 +303,7 @@ CREATE TABLE `rechargehistory` (
 
 LOCK TABLES `rechargehistory` WRITE;
 /*!40000 ALTER TABLE `rechargehistory` DISABLE KEYS */;
+INSERT INTO `rechargehistory` VALUES (1,'535aa2c8-b77f-423c-baba-9e27863da4c2',1,1222222,0,NULL);
 /*!40000 ALTER TABLE `rechargehistory` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -445,4 +449,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-12-10 21:15:22
+-- Dump completed on 2015-12-13 12:03:01
