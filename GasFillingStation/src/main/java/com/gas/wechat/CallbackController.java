@@ -5,28 +5,28 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.gas.wechat.mp.aes.AesException;
+import com.gas.wechat.mp.aes.WXBizMsgCrypt;
+
 @RestController
 public class CallbackController {
 
     @RequestMapping("/wechat")
     public String list(HttpServletRequest request, String msg_signature, String timestamp, String nonce,
-            String echostr) {
-        System.out.println(msg_signature);
-        System.out.println(timestamp);
-        System.out.println(nonce);
-        System.out.println(echostr);
-        return echostr;
-    }
+ String echostr)
+            throws AesException {
 
-    @RequestMapping("/wechat/test")
-    public boolean hehe(HttpServletRequest request, String msg_signature, String timestamp, String nonce,
-            String echostr) {
-        Boolean flag = new Boolean(true);
-        test(flag);
-        return flag.booleanValue();
-    }
+        String sToken = "LjLEnZTyM24YWQVcMM5peVxaG0p2J9d";
+        String sCorpID = "wx75a40ad206394845";
+        String sEncodingAESKey = "vMpk78HxIOg9sItzl5QeRhVPYnZfiuAXB8NOlcjBeWC";
+        WXBizMsgCrypt wxcpt = new WXBizMsgCrypt(sToken, sEncodingAESKey, sCorpID);
 
-    public void test(Boolean flag) {
-        flag = new Boolean(false);
+        String sEchoStr = null;
+        try {
+            sEchoStr = wxcpt.VerifyURL(msg_signature, timestamp, nonce, echostr);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return sEchoStr;
     }
 }

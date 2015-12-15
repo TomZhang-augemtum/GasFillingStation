@@ -402,7 +402,7 @@ CREATE TABLE `setting` (
 
 LOCK TABLES `setting` WRITE;
 /*!40000 ALTER TABLE `setting` DISABLE KEYS */;
-INSERT INTO `setting` VALUES ('corpid','wx75a40ad206394845'),('secret','mZnEl0LWLRwj30fqicGcXvbOwbLjB4760ckBIsHNjXwje');
+INSERT INTO `setting` VALUES ('agentid','20'),('corpid','wx75a40ad206394845'),('EncodingAESKey','vMpk78HxIOg9sItzl5QeRhVPYnZfiuAXB8NOlcjBeWC'),('secret','mZnEl0LWLRwj30fqicGcXvbOwbLjB4760ckBIsHNjXwje'),('Token','LjLEnZTyM24YWQVcMM5peVxaG0p2J9d');
 /*!40000 ALTER TABLE `setting` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -449,4 +449,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-12-13 12:03:01
+-- Dump completed on 2015-12-15 21:45:58

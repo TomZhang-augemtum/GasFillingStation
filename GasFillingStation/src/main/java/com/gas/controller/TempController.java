@@ -42,4 +42,9 @@ public class TempController {
     public String setting(HttpServletRequest request, Model model) {
         return "setting";
     }
+
+    @RequestMapping("/wx/business")
+    public String wxBusiness(HttpServletRequest request, Model model) {
+        return "wx/business";
+    }
 }
