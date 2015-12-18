@@ -12,8 +12,7 @@ import com.gas.wechat.mp.aes.WXBizMsgCrypt;
 public class CallbackController {
 
     @RequestMapping("/wechat")
-    public String list(HttpServletRequest request, String msg_signature, String timestamp, String nonce,
- String echostr)
+    public String list(HttpServletRequest request, String msg)
             throws AesException {
 
         String sToken = "LjLEnZTyM24YWQVcMM5peVxaG0p2J9d";
@@ -22,11 +21,7 @@ public class CallbackController {
         WXBizMsgCrypt wxcpt = new WXBizMsgCrypt(sToken, sEncodingAESKey, sCorpID);
 
         String sEchoStr = null;
-        try {
-            sEchoStr = wxcpt.VerifyURL(msg_signature, timestamp, nonce, echostr);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return sEchoStr;
+        System.out.println(msg);
+        return null;
     }
 }

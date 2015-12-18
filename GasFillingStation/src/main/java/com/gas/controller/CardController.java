@@ -23,9 +23,14 @@ import com.gas.model.RechargeHistory;
 import com.gas.model.ReturnData;
 import com.gas.model.Role;
 import com.gas.model.User;
+import com.gas.model.WechatConfig;
 import com.gas.service.CarService;
 import com.gas.service.CardService;
 import com.gas.service.UserService;
+import com.gas.utils.HttpClientUtil;
+
+import me.chanjar.weixin.common.exception.WxErrorException;
+import me.chanjar.weixin.cp.bean.WxCpUser;
 
 @RestController
 public class CardController {
@@ -67,9 +72,32 @@ public class CardController {
         user.setCar(car);
         user.setCardid(uuid.toString());
         User res = userService.saveUser(user);
-
+        addCustomerToCompany(res);
     }
 
+    private void addCustomerToCompany(User customer) {
+        WxCpUser user = new WxCpUser();
+        user.setUserId(customer.getNumber());
+        user.setName(customer.getName());
+        user.setDepartIds(new Integer[] { 4 });
+        user.setMobile(customer.getPhone());
+        try {
+            WechatConfig.getWechatConfig().getWxCpService().userCreate(user);
+        } catch (WxErrorException e) {
+            e.printStackTrace();
+        }
+        String url;
+        try {
+            url = "https://qyapi.weixin.qq.com/cgi-bin/invite/send?access_token="
+                    + WechatConfig.getWechatConfig().getWxCpService().getAccessToken();
+            System.err.println("{\"userid\":\"" + customer.getNumber() + "\"}");
+            String ret = HttpClientUtil.sendPost(url, "{\"userid\":\"" + customer.getNumber() + "\"}");
+            System.err.println(ret);
+        } catch (WxErrorException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
     @RequestMapping("/api/card/delete")
     public void delete(HttpServletRequest request, Card card) {
         cardService.delete(card);
@@ -102,5 +130,19 @@ public class CardController {
         rechargeHistory.setOperatorid(((User) request.getSession().getAttribute("user")).getId());
         rechargeHistory.setMoney(money);
         return cardService.recharge(rechargeHistory, phone);
+    }
+
+    @RequestMapping(value = "/api/card/cost/scan", method = RequestMethod.POST)
+    public ReturnData scanCost(HttpServletRequest request, CostHistory costHistory, String cardid) {
+        costHistory.setOperatorid(((User) request.getSession().getAttribute("user")).getId());
+        return cardService.scancost(costHistory, cardid);
+    }
+
+    @RequestMapping("/api/card/test")
+    public ReturnData test(HttpServletRequest request, CostHistory costHistory, String cardid) {
+        ReturnData data = new ReturnData();
+        data.setCode("error");
+        data.setMessage("ssss");
+        return data;
     }
 }

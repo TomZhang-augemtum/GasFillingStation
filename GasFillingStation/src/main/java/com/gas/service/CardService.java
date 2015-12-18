@@ -17,7 +17,11 @@ import com.gas.model.CardState;
 import com.gas.model.CostHistory;
 import com.gas.model.RechargeHistory;
 import com.gas.model.ReturnData;
-import com.gas.model.User;;
+import com.gas.model.User;
+import com.gas.model.WechatConfig;
+
+import me.chanjar.weixin.common.exception.WxErrorException;
+import me.chanjar.weixin.cp.bean.WxCpMessage;;
 @Service
 public class CardService {
 
@@ -104,9 +108,64 @@ public class CardService {
             costHistoryDao.save(costHistory);
             reData.setCode("success");
             reData.setMessage("余额:" + (balance - cost) + ",本次消费:" + cost);
+            WxCpMessage message = WxCpMessage.TEXT()
+                    .agentId(WechatConfig.getWechatConfig().getWxCpInMemoryConfigStorage().getAgentId()) // 企业号应用ID
+                    .toUser(user.getNumber()).content("您的余额:" + (balance - cost) + ",本次消费:" + cost).build();
+
+            try {
+                WechatConfig.getWechatConfig().getWxCpService().messageSend(message);
+            } catch (WxErrorException e) {
+                e.printStackTrace();
+            }
             return reData;
         }
     }
+
+    public ReturnData scancost(CostHistory costHistory, String cardid) {
+        ReturnData reData = new ReturnData();
+        Card card = cardDao.findOne(cardid);
+        if (card == null) {
+            reData.setCode("error");
+            reData.setMessage("此卡不存在,请确认！");
+            return reData;
+        }
+        if (card.getState().getId() != 1) {
+            reData.setCode("error");
+            reData.setMessage("此卡已" + card.getState().getName() + ",请确认！");
+            return reData;
+        }
+        User user = userDao.findByCardid(cardid);
+
+        Double balance = card.getBalance();
+        Double cost = costHistory.getGasAmount() * costHistory.getPrice();
+        if (balance < cost) {
+            reData.setCode("error");
+            reData.setMessage("余额" + balance + ",不足本次消费,请充值");
+            return reData;
+        } else {
+            card.setBalance(balance - cost);
+            cardDao.save(card);
+            costHistory.setBalance(balance - cost);
+            costHistory.setTotal(costHistory.getPrice() * costHistory.getGasAmount());
+            costHistory.setUserid(user.getId());
+            costHistory.setCompanyid(user.getCompany().getId());
+            costHistory.setTime(new Date());
+            costHistoryDao.save(costHistory);
+            reData.setCode("success");
+            reData.setMessage("余额:" + (balance - cost) + ",本次消费:" + cost);
+            WxCpMessage message = WxCpMessage.TEXT()
+                    .agentId(WechatConfig.getWechatConfig().getWxCpInMemoryConfigStorage().getAgentId()) // 企业号应用ID
+                    .toUser(user.getNumber()).content("您的余额:" + (balance - cost) + ",本次消费:" + cost)
+                    .build();
+            try {
+                WechatConfig.getWechatConfig().getWxCpService().messageSend(message);
+            } catch (WxErrorException e) {
+                e.printStackTrace();
+            }
+            return reData;
+        }
+    }
+
 
     public ReturnData recharge(RechargeHistory rechargeHistory, String phone) {
         ReturnData reData = new ReturnData();

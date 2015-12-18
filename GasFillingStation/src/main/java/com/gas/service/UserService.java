@@ -12,6 +12,7 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import com.gas.dao.UserDao;
+import com.gas.model.Role;
 import com.gas.model.User;
 import com.gas.utils.StringUtil;;
 @Service
@@ -48,7 +49,9 @@ public class UserService {
     public Page<User> getEmployeeListByPagenation(int page, int size, String sort) {
         String[] tmp = sort.split(" ");
         Pageable pageable = new PageRequest(page, size, new Sort(Direction.fromString(tmp[1]), tmp[0]));
-        return userDao.findAll(pageable);
+        Role role = new Role();
+        role.setId(3L);
+        return userDao.findAllByRoleNot(pageable, role);
     }
 
     public Page<User> getCustomerListByPagenation(int page, int size, String sort) {
@@ -67,5 +70,9 @@ public class UserService {
 
     public User findOne(Long id) {
         return userDao.findOne(id);
+    }
+
+    public User wxLogin(String number) {
+        return userDao.findOneByNumber(number);
     }
 }

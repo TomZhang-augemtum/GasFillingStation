@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.9, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 5.6.24, for Win64 (x86_64)
 --
 -- Host: localhost    Database: gas
 -- ------------------------------------------------------
--- Server version	5.6.27
+-- Server version	5.6.24
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -28,7 +28,7 @@ CREATE TABLE `car` (
   `typeid` int(11) DEFAULT NULL,
   `cylinderNumber` varchar(64) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,6 +37,7 @@ CREATE TABLE `car` (
 
 LOCK TABLES `car` WRITE;
 /*!40000 ALTER TABLE `car` DISABLE KEYS */;
+INSERT INTO `car` VALUES (1,'asddswa',1,NULL),(2,'123654',1,NULL),(3,'123654',1,NULL),(4,'314561',1,NULL),(5,'123456',1,NULL),(6,'12322',1,NULL),(7,'21212121',1,NULL),(8,'21212121',1,NULL),(9,'21212121',1,NULL);
 /*!40000 ALTER TABLE `car` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -63,7 +64,7 @@ CREATE TABLE `card` (
 
 LOCK TABLES `card` WRITE;
 /*!40000 ALTER TABLE `card` DISABLE KEYS */;
-INSERT INTO `card` VALUES ('535aa2c8-b77f-423c-baba-9e27863da4c2',1,100,1,NULL);
+INSERT INTO `card` VALUES ('1197cca4-d668-4e89-a657-9cfd1b255df3',3,0,NULL,NULL),('3e54400b-c3cb-407c-80c4-ab8184c2a2b6',3,0,NULL,NULL),('418e4d59-4b57-4f24-a46d-a57c212209d5',3,0,NULL,NULL),('535aa2c8-b77f-423c-baba-9e27863da4c2',1,85,1,NULL),('66bc381f-203e-47a5-9a4f-2e99daaedc6f',3,0,NULL,NULL),('6a975a92-5cfb-43a2-b7fa-e61beb27a14d',3,0,NULL,NULL),('b40d9b08-72c5-4cae-b0b6-8c68d556ab8f',3,0,NULL,NULL),('b92d931a-9dab-4171-bb8d-ede1f2738ac9',3,0,NULL,NULL),('ce500b48-99b9-4edf-b513-bc97be2840a4',3,0,NULL,NULL),('dc23a14f-4068-4410-8b3c-77b9871e9000',3,0,NULL,NULL);
 /*!40000 ALTER TABLE `card` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -214,7 +215,7 @@ CREATE TABLE `costhistory` (
   `balance` double DEFAULT NULL,
   `time` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -223,7 +224,7 @@ CREATE TABLE `costhistory` (
 
 LOCK TABLES `costhistory` WRITE;
 /*!40000 ALTER TABLE `costhistory` DISABLE KEYS */;
-INSERT INTO `costhistory` VALUES (1,1,1,12,2,1,24,76,'2015-12-12'),(2,1,1,12,3,1,36,123619,'2015-12-12');
+INSERT INTO `costhistory` VALUES (1,1,1,12,2,1,24,76,'2015-12-12'),(2,1,1,12,3,1,36,123619,'2015-12-12'),(3,1,1,1,15,1,15,85,'2015-12-17');
 /*!40000 ALTER TABLE `costhistory` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -402,7 +403,7 @@ CREATE TABLE `setting` (
 
 LOCK TABLES `setting` WRITE;
 /*!40000 ALTER TABLE `setting` DISABLE KEYS */;
-INSERT INTO `setting` VALUES ('agentid','20'),('corpid','wx75a40ad206394845'),('EncodingAESKey','vMpk78HxIOg9sItzl5QeRhVPYnZfiuAXB8NOlcjBeWC'),('secret','mZnEl0LWLRwj30fqicGcXvbOwbLjB4760ckBIsHNjXwjeUACRATtngR-zVhNnmcr'),('Token','LjLEnZTyM24YWQVcMM5peVxaG0p2J9d');
+INSERT INTO `setting` VALUES ('agentid','20'),('corpid','wx75a40ad206394845'),('domain','http://zjy187156814.6655.la:10328'),('EncodingAESKey','vMpk78HxIOg9sItzl5QeRhVPYnZfiuAXB8NOlcjBeWC'),('secret','mZnEl0LWLRwj30fqicGcXvbOwbLjB4760ckBIsHNjXwjeUACRATtngR-zVhNnmcr'),('Token','LjLEnZTyM24YWQVcMM5peVxaG0p2J9d');
 /*!40000 ALTER TABLE `setting` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -427,7 +428,7 @@ CREATE TABLE `user` (
   `idcard` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -436,7 +437,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'admin','admin','18234134166','535aa2c8-b77f-423c-baba-9e27863da4c2',1,'yt00522',1,NULL,NULL,'140602199205079013'),(2,'shanghai','shanghai','1233212321','12312312312321321',2,'iyi23321',2,NULL,NULL,NULL),(3,'beijing','beijing','1231231233','213123123213213123',3,'3213321',2,NULL,NULL,NULL),(4,'taiyuan','taiyuan','12332134213','321321312412312312',4,'3213412',2,NULL,NULL,NULL);
+INSERT INTO `user` VALUES (1,'admin','admin','18234134166','535aa2c8-b77f-423c-baba-9e27863da4c2',1,'yt00522',1,NULL,NULL,'140602199205079013'),(2,'shanghai','shanghai','1233212321','12312312312321321',2,'iyi23321',2,NULL,NULL,NULL),(3,'beijing','beijing','1231231233','213123123213213123',3,'3213321',2,NULL,NULL,NULL),(4,'taiyuan','taiyuan','12332134213','321321312412312312',4,'3213412',2,NULL,NULL,NULL),(11,'memeda',NULL,'13761764041','418e4d59-4b57-4f24-a46d-a57c212209d5',NULL,'13761764041',3,7,NULL,NULL),(12,'memeda',NULL,'13761764041','3e54400b-c3cb-407c-80c4-ab8184c2a2b6',NULL,'13761764041',3,8,NULL,NULL),(13,'memeda',NULL,'13761764041','dc23a14f-4068-4410-8b3c-77b9871e9000',NULL,'13761764041',3,9,NULL,NULL);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -449,4 +450,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-12-15 22:41:53
+-- Dump completed on 2015-12-18 17:37:02

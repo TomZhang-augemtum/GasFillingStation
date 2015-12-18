@@ -23,7 +23,8 @@ app && app.controller('business', function($scope, $http) {
     $.post("/api/card/save",{
       "name": $scope.faka.user.name,
       "phone": $scope.faka.user.phone,
-      "cardid": $scope.faka.user.cardid,
+      "number": $scope.faka.user.phone,
+      "idcard": $scope.faka.user.idcard,
       "carNumber": $scope.faka.car.number,
       "type.id": $scope.faka.car.typeid
     }).success(function(data){

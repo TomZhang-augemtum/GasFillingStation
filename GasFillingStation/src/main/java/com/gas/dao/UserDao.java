@@ -2,20 +2,19 @@ package com.gas.dao;
 
 import java.util.List;
 
-import org.hibernate.annotations.Where;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
 
+import com.gas.model.Role;
 import com.gas.model.User;
 
 public interface UserDao extends PagingAndSortingRepository<User, Long> {
     User findByName(String name);
 
-    @Where(clause = "roleid <> 3")
-    Page<User> findAll(Pageable pageable);
+    Page<User> findAllByRoleNot(Pageable pageable, Role role);
 
 
     @Query(value = "select * from User where roleid = 3 order by :sort limit :offset,:size ", nativeQuery = true)
@@ -40,4 +39,6 @@ public interface UserDao extends PagingAndSortingRepository<User, Long> {
 
     @Query(value = "select id from User where companyid = :companyid")
     List<Long> findIdByCompanyId(@Param("companyid") Long companyid);
+
+    User findOneByNumber(String number);
 }
