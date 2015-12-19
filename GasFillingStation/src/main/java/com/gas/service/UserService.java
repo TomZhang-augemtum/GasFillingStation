@@ -1,7 +1,5 @@
 package com.gas.service;
 
-import java.util.List;
-
 import org.hibernate.service.spi.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -11,6 +9,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
+import com.gas.dao.RoleDao;
 import com.gas.dao.UserDao;
 import com.gas.model.Role;
 import com.gas.model.User;
@@ -20,6 +19,8 @@ public class UserService {
 
     @Autowired
     private UserDao userDao;
+    @Autowired
+    private RoleDao roleDao;
 
     public User login(User user) {
         if (StringUtil.isEmpty(user.getName())) {
@@ -41,8 +42,8 @@ public class UserService {
         return dataAdmin;
     }
 
-    public List<User> getUserList() {
-        return userDao.findAll();
+    public Page<User> getUserList(Pageable page) {
+        return userDao.findAll(page);
     }
 
 
@@ -74,5 +75,11 @@ public class UserService {
 
     public User wxLogin(String number) {
         return userDao.findOneByNumber(number);
+    }
+
+    public void updateRole(Long userid, Long roleid) {
+        User user = userDao.findOne(userid);
+        user.setRole(roleDao.findOne(roleid));
+        userDao.save(user);
     }
 }

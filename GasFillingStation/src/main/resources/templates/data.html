@@ -3,6 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link th:href="@{/css/data.css}" rel="stylesheet" />
+<link th:href="@{/bootstrap-3.3.4-dist/css/bootstrap.min.css}" rel="stylesheet" />
 <title>加气站管理系统</title>
 </head>
 <body>
@@ -24,6 +25,7 @@
                     <li class="col col2 underline">位置</li>
                     <li class="col col3 underline" ng-click="changeSort('gas')">总销气量</li>
                     <li class="col col4 underline" ng-click="changeSort('money')">总营业额</li>
+                    <li class="col col5" ng-click="exportCompany()"><span class="btn btn-primary">导出csv</span></li>
                 </ul>
                 <ul class="table-title ng-cloak" ng-repeat="data in company.saleDatas">
                     <li class="col col1 underline" ng-click="company.showEmployee(data.id, data.name)">{{data.name}}</li>
@@ -49,6 +51,7 @@
                     <li class="col col2 underline">员工工号</li>
                     <li class="col col3 underline" ng-click="changeSort('gas')">总销气量</li>
                     <li class="col col4 underline" ng-click="changeSort('money')">总营业额</li>
+                    <li class="col col5" ng-click="exportEmployee()"><span class="btn btn-primary">导出csv</span></li>
                 </ul>
                 <ul class="table-title ng-cloak" ng-repeat="data in employee.saleDatas">
                     <li class="col col1 underline">{{data.name}}</li>
@@ -58,6 +61,27 @@
                 </ul>
             </div>
             <pagenation go-page="employee.gotoPage(page)" total-pages="employee.totalPages" change-size="employee.changeRowNums(num)"></pagenation>
+        </div>
+        <div class="addUser ng-hide" ng-show="showTimePicker">
+        <div class="addUserMask"></div>
+            <div class="table">
+                <div class="title block-title-backcolor">
+                    <span style="font-size: 14pt;">导出报表</span>
+                    <span class="close right" ng-click="closeTimePickerPopup()">X</span>
+                </div>
+                <div class="item">
+                    <span class="col col1">起始时间:</span>
+                    <input type="date" class="col col2" ng-model="beginDate"/>
+                </div>
+                <div class="item">
+                    <span class="col col1">结束时间:</span>
+                    <input type="date" class="col col2" ng-model="endDate"/>
+                </div>
+                <div class="btngroup">
+                    <span class="btn btn-reset btn-primary" ng-click="closeTimePickerPopup()">取消</span>
+                    <span class="btn btn-submit btn-primary" ng-click="submitCSV()">提交</span>
+                </div>
+            </div>
         </div>
     </div>
 </div>

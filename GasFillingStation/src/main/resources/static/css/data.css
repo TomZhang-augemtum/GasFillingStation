@@ -44,8 +44,15 @@
     padding-top: 5px;
     padding-bottom: 5px;
 }
+.data .main .company-list .table .title input{
+    line-height: 18px;
+    position: relative;
+    top: -2px;
+    
+}
 .data .main .company-list .title .search{
     margin-right: 20px;
+    cursor: pointer;
 }
 .data .main .company-list .title span{
     margin-right: 10px;
@@ -79,12 +86,23 @@
 .data .main .company-list .col4{
     width: 140px;
 }
+.data .main .company-list .col5{
+    float: right;
+    margin-right: 30px;
+    margin-top: 10px;
+}
 /* -------------- employee list css ------------------ */
 .data .main .employee-list{
     min-height: 750px;
 }
 .data .main .table{
     min-height: 750px;
+}
+.data .main .employee-list .table .title input{
+    line-height: 18px;
+    position: relative;
+    top: -2px;
+    
 }
 .data .main .employee-list .title{
     padding-left: 10px;
@@ -126,4 +144,70 @@
 .data .main .employee-list .col4{
     width: 140px;
 }
-
+.data .main .employee-list .col5{
+    float: right;
+    margin-right: 30px;
+    margin-top: 10px;
+}
+/* ----------------    ------------------- */
+.data .addUser .addUserMask{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.5;
+}
+.data .addUser .table{
+    display: inline-block;
+    background-color: white;
+    width: 400px;
+    position: absolute;
+    top: 30%;
+    left: 30%;
+    min-height: 0px;
+}
+.data .addUser .table .title{
+    line-height: 40px;
+    text-align: left;
+    padding-left: 20px;
+}
+.data .addUser .table .title .close{
+    margin-right: 20px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+.data .addUser .table .col{
+    display: inline-block;
+    height: 30px;
+    margin-top: 10px;
+}
+.data .addUser .table .col1{
+    width: 130px;
+    text-align: right;
+}
+.data .addUser .table .col2{
+    width: 200px;
+    box-sizing: border-box;
+}
+.data .addUser .table .btngroup{
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+.data .addUser .table .btngroup .btn{
+    border: 1px solid;
+    line-height: 30px;
+    display: inline-block;
+    width: 120px;
+    text-align: center;
+}
+.data .addUser .table .btngroup .btn-reset{
+    margin-left: 50px;
+    cursor: pointer;
+}
+.data .addUser .table .btngroup .btn-submit{
+    float: right;
+    margin-right: 50px;
+    cursor: pointer;
+}

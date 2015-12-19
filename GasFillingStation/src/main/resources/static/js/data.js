@@ -4,6 +4,7 @@ app && app.controller("data", function($scope, $http){
   $scope.currentTag = "company";
   $scope.company.currentPage = 1;
   $scope.company.pageSize = 20;
+  $scope.showTimePicker = false;
   $scope.company.loadData = function() {
     $.get("/api/sale/company",{
       'orderColumn':"gas",
@@ -59,7 +60,21 @@ app && app.controller("data", function($scope, $http){
   $scope.closeEmployeeList = function() {
     $scope.currentTag = "company";
   }
+  $scope.closeTimePickerPopup = function() {
+    $scope.showTimePicker = false;
+  }
   $scope.$watch('currentTag', function(val){
     $scope[val].init && $scope[val].init();
   })
+  $scope.exportCompany = function(){
+    $scope.showTimePicker = true;
+  }
+  $scope.submitCSV = function() {
+    ($scope.beginDate && $scope.endDate || alert("请选择日期")) 
+    && ($scope.beginDate - $scope.endDate <= 0 || alert("日期错误")) 
+    && window.open(window.location.origin + '/api/sale/'+$scope.currentTag+'/csv?beginDate='+$scope.beginDate+'&endDate='+$scope.endDate);
+  }
+  $scope.exportEmployee = function(){
+    $scope.showTimePicker = true;
+  }
 })

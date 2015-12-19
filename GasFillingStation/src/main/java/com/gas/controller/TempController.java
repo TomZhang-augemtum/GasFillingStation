@@ -33,9 +33,9 @@ public class TempController {
         return "data";
     }
 
-    @RequestMapping("/report")
+    @RequestMapping("/permission")
     public String report(HttpServletRequest request, Model model) {
-        return "report";
+        return "permission";
     }
 
     @RequestMapping("/setting")
@@ -46,5 +46,15 @@ public class TempController {
     @RequestMapping("/wx/business")
     public String wxBusiness(HttpServletRequest request, Model model) {
         return "wx/business";
+    }
+
+    @RequestMapping("/wx/customer/card")
+    public String wxCard(HttpServletRequest request, Model model) {
+        return "wx/card";
+    }
+
+    @RequestMapping("/wx/customer/info")
+    public String wxInfo(HttpServletRequest request, Model model) {
+        return "wx/info";
     }
 }

@@ -1,11 +1,13 @@
 package com.gas.controller;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,8 +23,10 @@ public class UserController {
     private UserService userService;
 
     @RequestMapping("/api/user/list")
-    public List<User> index(HttpServletRequest request, Model model) {
-        return userService.getUserList();
+    public Page<User> index(HttpServletRequest request, Model model, int page, int size, String order,
+            String orderColumn) {
+        Pageable pageable = new PageRequest(page, size, new Sort(Direction.fromString(order), orderColumn));
+        return userService.getUserList(pageable);
     }
 
     @RequestMapping("/api/employee/list/Pagenation")

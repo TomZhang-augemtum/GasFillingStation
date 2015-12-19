@@ -1,5 +1,6 @@
 package com.gas.service;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -75,6 +76,28 @@ public class SaleService {
                 new Sort(Direction.fromString(pageAndSort.getOrder()), pageAndSort.getOrder())), total);
     }
 
+    public Page<Sale> getCompanyAll(Date begin, Date end) {
+        EntityManager em = entityManagerFactory.createEntityManager();
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery<Sale> query = cb.createQuery(Sale.class);
+        Root<CostHistory> root = query.from(CostHistory.class);
+        query.multiselect(root.get("companyid").alias("id"),
+                cb.sum(root.<Double> get("gasAmount")).alias("gasTotalNum"),
+                cb.sum(root.<Double> get("total")).alias("moneyTotalNum"));
+        Predicate condition = cb.and(cb.between(root.get("time"), begin, end));
+        query.where(condition);
+        query.groupBy(root.get("companyid"));
+        query.getGroupRestriction();
+        List<Sale> resultList = em.createQuery(query).getResultList();
+        Company company = null;
+        for (Sale sale : resultList) {
+            company = companyDao.findOne(sale.getId());
+            sale.setName(company.getName());
+            sale.setLocation(company.getLocation());
+        }
+        return new PageImpl<Sale>(resultList);
+    }
+
     public Page<Sale> getEmployee(SalePageableAndSort pageAndSort, Long
      companyid) {
         EntityManager em = entityManagerFactory.createEntityManager();
@@ -117,23 +140,27 @@ public class SaleService {
                 new Sort(Direction.fromString(pageAndSort.getOrder()), pageAndSort.getOrder())), total);
     }
 
+    public Page<Sale> getEmployeeAll(Long companyid, Date begin, Date end) {
+        EntityManager em = entityManagerFactory.createEntityManager();
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery<Sale> query = cb.createQuery(Sale.class);
+        Root<CostHistory> root = query.from(CostHistory.class);
+        query.multiselect(root.get("userid").alias("id"), cb.sum(root.<Double> get("gasAmount")).alias("gasTotalNum"),
+                cb.sum(root.<Double> get("total")).alias("moneyTotalNum"));
+        query.groupBy(root.get("userid"));
+        Predicate condition = cb.and(cb.between(root.get("time"), begin, end));
+        query.where(condition);
+        query.getGroupRestriction();
+        List<Sale> resultList = em.createQuery(query).getResultList();
+        User user = null;
+        for (Sale sale : resultList) {
+            user = userDao.findOne(sale.getId());
+            sale.setName(user.getName());
+            sale.setNumber(user.getNumber());
+        }
+        CriteriaQuery<Long> queryCount = cb.createQuery(Long.class);
+        root = queryCount.from(CostHistory.class);
+        return new PageImpl<Sale>(resultList);
+    }
+
 }
-// CriteriaQuery<Project> criteriaQuery =
-// criteriaBuilder.createQuery(Project.class);
-// Root<Project> root = criteriaQuery.from(Project.class);
-// Join<Project, ProjectStatus> join = root.join("projectStatusses",
-// JoinType.LEFT);
-//
-//// Create a subquery to get latest ProjectStatus for project
-// Subquery sq = criteriaBuilder.createQuery().subquery(Long.class);
-// Root<T> from = sq.from(Project.class);
-// Path<ProjectStatus> path = root.join("projectStatusses");
-//// Get latest status
-// sq.select(criteriaBuilder.max(path.<Long>get("id")));
-//// For each project
-// sq.where(criteriaBuilder.equal(from.<Long>get("id"), root.<Long>get("id")));
-// Predicate latestStatusCondition =
-// criteriaBuilder.and(criteriaBuilder.equal(join.get("id"), sq));
-//
-// criteriaQuery.orderBy(criteriaBuilder.asc(join.get("statusType")));
-// criteriaQuery.where(latestStatusCondition);
