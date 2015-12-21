@@ -60,4 +60,15 @@ public class UserController {
     public void deleteUser(HttpServletRequest request, User user) {
         userService.deleteUser(user);
     }
+
+    @RequestMapping("/api/user/current/info")
+    public User currentUser(HttpServletRequest request) {
+        return (User) request.getSession().getAttribute("user");
+    }
+
+    @RequestMapping("/api/user/change/phone")
+    public boolean changeUserPhone(HttpServletRequest request, Long userid, String phone) {
+        userService.changeUserPhone(userid, phone);
+        return true;
+    }
 }

@@ -3,6 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link th:href="@{/css/users.css}" rel="stylesheet" />
+<link th:href="@{/bootstrap-3.3.4-dist/css/bootstrap.min.css}" rel="stylesheet" />
 <title>加气站管理系统</title>
 </head>
 <body>
@@ -13,7 +14,7 @@
             <div class="table">
                 <div class="title block-title">
                     <span class="ng-cloak">员工总数:<strong>{{totalCount}}</strong></span>
-                    <span class="addUserBtn" ng-click="showAddUserPopup()">添加员工</span>
+                    <span class="addUserBtn btn" ng-click="showAddUserPopup()">添加员工</span>
                 </div>
                 <ul class="table-title">
                     <li class="col col1 underline" ng-click="changeSort('name')">姓名</li>
@@ -30,9 +31,8 @@
                     <li class="col col4">{{user.phone}}</li>
                     <li class="col col5">{{user.idcard}}</li>
                     <li class="col col6">
-                        <span class="underline" ng-click="editUser(user.id)">编辑</span>
-                        <span class="underline">禁用</span>
-                        <span class="underline" ng-click="deleteUser(user.id)">删除</span>
+                        <span class="glyphicon glyphicon-edit" ng-click="editUser(user.id)"></span>
+                        <span class="glyphicon glyphicon-remove" style="margin-left: 5px;" ng-click="deleteUser(user.id)"></span>
                     </li>
                 </ul>
             </div>
@@ -45,7 +45,7 @@
         <div class="table">
                 <div class="title block-title-backcolor">
                     <span style="font-size: 14pt;">添加员工</span>
-                    <span class="close right" ng-click="closeAddUserPopup()">X</span>
+                    <span class="close btn right" ng-click="closeAddUserPopup()">X</span>
                 </div>
                 <div class="item">
                     <span class="col col1">姓名:</span>
@@ -70,8 +70,8 @@
                     </select>
                 </div>
                 <div class="btngroup">
-                    <span class="btn btn-reset" ng-click="resetEmployee()">清除</span>
-                    <span class="btn btn-submit" ng-click="saveEmployee()">提交</span>
+                    <span class="btn btn-reset btn-primary" ng-click="resetEmployee()">清除</span>
+                    <span class="btn btn-submit btn-primary" ng-click="saveEmployee()">提交</span>
                 </div>
         </div>
     </div>

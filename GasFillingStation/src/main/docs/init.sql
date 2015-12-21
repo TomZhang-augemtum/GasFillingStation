@@ -64,7 +64,7 @@ CREATE TABLE `card` (
 
 LOCK TABLES `card` WRITE;
 /*!40000 ALTER TABLE `card` DISABLE KEYS */;
-INSERT INTO `card` VALUES ('1197cca4-d668-4e89-a657-9cfd1b255df3',3,0,NULL,NULL),('3e54400b-c3cb-407c-80c4-ab8184c2a2b6',3,0,NULL,NULL),('418e4d59-4b57-4f24-a46d-a57c212209d5',3,0,NULL,NULL),('535aa2c8-b77f-423c-baba-9e27863da4c2',1,85,1,NULL),('66bc381f-203e-47a5-9a4f-2e99daaedc6f',3,0,NULL,NULL),('6a975a92-5cfb-43a2-b7fa-e61beb27a14d',3,0,NULL,NULL),('b40d9b08-72c5-4cae-b0b6-8c68d556ab8f',3,0,NULL,NULL),('b92d931a-9dab-4171-bb8d-ede1f2738ac9',3,0,NULL,NULL),('ce500b48-99b9-4edf-b513-bc97be2840a4',3,0,NULL,NULL),('dc23a14f-4068-4410-8b3c-77b9871e9000',3,0,NULL,NULL);
+INSERT INTO `card` VALUES ('1197cca4-d668-4e89-a657-9cfd1b255df3',3,0,NULL,NULL),('3e54400b-c3cb-407c-80c4-ab8184c2a2b6',3,0,NULL,NULL),('418e4d59-4b57-4f24-a46d-a57c212209d5',3,0,NULL,NULL),('535aa2c8-b77f-423c-baba-9e27863da4c2',1,480,1,NULL),('66bc381f-203e-47a5-9a4f-2e99daaedc6f',3,0,NULL,NULL),('6a975a92-5cfb-43a2-b7fa-e61beb27a14d',3,0,NULL,NULL),('b40d9b08-72c5-4cae-b0b6-8c68d556ab8f',3,0,NULL,NULL),('b92d931a-9dab-4171-bb8d-ede1f2738ac9',3,0,NULL,NULL),('ce500b48-99b9-4edf-b513-bc97be2840a4',3,0,NULL,NULL),('dc23a14f-4068-4410-8b3c-77b9871e9000',3,0,NULL,NULL);
 /*!40000 ALTER TABLE `card` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -213,9 +213,9 @@ CREATE TABLE `costhistory` (
   `companyid` int(11) DEFAULT NULL,
   `total` double DEFAULT NULL,
   `balance` double DEFAULT NULL,
-  `time` date DEFAULT NULL,
+  `time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -224,7 +224,7 @@ CREATE TABLE `costhistory` (
 
 LOCK TABLES `costhistory` WRITE;
 /*!40000 ALTER TABLE `costhistory` DISABLE KEYS */;
-INSERT INTO `costhistory` VALUES (1,1,1,12,2,1,24,76,'2015-12-12'),(2,1,1,12,3,1,36,123619,'2015-12-12'),(3,1,1,1,15,1,15,85,'2015-12-17');
+INSERT INTO `costhistory` VALUES (1,1,1,2,15,1,30,240,'2015-12-21 17:37:38'),(2,1,1,2,30,1,60,480,'2015-12-21 17:38:03');
 /*!40000 ALTER TABLE `costhistory` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -276,7 +276,7 @@ CREATE TABLE `menu` (
 
 LOCK TABLES `menu` WRITE;
 /*!40000 ALTER TABLE `menu` DISABLE KEYS */;
-INSERT INTO `menu` VALUES (1,'员工管理','员工管理','/users'),(2,'子站管理','子站管理','/substation'),(3,'业务处理','业务处理','/business'),(4,'数据查询','数据查询','/data'),(5,'报表生成','报表生成','/report'),(6,'系统设置','系统设置','/setting');
+INSERT INTO `menu` VALUES (1,'员工管理','员工管理','/users'),(2,'子站管理','子站管理','/substation'),(3,'业务处理','业务处理','/business'),(4,'数据查询','数据查询','/data'),(5,'权限管理','权限管理','/permission'),(6,'系统设置','系统设置','/setting');
 /*!40000 ALTER TABLE `menu` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -293,9 +293,9 @@ CREATE TABLE `rechargehistory` (
   `operatorid` int(11) DEFAULT NULL,
   `money` double DEFAULT NULL,
   `balance` double DEFAULT NULL,
-  `time` date DEFAULT NULL,
+  `time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -304,7 +304,7 @@ CREATE TABLE `rechargehistory` (
 
 LOCK TABLES `rechargehistory` WRITE;
 /*!40000 ALTER TABLE `rechargehistory` DISABLE KEYS */;
-INSERT INTO `rechargehistory` VALUES (1,'535aa2c8-b77f-423c-baba-9e27863da4c2',1,1222222,0,NULL);
+INSERT INTO `rechargehistory` VALUES (1,'535aa2c8-b77f-423c-baba-9e27863da4c2',1,100,270,'2015-12-21 17:37:19'),(2,'535aa2c8-b77f-423c-baba-9e27863da4c2',1,300,540,'2015-12-21 17:37:51');
 /*!40000 ALTER TABLE `rechargehistory` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -379,7 +379,7 @@ CREATE TABLE `rolemenu` (
 
 LOCK TABLES `rolemenu` WRITE;
 /*!40000 ALTER TABLE `rolemenu` DISABLE KEYS */;
-INSERT INTO `rolemenu` VALUES (1,1),(1,2),(1,3),(1,4),(1,5),(1,6),(2,3),(2,4),(2,5);
+INSERT INTO `rolemenu` VALUES (1,1),(1,2),(1,3),(1,4),(1,5),(1,6),(2,3),(2,4);
 /*!40000 ALTER TABLE `rolemenu` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -450,4 +450,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-12-18 17:37:02
+-- Dump completed on 2015-12-21 19:50:54

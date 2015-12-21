@@ -3,31 +3,37 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link th:href="@{/css/wx/business.css}" rel="stylesheet" />
+<link th:href="@{/css/wx/info.css}" rel="stylesheet" />
+<link th:href="@{/bootstrap-3.3.4-dist/css/bootstrap.min.css}" rel="stylesheet" />
 <title>加气站管理系统</title>
 </head>
 <body ng-app="gas">
-<div class="business" ng-controller="wxbusiness">
+<div class="customer-info" ng-controller="info">
     <div>
-        <span>单价</span>
-        <input ng-model="price" type="text" />
+        <span class="col1">姓名</span>
+        <input class="form-control" ng-model="user.name" readonly="readonly" type="text" />
     </div>
     <div>
-        <span>加气量</span>
-        <input ng-model="totalNum" type="text" />
+        <span class="col1">身份证</span>
+        <input class="form-control" ng-model="user.idcard" readonly="readonly" type="text" />
     </div>
     <div>
-        <span>总价</span>
-        <input ng-model="totalPrice" readonly="readonly" type="text" />
+        <span class="col1">联系电话</span>
+        <input class="form-control" require="number(11)" ng-model="user.phone"  type="text" />
     </div>
     <div>
-        <span ng-click="submit()">扫码确认</span>
+        <span class="col1">车牌号</span>
+        <input class="form-control" value="{{user.car.number}}" readonly="readonly" type="text" />
+    </div>
+    <div>
+        <span class="submitbtn form-control btn btn-primary" ng-click="submit()">提交修改</span>
     </div>
 </div>
 <script type="text/javascript" src="/js/jquery.min.js"></script>
 <script type="text/javascript" src="/js/angular.min.js"></script>
 <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script type="text/javascript" src="/js/common.js"></script>
-<script type="text/javascript" src="/js/wx/business.js"></script>
+<script type="text/javascript" src="/js/validation.js"></script>
+<script type="text/javascript" src="/js/wx/info.js"></script>
 </body>
 </html>

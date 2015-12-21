@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.gas.model.Car;
 import com.gas.model.Card;
+import com.gas.model.CardBalanceHistory;
 import com.gas.model.CardType;
 import com.gas.model.CostHistory;
 import com.gas.model.RechargeHistory;
@@ -28,6 +30,7 @@ import com.gas.service.CarService;
 import com.gas.service.CardService;
 import com.gas.service.UserService;
 import com.gas.utils.HttpClientUtil;
+import com.gas.utils.QRcodeUtil;
 
 import me.chanjar.weixin.common.exception.WxErrorException;
 import me.chanjar.weixin.cp.bean.WxCpUser;
@@ -144,5 +147,27 @@ public class CardController {
         data.setCode("error");
         data.setMessage("ssss");
         return data;
+    }
+
+    @RequestMapping("/api/card/create/qrcode")
+    public void qrcode(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        User user = (User) request.getSession().getAttribute("user");
+        Card card = cardService.findone(user.getCardid());
+        String text = card.getId();
+        response.setHeader("Content-Type", "image/jped");
+        QRcodeUtil.encode(text, null, response, true);
+    }
+
+    @RequestMapping("/api/card/currentuser")
+    public Card currentCard(HttpServletRequest request) throws Exception {
+        User user = (User) request.getSession().getAttribute("user");
+        return cardService.findone(user.getCardid());
+    }
+
+    @RequestMapping("/api/card/history")
+    public Page<CardBalanceHistory> cardHistory(HttpServletRequest request, int page) throws Exception {
+        Pageable pageable = new PageRequest(page, 10);
+        User user = (User) request.getSession().getAttribute("user");
+        return cardService.getHistory(user, pageable);
     }
 }

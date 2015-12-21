@@ -4,6 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link th:href="@{/css/permission.css}" rel="stylesheet" />
 <link th:href="@{/bootstrap-3.3.4-dist/css/bootstrap.min.css}" rel="stylesheet" />
+<link th:href="@{/bootstrap-3.3.4-dist/css/bootstrap-theme.min.css}" rel="stylesheet" />
 <title>加气站管理系统</title>
 </head>
 <body>
@@ -19,7 +20,7 @@
                 </div>
                 <ul class="table-title">
                     <li class="col"></li>
-                    <li class="col" ng-repeat="menu in menus">{{menu.name}}</li>
+                    <li class="col repeat-done" ng-repeat="menu in menus">{{menu.name}}</li>
                 </ul>
                 <ul class="table-content ng-cloak" ng-repeat="role in roles">
                     <li class="col">{{role.name}}</li>
@@ -81,5 +82,6 @@
 <script type="text/javascript" src="/js/jquery.min.js"></script>
 <script type="text/javascript" src="/js/common.js"></script>
 <script type="text/javascript" src="/js/permission.js"></script>
+<script type="text/javascript" src="/js/bootstrap-checkbox.min.js"></script>
 </body>
 </html>

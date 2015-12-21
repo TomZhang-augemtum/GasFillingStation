@@ -53,6 +53,7 @@
     float: right;
     margin-right: 20px;
     cursor: pointer;
+    padding: 0;
 }
 .users .main .employee-list .col{
     display: inline-block;
@@ -104,10 +105,6 @@
     line-height: 40px;
     text-align: left;
     padding-left: 20px;
-}
-.users .addUser .table .title .close{
-    margin-right: 20px;
-    cursor: pointer;
 }
 .users .addUser .table .col{
     display: inline-block;

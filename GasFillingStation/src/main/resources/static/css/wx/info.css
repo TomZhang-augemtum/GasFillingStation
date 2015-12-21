@@ -1,0 +1,15 @@
+.customer-info {
+
+}
+.customer-info .col1{
+    line-height: 30px;
+    margin-top: 10px;
+    display: inline-block;
+    padding-left: 15px;
+}
+.customer-info .submitbtn{
+    margin-top: 20px;
+}
+.validation-error {
+    border-color: red !important;
+}

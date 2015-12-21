@@ -1,0 +1,60 @@
+.customer-card {
+}
+.customer-card .card-info{
+    margin-top: 20px;
+}
+.customer-card .col1{
+    line-height: 30px;
+    margin-top: 10px;
+    display: inline-block;
+    padding-left: 15px;
+}
+.customer-card .submitbtn{
+    margin-top: 20px;
+}
+.customer-card .small-qrcode{
+    width: 80px;
+}
+/* ------------ history ------------- */
+.customer-card .table .table-title{
+    margin-top: 20px
+}
+.customer-card .table ul{
+    padding: 0px;
+    margin: 0px;
+    margin-top: 10px
+}
+.customer-card .table li{
+    padding: 0px;
+    margin: 0px;
+    border: none;
+    list-style-type: none;
+    display: inline-block;
+    width: 24%;
+    text-align: center;
+    white-space: nowrap;
+}
+.customer-card .table .col4{
+    width: 40%;
+}
+.customer-card .table .table-item{
+    border-top: 1px solid #eee;
+}
+.customer-card .pagenation {
+    text-align: center;
+}
+.customer-card .closeBtn {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+.recharge {
+    color: green;
+}
+.cost {
+    color: red;
+}
+.validation-error {
+    border-color: red !important;
+}

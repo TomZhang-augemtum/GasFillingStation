@@ -85,4 +85,8 @@ app && app.controller('permission', function($scope, $http) {
       })
     })
   }
+  $scope.$on('ngRepeatFinished', function(ngRepeatFinishedEvent){
+    $(':checkbox').checkboxpicker();
+  }
+)
 })

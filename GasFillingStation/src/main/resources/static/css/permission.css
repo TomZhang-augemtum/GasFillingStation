@@ -39,6 +39,9 @@
 .permission .main .table{
     min-height: 750px;
 }
+.permission .main .table .table-content{
+    margin-top: 10px;
+}
 .permission .main .employee-list .title{
     padding-left: 10px;
     padding-top: 5px;

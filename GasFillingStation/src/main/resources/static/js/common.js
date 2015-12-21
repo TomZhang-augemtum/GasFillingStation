@@ -31,6 +31,16 @@ app || function(){
         }
       }
     }
-  });
+  }).directive('repeatDone', function($rootScope, $timeout){
+      return {
+        restrict: 'C',
+        link: function(scope, element, attrs){
+          scope.$last && 
+          $timeout(function(){
+            scope.$emit('ngRepeatFinished');
+          });
+        }
+      }
+    });
 
 }();

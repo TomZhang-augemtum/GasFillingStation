@@ -53,6 +53,7 @@
     float: right;
     margin-right: 20px;
     cursor: pointer;
+    padding: 0px;
 }
 .substation .main .employee-list .col{
     display: inline-block;
@@ -65,6 +66,7 @@
 }
 .substation .main .employee-list .col2{
     width: 10%;
+    cursor: pointer;
 }
 .substation .main .employee-list .col3{
     width: 15%;
@@ -74,6 +76,7 @@
 }
 .substation .main .employee-list .col5{
     width: 170px;
+    cursor: pointer;
 }
 .substation .main .employee-list .col6{
     width: 150px;
@@ -104,10 +107,6 @@
     line-height: 40px;
     text-align: left;
     padding-left: 20px;
-}
-.substation .addSubStation .table .title .close{
-    margin-right: 20px;
-    cursor: pointer;
 }
 .substation .addSubStation .table .col{
     display: inline-block;

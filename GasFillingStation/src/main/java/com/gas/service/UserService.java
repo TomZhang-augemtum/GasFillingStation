@@ -82,4 +82,11 @@ public class UserService {
         user.setRole(roleDao.findOne(roleid));
         userDao.save(user);
     }
+
+    public void changeUserPhone(Long userid, String phone) {
+        User user = userDao.findOne(userid);
+        user.setPhone(phone);
+        userDao.save(user);
+
+    }
 }

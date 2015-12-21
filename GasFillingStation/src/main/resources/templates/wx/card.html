@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link th:href="@{/css/wx/card.css}" rel="stylesheet" />
+<link th:href="@{/bootstrap-3.3.4-dist/css/bootstrap.min.css}" rel="stylesheet" />
+<title>加气站管理系统</title>
+</head>
+<body ng-app="gas">
+<div class="customer-card" ng-controller="card">
+    <div class="card-info" ng-show="currentTag == 'info'">
+        <div>
+            <span class="col1">会员卡</span>
+            <img src="/api/card/create/qrcode" class="small-qrcode" ng-click="toggleWidth($event)"/>
+        </div>
+        <div>
+            <span class="col1">状态</span>
+            <input class="form-control" readonly="readonly" ng-model="card.state.name"  type="text" />
+        </div>
+        <div>
+            <span class="col1">余额</span>
+            <input class="form-control" ng-model="card.balance" readonly="readonly" type="text" />
+        </div>
+        <div>
+            <span class="submitbtn form-control btn btn-primary" ng-click="catHistory()">查看历史记录</span>
+        </div>
+    </div>
+    <div class="card-info" ng-show="currentTag == 'history'">
+        <span class="btn close closeBtn" ng-click="showInfo()">X</span>
+        <div class="table">
+            <ul class="table-title">
+                <li class="col col1">金额</li>
+                <li class="col col2">余额</li>
+                <li class="col col4">时间</li>
+            </ul>
+            <ul class="table-item" ng-repeat="history in historys">
+                <li class="col col1 {{history.type}}">{{history.money}}</li>
+                <li class="col col2">{{history.balance}}</li>
+                <li class="col col4">{{history.time}}</li>
+            </ul>
+        </div>
+        <div class="pagenation">
+            <div class="btn btn-primary" ng-click="turnToPage(1)">首页</div>
+            <div class="btn btn-primary" ng-click="turnToPage(currentPage - 1)">上一页</div>
+            <div class="btn btn-primary" ng-click="turnToPage(currentPage + 1)">下一页</div>
+            <div class="btn btn-primary" ng-click="turnToPage(totalPages)">尾页</div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript" src="/js/angular.min.js"></script>
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript" src="/js/common.js"></script>
+<script type="text/javascript" src="/js/validation.js"></script>
+<script type="text/javascript" src="/js/wx/card.js"></script>
+</body>
+</html>

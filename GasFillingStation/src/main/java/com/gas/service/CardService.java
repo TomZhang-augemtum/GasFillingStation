@@ -1,10 +1,15 @@
 package com.gas.service;
 
+import java.math.BigInteger;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +18,7 @@ import com.gas.dao.CostHistoryDao;
 import com.gas.dao.RechargeHistoryDao;
 import com.gas.dao.UserDao;
 import com.gas.model.Card;
+import com.gas.model.CardBalanceHistory;
 import com.gas.model.CardState;
 import com.gas.model.CostHistory;
 import com.gas.model.RechargeHistory;
@@ -33,6 +39,8 @@ public class CardService {
     private CostHistoryDao costHistoryDao;
     @Autowired
     private RechargeHistoryDao rechargeHistoryDao;
+    @Autowired
+    private EntityManagerFactory entityManagerFactory;
 
     public List<Card> getList() {
         List<Card> cards = cardDao.findAll();
@@ -75,7 +83,7 @@ public class CardService {
 //        return cards.getContent();
     }
 
-    public Card findone(String id) {
+    public Card findoneByUserIDcard(String id) {
         User user = userDao.findByIdcard(id);
         Card card = cardDao.findOne(user.getCardid());
         card.setUser(user);
@@ -182,10 +190,40 @@ public class CardService {
         cardDao.save(card);
         rechargeHistory.setCardid(card.getId());
         rechargeHistory.setTime(new Date());
+        rechargeHistory.setBalance(balance);
         rechargeHistoryDao.save(rechargeHistory);
 
         reData.setCode("success");
         reData.setMessage("余额:" + (balance + money) + ",本次充值:" + money);
+        WxCpMessage message = WxCpMessage.TEXT()
+                .agentId(WechatConfig.getWechatConfig().getWxCpInMemoryConfigStorage().getAgentId()) // 企业号应用ID
+                .toUser(user.getNumber()).content("余额:" + (balance + money) + ",本次充值:" + money).build();
+        try {
+            WechatConfig.getWechatConfig().getWxCpService().messageSend(message);
+        } catch (WxErrorException e) {
+            e.printStackTrace();
+        }
         return reData;
+    }
+
+    public Card findone(String cardid) {
+        return cardDao.findOne(cardid);
+    }
+
+    // public Page<CardBalanceHistory> getHistory(User user, SalePageableAndSort
+    // pageAndSort) {
+    public Page<CardBalanceHistory> getHistory(User user, Pageable pageable) {
+        EntityManager em = entityManagerFactory.createEntityManager();
+        String sql = "select * from ((select 'recharge' as type,time,balance,money from rechargehistory where cardid='"
+                + user.getCardid()
+                + "') union (select 'cost' as type,time, balance, total as money from costhistory where userid = '"
+                + user.getId() + "')) result order by time desc limit " + pageable.getOffset() + ",10";
+        List<CardBalanceHistory> result = em.createNativeQuery(sql, CardBalanceHistory.class).getResultList();
+        String sql2 = "select count(1) from ((select 'recharge' as type,time,balance,money from rechargehistory where cardid='"
+                + user.getCardid()
+                + "') union (select 'cost' as type,time, balance, total as money from costhistory where userid = '"
+                + user.getId() + "')) result";
+        BigInteger total = (BigInteger) em.createNativeQuery(sql2).getResultList().get(0);
+        return new PageImpl<CardBalanceHistory>(result, pageable, total.intValue());
     }
 }

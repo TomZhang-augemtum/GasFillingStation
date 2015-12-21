@@ -17,7 +17,6 @@ public class RechargeHistory {
     private double money;
     private double balance;
     private Date time;
-
     public Long getId() {
         return id;
     }

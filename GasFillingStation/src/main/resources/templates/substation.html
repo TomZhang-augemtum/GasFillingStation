@@ -3,6 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link th:href="@{/css/substation.css}" rel="stylesheet" />
+<link th:href="@{/bootstrap-3.3.4-dist/css/bootstrap.min.css}" rel="stylesheet" />
 <title>加气站管理系统</title>
 </head>
 <body>
@@ -13,7 +14,7 @@
             <div class="table">
                 <div class="title block-title">
                     <span class="ng-cloak">站点总数:<strong>{{totalCount}}</strong></span>
-                    <span class="addUserBtn" ng-click="addSubStationPopup()">添加子站</span>
+                    <span class="addUserBtn btn" ng-click="addSubStationPopup()">添加子站</span>
                 </div>
                 <ul class="table-title">
                     <li class="col col1 underline" ng-click="changeSort('name')">公司名</li>
@@ -30,8 +31,8 @@
                     <li class="col col4">{{company.phone}}</li>
                     <li class="col col5">{{company.freeGasNumber}}</li>
                     <li class="col col6">
-                        <span class="underline" ng-click="editCompany(company.id)">编辑</span>
-                        <span class="underline" ng-click="deleteCompany(company.id)">删除</span>
+                        <span class="glyphicon glyphicon-edit" ng-click="editCompany(company.id)"></span>
+                        <span class="glyphicon glyphicon-remove" style="margin-left: 5px;"  ng-click="deleteCompany(company.id)"></span>
                     </li>
                 </ul>
             </div>
@@ -43,7 +44,7 @@
         <div class="table">
                 <div class="title block-title-backcolor">
                     <span style="font-size: 14pt;">添加子站</span>
-                    <span class="close right" ng-click="closeaddSubStationPopup()">X</span>
+                    <span class="close right btn" ng-click="closeaddSubStationPopup()">X</span>
                 </div>
                 <div class="item">
                     <span class="col col1">子站名:</span>
@@ -62,8 +63,8 @@
                     <input type="text" class="col col2" ng-model="addSubStation.freeGasNumber" />
                 </div>
                 <div class="btngroup">
-                    <span class="btn btn-reset" ng-click="reset()">清除</span>
-                    <span class="btn btn-submit" ng-click="submit()">提交</span>
+                    <span class="btn btn-reset btn-primary" ng-click="reset()">清除</span>
+                    <span class="btn btn-submit btn-primary" ng-click="submit()">提交</span>
                 </div>
         </div>
     </div>

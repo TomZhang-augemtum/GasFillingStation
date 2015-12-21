@@ -22,4 +22,9 @@ public class DateUtil {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         return sdf.format(date);
     }
+
+    public static String parseToLocal(Date date, String format) {
+        SimpleDateFormat sdf = new SimpleDateFormat(format);
+        return sdf.format(date);
+    }
 }
