@@ -118,7 +118,7 @@ public class CardController {
 
     @RequestMapping("/api/card/one/idcard")
     public Card findone(HttpServletRequest request, String id) {
-        return cardService.findone(id);
+        return cardService.findoneByIdCard(id);
     }
 
     @RequestMapping("/api/card/cost")

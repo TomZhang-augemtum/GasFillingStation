@@ -19555,3 +19555,39 @@ java.lang.ClassCastException: java.math.BigInteger cannot be cast to java.lang.L
 2015-12-21 18:44:02.006  WARN 11196 --- [main] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.gas.model.RoleMenuID
 2015-12-21 18:44:04.916  INFO 11196 --- [main] com.gas.GasFillingStationApplication     : Started GasFillingStationApplication in 9.086 seconds (JVM running for 9.759)
 2015-12-21 18:44:10.765  INFO 11196 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2015-12-22 08:35:09.378  INFO 1252 --- [main] com.gas.GasFillingStationApplication     : Starting GasFillingStationApplication on YT00522-206 with PID 1252 (D:\GasFillingStation\GasFillingStation\target\classes started by Tom.Zhang in D:\GasFillingStation\GasFillingStation)
+2015-12-22 08:35:09.398  INFO 1252 --- [main] com.gas.GasFillingStationApplication     : No profiles are active
+2015-12-22 08:35:19.109  INFO 1252 --- [main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2015-12-22 08:35:19.109  INFO 1252 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.0.28
+2015-12-22 08:35:19.400  INFO 1252 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2015-12-22 08:35:23.616  WARN 1252 --- [main] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.gas.model.RoleMenuID
+2015-12-22 08:35:23.626  WARN 1252 --- [main] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.gas.model.RoleMenuID
+2015-12-22 08:35:28.610  INFO 1252 --- [main] com.gas.GasFillingStationApplication     : Started GasFillingStationApplication in 20.28 seconds (JVM running for 22.361)
+2015-12-22 08:36:03.206  INFO 1252 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2015-12-22 11:37:11.109  INFO 7860 --- [main] com.gas.GasFillingStationApplication     : Starting GasFillingStationApplication on YT00522-206 with PID 7860 (D:\GasFillingStation\GasFillingStation\target\classes started by Tom.Zhang in D:\GasFillingStation\GasFillingStation)
+2015-12-22 11:37:11.135  INFO 7860 --- [main] com.gas.GasFillingStationApplication     : No profiles are active
+2015-12-22 11:37:29.699  INFO 7860 --- [main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2015-12-22 11:37:29.701  INFO 7860 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.0.28
+2015-12-22 11:37:30.679  INFO 7860 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2015-12-22 11:37:40.535  WARN 7860 --- [main] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.gas.model.RoleMenuID
+2015-12-22 11:37:40.537  WARN 7860 --- [main] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.gas.model.RoleMenuID
+2015-12-22 11:37:46.196  INFO 7860 --- [main] com.gas.GasFillingStationApplication     : Started GasFillingStationApplication in 36.243 seconds (JVM running for 41.784)
+2015-12-22 11:37:48.115  INFO 7860 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2015-12-22 11:37:48.261  WARN 7860 --- [http-nio-80-exec-1] o.s.web.servlet.PageNotFound             : Request method 'GET' not supported
+2015-12-22 17:15:39.937  INFO 4908 --- [main] com.gas.GasFillingStationApplication     : Starting GasFillingStationApplication on YT00522-206 with PID 4908 (D:\GasFillingStation\GasFillingStation\target\classes started by Tom.Zhang in D:\GasFillingStation\GasFillingStation)
+2015-12-22 17:15:39.957  INFO 4908 --- [main] com.gas.GasFillingStationApplication     : No profiles are active
+2015-12-22 17:15:45.100  INFO 4908 --- [main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2015-12-22 17:15:45.100  INFO 4908 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.0.28
+2015-12-22 17:15:45.320  INFO 4908 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2015-12-22 17:15:49.312  WARN 4908 --- [main] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.gas.model.RoleMenuID
+2015-12-22 17:15:49.312  WARN 4908 --- [main] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.gas.model.RoleMenuID
+2015-12-22 17:15:53.830  INFO 4908 --- [main] com.gas.GasFillingStationApplication     : Started GasFillingStationApplication in 14.59 seconds (JVM running for 15.778)
+2015-12-22 17:19:14.448  INFO 4908 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2015-12-22 18:03:51.450  INFO 5576 --- [main] com.gas.GasFillingStationApplication     : Starting GasFillingStationApplication on YT00522-206 with PID 5576 (D:\GasFillingStation\GasFillingStation\target\classes started by Tom.Zhang in D:\GasFillingStation\GasFillingStation)
+2015-12-22 18:03:51.450  INFO 5576 --- [main] com.gas.GasFillingStationApplication     : No profiles are active
+2015-12-22 18:03:55.123  INFO 5576 --- [main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2015-12-22 18:03:55.123  INFO 5576 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.0.28
+2015-12-22 18:03:55.324  INFO 5576 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2015-12-22 18:03:57.947  WARN 5576 --- [main] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.gas.model.RoleMenuID
+2015-12-22 18:03:57.947  WARN 5576 --- [main] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.gas.model.RoleMenuID
+2015-12-22 18:04:01.695  INFO 5576 --- [main] com.gas.GasFillingStationApplication     : Started GasFillingStationApplication in 10.566 seconds (JVM running for 11.245)

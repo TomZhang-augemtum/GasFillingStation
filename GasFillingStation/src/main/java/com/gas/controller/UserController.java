@@ -46,8 +46,6 @@ public class UserController {
         Role role = new Role();
         role.setId(2L);
         user.setRole(role);
-        System.out.println(user.getId());
-        System.out.println(user.getName());
         userService.saveUser(user);
     }
 

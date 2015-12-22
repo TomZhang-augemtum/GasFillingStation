@@ -56,6 +56,16 @@
 .business .main .business-block {
     min-height: 770px;
     box-sizing: border-box;
+    text-align: center;
+}
+.business .main .business-block .cost-table{
+    width: 200px;
+    display: inline-block;
+    margin-top: 10%;
+}
+.business .main .business-block .cost-table input{
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 /* -------------- card list css ------------------ */
@@ -64,6 +74,10 @@
 }
 .business .main .cardlist .table {
     min-height: 720px;
+}
+.business .main .cardlist .table-item {
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 .business .main .cardlist .table li{
     display: inline-block;

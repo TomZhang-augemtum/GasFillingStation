@@ -226,4 +226,9 @@ public class CardService {
         BigInteger total = (BigInteger) em.createNativeQuery(sql2).getResultList().get(0);
         return new PageImpl<CardBalanceHistory>(result, pageable, total.intValue());
     }
+
+    public Card findoneByIdCard(String id) {
+        User user = userDao.findByIdcard(id);
+        return cardDao.findOne(user.getCardid());
+    }
 }

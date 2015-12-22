@@ -62,6 +62,7 @@ public class UserService {
     }
 
     public User saveUser(User user) {
+        user.setPassword(user.getIdcard().substring(user.getIdcard().length() - 6, user.getIdcard().length()));
         return userDao.save(user);
     }
 
