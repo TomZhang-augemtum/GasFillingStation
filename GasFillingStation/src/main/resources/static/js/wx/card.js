@@ -1,6 +1,6 @@
 app && app.controller('card', function($scope, $http) {
   $scope.currentPage = 1;
-  $.get('/api/card/currentuser').success(function(data){
+  $.get('/wx/card/currentcustomer').success(function(data){
     $scope.$apply(function(){
       $scope.card = data;
       console.log($scope.card);
@@ -18,7 +18,7 @@ app && app.controller('card', function($scope, $http) {
     $scope.currentTag = 'info';
   }
   _loadHistory = function() {
-    $.get('/api/card/history?page='+($scope.currentPage-1)).success(function(data){
+    $.get('/wx/card/customer/history?page='+($scope.currentPage-1)).success(function(data){
       $scope.$apply(function(){
         $scope.historys = data.content;
         $scope.totalPages = data.totalPages;

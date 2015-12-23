@@ -90,14 +90,9 @@
 }
 
 /* -------------- jihuo css ------------------ */
-.business .main .jihuo li{
-    display: inline-block;
-    width: 10%;
-    text-align:center;
-}
-.business .main .jihuo .col1{
-    width: 20%;	
-    vertical-align: middle;
+.business .main .qrcode img{
+    width: 30%;
+    
 }
 /* -------------- guashi css ------------------ */
 .business .main .guashi li{

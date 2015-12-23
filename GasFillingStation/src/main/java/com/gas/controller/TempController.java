@@ -38,6 +38,11 @@ public class TempController {
         return "permission";
     }
 
+    @RequestMapping("/nopermission")
+    public String noperomission(HttpServletRequest request, Model model) {
+        return "nopermission";
+    }
+
     @RequestMapping("/setting")
     public String setting(HttpServletRequest request, Model model) {
         return "setting";

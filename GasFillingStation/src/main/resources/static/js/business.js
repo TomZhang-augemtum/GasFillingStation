@@ -9,7 +9,7 @@ app && app.controller('business', function($scope, $http) {
   
   $scope.changeBusiness = function(tag) {
     $scope.currentBusiness = tag;
-    $scope[tag].init && $scope[tag].init();
+    $scope[tag] && $scope[tag].init && $scope[tag].init();
   }
   
   $scope.faka.init = function() {
@@ -40,12 +40,15 @@ app && app.controller('business', function($scope, $http) {
       alert('身份证号不存在');
     })
   }
-  $scope.guashi.unbanCard = function() {
-    $.get("/api/card/ban?id=" + $scope.guashi.card.id).success(function(data){
+  $scope.guashi.banCard = function(id) {
+    $.get("/api/card/ban?id=" + id).success(function(data){
       $scope.$apply(function(){
         $scope.guashi.findCard();
       });
     })
+  }
+  $scope.guashi.changeCardState = function(id) {
+      $scope.guashi.card.state.name == '挂失' ? $scope.jihuo.unbanCard(id):$scope.guashi.banCard(id);
   }
   
   $scope.jihuo.findCard = function() {
@@ -55,10 +58,10 @@ app && app.controller('business', function($scope, $http) {
       console.log("error");
     })
   }
-  $scope.jihuo.unbanCard = function() {
-    $.get("/api/card/unban?id=" + $scope.jihuo.card.id).success(function(data){
+  $scope.jihuo.unbanCard = function(id) {
+    $.get("/api/card/unban?id=" + id).success(function(data){
       $scope.$apply(function(){
-        $scope.jihuo.findCard();
+        $scope.guashi.findCard();
       });
     })
   }

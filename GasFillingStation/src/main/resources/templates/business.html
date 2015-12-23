@@ -16,9 +16,10 @@
         <div class="left-nav-item " ng-class="{leftActive:currentBusiness=='cost'}" ng-click="changeBusiness('cost')">消费</div>
         <div class="left-nav-item" ng-class="{leftActive:currentBusiness=='recharge'}" ng-click="changeBusiness('recharge')">充值</div>
         <div class="left-nav-item" ng-class="{leftActive:currentBusiness=='faka'}" ng-click="changeBusiness('faka')">发卡</div>
-        <div class="left-nav-item" ng-class="{leftActive:currentBusiness=='guashi'}" ng-click="changeBusiness('guashi')">挂失</div>
-        <div class="left-nav-item" ng-class="{leftActive:currentBusiness=='jihuo'}" ng-click="changeBusiness('jihuo')">激活</div>
+        <div class="left-nav-item" ng-class="{leftActive:currentBusiness=='guashi'}" ng-click="changeBusiness('guashi')">管理卡</div>
+        <!-- <div class="left-nav-item" ng-class="{leftActive:currentBusiness=='jihuo'}" ng-click="changeBusiness('jihuo')">激活</div> -->
         <div class="left-nav-item" ng-class="{leftActive:currentBusiness=='cardlist'}" ng-click="changeBusiness('cardlist')">卡列表</div>
+        <div class="left-nav-item" ng-class="{leftActive:currentBusiness=='qrcode'}" ng-click="changeBusiness('qrcode')">公司名片</div>
     </div>
     <div class="main">
         <div class="business-block cost border" ng-show="currentBusiness=='cost'">
@@ -106,7 +107,7 @@
         </div>
         <div class="business-block guashi border" ng-show="currentBusiness=='guashi'">
             <div class="title block-title">
-                <span>挂失</span>
+                <span>管理卡</span>
             </div>
             <div class="control-group form-horizontal">
                 <span>身份证号:</span>
@@ -140,38 +141,15 @@
                         <span class="col2">{{guashi.card.state.name}}</span>
                     </li>
                 </ul>
-                <span class="btn" ng-click="guashi.unbanCard()">挂失</span>
+                <span class="btn" ng-click="guashi.changeCardState(guashi.card.id)">{{guashi.card.state.name=='挂失'?'激活':'挂失'}}</span>
             </div>
         </div>
-        <div class="business-block jihuo border" ng-show="currentBusiness=='jihuo'">
+        <div class="business-block qrcode border" ng-show="currentBusiness=='qrcode'">
             <div class="title block-title">
-                <span>激活</span>
+                <span>公司二维码</span>
             </div>
             <div>
-                <span>身份证号:</span>
-                <input ng-model="jihuo.idcard" type="text" />
-                <span ng-click="jihuo.findCard()">提交</span>
-            </div>
-            <div class="search-result" ng-show="jihuo.card">
-                <ul>
-                    <li class="col1">卡号</li>
-                    <li class="col2">用户名</li>
-                    <li class="col3">手机号</li>
-                    <li class="col4">车牌号</li>
-                    <li class="col5">余额</li>
-                    <li class="col6">卡类型</li>
-                    <li class="col7">卡状态</li>
-                </ul>
-                <ul class="">
-                    <li class="col1">{{jihuo.card.id}}</li>
-                    <li class="col2">{{jihuo.card.user.name}}</li>
-                    <li class="col3">{{jihuo.card.user.number}}</li>
-                    <li class="col4">{{jihuo.card.user.car.carNumber}}</li>
-                    <li class="col5">{{jihuo.card.balance}}</li>
-                    <li class="col6">{{jihuo.card.type.name}}</li>
-                    <li class="col7">{{jihuo.card.state.name}}</li>
-                </ul>
-                <span class="btn" ng-click="jihuo.unbanCard()">激活</span>
+                <img src="/img/qrcode.jpg" />
             </div>
         </div>
         <div class="business-block cardlist border" ng-show="currentBusiness=='cardlist'">

@@ -28,6 +28,6 @@ public class GasFillingStationApplication extends WebMvcConfigurerAdapter
 
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new WXAOP()).addPathPatterns("/wx/**");
-        registry.addInterceptor(new LoginAOP()).excludePathPatterns("/api/**");
+        registry.addInterceptor(new LoginAOP()).addPathPatterns("/api/**");
     }
 }

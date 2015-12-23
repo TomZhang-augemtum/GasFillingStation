@@ -64,8 +64,19 @@ public class UserController {
         return (User) request.getSession().getAttribute("user");
     }
 
+    @RequestMapping("/wx/customer/current/info")
+    public User wxcurrentUser(HttpServletRequest request) {
+        return (User) request.getSession().getAttribute("user");
+    }
+
     @RequestMapping("/api/user/change/phone")
     public boolean changeUserPhone(HttpServletRequest request, Long userid, String phone) {
+        userService.changeUserPhone(userid, phone);
+        return true;
+    }
+
+    @RequestMapping("/wx/customer/change/phone")
+    public boolean wxchangeUserPhone(HttpServletRequest request, Long userid, String phone) {
         userService.changeUserPhone(userid, phone);
         return true;
     }

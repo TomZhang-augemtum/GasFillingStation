@@ -155,7 +155,7 @@ public class CardController {
         return data;
     }
 
-    @RequestMapping("/api/card/create/qrcode")
+    @RequestMapping("/wx/card/customer/create/qrcode")
     public void qrcode(HttpServletRequest request, HttpServletResponse response) throws Exception {
         User user = (User) request.getSession().getAttribute("user");
         Card card = cardService.findone(user.getCardid());
@@ -164,13 +164,13 @@ public class CardController {
         QRcodeUtil.encode(text, null, response, true);
     }
 
-    @RequestMapping("/api/card/currentuser")
+    @RequestMapping("/wx/card/currentcustomer")
     public Card currentCard(HttpServletRequest request) throws Exception {
         User user = (User) request.getSession().getAttribute("user");
         return cardService.findone(user.getCardid());
     }
 
-    @RequestMapping("/api/card/history")
+    @RequestMapping("/wx/card/customer/history")
     public Page<CardBalanceHistory> cardHistory(HttpServletRequest request, int page) throws Exception {
         Pageable pageable = new PageRequest(page, 10);
         User user = (User) request.getSession().getAttribute("user");
