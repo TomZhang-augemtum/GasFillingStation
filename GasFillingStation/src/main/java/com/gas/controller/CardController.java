@@ -1,6 +1,7 @@
 package com.gas.controller;
 
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.gas.model.Car;
 import com.gas.model.Card;
 import com.gas.model.CardBalanceHistory;
+import com.gas.model.CardState;
 import com.gas.model.CardType;
 import com.gas.model.CostHistory;
 import com.gas.model.RechargeHistory;
@@ -60,11 +62,15 @@ public class CardController {
         CardType type = new CardType();
         type.setId(3L);
 
+        CardState state = new CardState();
+        state.setId(1L);
+
         UUID uuid = UUID.randomUUID();
         Card card = new Card();
         card.setBalance(0);
         card.setId(uuid.toString());
         card.setType(type);
+        card.setState(state);
         Card recard = cardService.save(card);
 
         carService.save(car);
@@ -117,7 +123,7 @@ public class CardController {
     }
 
     @RequestMapping("/api/card/one/idcard")
-    public Card findone(HttpServletRequest request, String id) {
+    public Map<String, Object> findone(HttpServletRequest request, String id) {
         return cardService.findoneByIdCard(id);
     }
 

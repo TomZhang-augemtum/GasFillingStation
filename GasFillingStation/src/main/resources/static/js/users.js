@@ -44,7 +44,7 @@ app && app.controller('users', function($scope, $http) {
       "name": $scope.adduser.name,
       "number": $scope.adduser.number,
       "phone": $scope.adduser.phone,
-      "cardid": $scope.adduser.cardid,
+      "idcard": $scope.adduser.idcard,
       "company.id": $scope.adduser.company.id
     }).success(function(data){
       $scope.showAddUser = false;

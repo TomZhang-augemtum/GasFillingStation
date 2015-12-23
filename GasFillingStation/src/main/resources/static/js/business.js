@@ -33,9 +33,11 @@ app && app.controller('business', function($scope, $http) {
   
   $scope.guashi.findCard = function() {
     $http.get("/api/card/one/idcard?id=" + $scope.guashi.idcard).success(function(data){
-      $scope.guashi.card = data;
+      $scope.guashi.card = data.card;
+      $scope.guashi.user = data.user;
+      console.log(data);
     }).error(function(){
-      console.log("error");
+      alert('身份证号不存在');
     })
   }
   $scope.guashi.unbanCard = function() {

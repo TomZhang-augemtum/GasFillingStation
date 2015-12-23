@@ -2,7 +2,9 @@ package com.gas.service;
 
 import java.math.BigInteger;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -227,8 +229,12 @@ public class CardService {
         return new PageImpl<CardBalanceHistory>(result, pageable, total.intValue());
     }
 
-    public Card findoneByIdCard(String id) {
+    public Map<String, Object> findoneByIdCard(String id) {
         User user = userDao.findByIdcard(id);
-        return cardDao.findOne(user.getCardid());
+        Map<String, Object> result = new HashMap<>();
+        result.put("user", user);
+        result.put("card", cardDao.findOne(user.getCardid()));
+
+        return result;
     }
 }

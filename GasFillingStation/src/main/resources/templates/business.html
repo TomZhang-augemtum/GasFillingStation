@@ -86,7 +86,7 @@
                 </div>
                 <div>
                     <span>身份证号:</span>
-                    <input class="form-control"  type="text" ng-model="faka.user.cardid"/>
+                    <input class="form-control"  type="text" ng-model="faka.user.idcard"/>
                 </div>
                 <div>
                     <span>车牌号:</span>
@@ -108,29 +108,37 @@
             <div class="title block-title">
                 <span>挂失</span>
             </div>
-            <div class="cost-table control-group">
+            <div class="control-group form-horizontal">
                 <span>身份证号:</span>
-                <input class="form-control form-horizontal" ng-model="guashi.idcard" type="text" />
-                <span class="btn btn-primary" style="float:right;" ng-click="guashi.findCard()">提交</span>
+                <input class="" ng-model="guashi.idcard" type="text" />
+                <span class="btn btn-primary" ng-click="guashi.findCard()">查询</span>
             </div>
             <div class="search-result" ng-show="guashi.card">
                 <ul>
-                    <li class="col1">卡号</li>
-                    <li class="col2">用户名</li>
-                    <li class="col3">手机号</li>
-                    <li class="col4">车牌号</li>
-                    <li class="col5">余额</li>
-                    <li class="col6">卡类型</li>
-                    <li class="col7">卡状态</li>
-                </ul>
-                <ul>
-                    <li class="col1">{{guashi.card.id}}</li>
-                    <li class="col2">{{guashi.card.user.name}}</li>
-                    <li class="col3">{{guashi.card.user.number}}</li>
-                    <li class="col4">{{guashi.card.user.car.carNumber}}</li>
-                    <li class="col5">{{guashi.card.balance}}</li>
-                    <li class="col6">{{guashi.card.type.name}}</li>
-                    <li class="col7">{{guashi.card.state.name}}</li>
+                    <li>
+                        <span class="col1">用户名</span>
+                        <span class="col2">{{guashi.user.name}}</span>
+                    </li>
+                    <li>
+                        <span class="col1">手机号</span>
+                        <span class="col2">{{guashi.user.number}}</span>
+                    </li>
+                    <li>
+                        <span class="col1">车牌号</span>
+                        <span class="col2">{{guashi.user.car.carNumber}}</span>
+                    </li>
+                    <li>
+                        <span class="col1">余额</span>
+                        <span class="col2">{{guashi.card.balance}}</span>
+                    </li>
+                    <li>
+                        <span class="col1">卡类型</span>
+                        <span class="col2">{{guashi.card.type.name}}</span>
+                    </li>
+                    <li>
+                        <span class="col1">卡状态</span>
+                        <span class="col2">{{guashi.card.state.name}}</span>
+                    </li>
                 </ul>
                 <span class="btn" ng-click="guashi.unbanCard()">挂失</span>
             </div>
