@@ -2,22 +2,6 @@
 .permission {
     padding: 10px;
 }
-.permission .page-title {
-    background-color: #bfbfbf;
-    padding: 5px;
-    margin-bottom: 15px;
-}
-.permission .page-title img{
-    width: 20px;
-    vertical-align: middle;
-    cursor: pointer;
-}
-.permission .page-title span{
-    vertical-align: middle;
-    margin-left: 5px;
-    cursor: pointer;
-    color: black;
-}
 
 .permission .topborder {
     border-top: 1px solid #bfbfbf;
@@ -36,33 +20,8 @@
 .permission .main .employee-list{
     min-height: 750px;
 }
-.permission .main .table{
+.permission .main .content{
     min-height: 750px;
-}
-.permission .main .table .table-content{
-    margin-top: 10px;
-}
-.permission .main .employee-list .title{
-    padding-left: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
-.permission .main .employee-list .addUserBtn{
-    width: 100px;
-    border: 1px solid;
-    display: inline-block;
-    text-align: center;
-    background-color: white;
-    float: right;
-    margin-right: 20px;
-    cursor: pointer;
-    padding:0;
-}
-.permission .main .employee-list .col{
-    display: inline-block;
-    text-align: center;
-    line-height: 30px;
-    width: 13%;
 }
 .permission .operate{
     display: inline-block;
@@ -72,6 +31,7 @@
 /* -------------- 用户名 css ------------------ */
 .permission .user-role{
     min-height: 750px;
+    position: relative;
 }
 .permission .user-role .titleBtn{
     width: 100px;
@@ -84,18 +44,8 @@
     cursor: pointer;
     padding: 0;
 }
-.permission .user-role .table{
+.permission .user-role .content{
     min-height: 750px;
-}
-
-.permission .user-role .table .col{
-    display: inline-block;
-    text-align: center;
-    line-height: 30px;
-    width: 20%;
-}
-.permission .user-role .table .col1 a{
-    cursor: pointer;
 }
 /* --------------add user css ------------------ */
 .permission .addUser .addUserMask{
@@ -107,55 +57,50 @@
     background-color: black;
     opacity: 0.5;
 }
-.permission .addUser .table{
+.permission .addUser .content{
     display: inline-block;
     background-color: white;
     width: 400px;
     position: absolute;
     top: 30%;
-    left: 30%;
+    left: 35%;
     height: auto !important;
     min-height: 0;
 }
-.permission .addUser .table .title{
-    line-height: 40px;
-    text-align: left;
-    padding-left: 20px;
+
+.permission .addUser .content .panel-heading{
+    margin-bottom: 10px;
 }
-.permission .addUser .table .title .close{
-    margin-right: 20px;
-    cursor: pointer;
-    margin-top: 10px;
-}
-.permission .addUser .table .col{
+
+.permission .addUser .content .col{
     display: inline-block;
     height: 30px;
     margin-top: 10px;
 }
-.permission .addUser .table .col1{
+.permission .addUser .content .col1{
     width: 130px;
     text-align: right;
 }
-.permission .addUser .table .col2{
+.permission .addUser .content .col2{
     width: 200px;
     box-sizing: border-box;
 }
-.permission .addUser .table .btngroup{
+.permission .addUser .content .btngroup{
     margin-top: 30px;
     margin-bottom: 20px;
 }
-.permission .addUser .table .btngroup .btn{
+.permission .addUser .content .btngroup .btn{
     border: 1px solid;
     line-height: 30px;
     display: inline-block;
     width: 120px;
     text-align: center;
 }
-.permission .addUser .table .btngroup .btn-reset{
+.permission .addUser .content .btngroup .btn-reset{
     margin-left: 50px;
     cursor: pointer;
 }
-.permission .addUser .table .btngroup .btn-submit{
+.permission .addUser .content .btngroup .btn-submit{
     float: right;
     margin-right: 50px;
     cursor: pointer;

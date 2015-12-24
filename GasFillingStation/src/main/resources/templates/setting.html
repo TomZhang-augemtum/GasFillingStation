@@ -3,18 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link th:href="@{/css/setting.css}" rel="stylesheet" />
-<link th:href="@{/bootstrap-3.3.4-dist/css/bootstrap.min.css}" rel="stylesheet" />
 <title>加气站管理系统</title>
 </head>
 <body>
 <div th:include="header" style="width:100%;"></div>
 <div class="setting" ng-controller="setting">
     <div class="main">
-        <div class="employee-list border">
+        <div class="employee-list panel panel-primary">
+            <div class="panel-heading">
+                <span class="ng-cloak">系统设置</span>
+            </div>
             <div class="table">
-                <div class="title block-title">
-                    <span class="ng-cloak">系统设置</span>
-                </div>
                 <ul>
                     <li class="col col1">企业号id</li>
                     <li class="col col2"><input type="text" ng-model="setting.corpid" /></li>

@@ -9,8 +9,8 @@
 <body>
 <div th:include="header" style="width:100%;"></div>
 <div class="business" ng-controller="business">
-    <div class="left-nav border left">
-        <div class="title block-title">
+    <div class="left-nav panel panel-primary left">
+        <div class="panel-heading">
             <span>业务类型</span>
         </div>
         <div class="left-nav-item " ng-class="{leftActive:currentBusiness=='cost'}" ng-click="changeBusiness('cost')">消费</div>
@@ -22,22 +22,22 @@
         <div class="left-nav-item" ng-class="{leftActive:currentBusiness=='qrcode'}" ng-click="changeBusiness('qrcode')">公司名片</div>
     </div>
     <div class="main">
-        <div class="business-block cost border" ng-show="currentBusiness=='cost'">
-            <div class="title block-title">
+        <div class="business-block cost panel panel-primary" ng-show="currentBusiness=='cost'">
+            <div class="panel-heading">
                 <span>消费</span>
             </div>
-            <div class="cost-table">
+            <div class="cost-table" id="cost">
                 <div>
                     <span class="">用户手机号:</span>
-                    <input class="form-control" ng-model="cost.phoneNumber" type="text" />
+                    <input class="form-control" require="number(11)" ng-model="cost.phoneNumber" type="text" />
                 </div>
                 <div>
                     <span class="">加气量:</span>
-                    <input class="form-control" ng-model="cost.gasAmount" type="text" />
+                    <input class="form-control" require="number" ng-model="cost.gasAmount" type="text" />
                 </div>
                 <div>
                     <span class="">单价:</span>
-                    <input class="form-control" ng-model="cost.price" type="text" />
+                    <input class="form-control" require="number" ng-model="cost.price" type="text" />
                 </div>
                 <div>
                     <span class="">总价:</span>
@@ -49,22 +49,22 @@
                 </div>
             </div>
         </div>
-        <div class="business-block recharge border" ng-show="currentBusiness=='recharge'">
-            <div class="title block-title">
+        <div class="business-block recharge panel panel-primary" ng-show="currentBusiness=='recharge'">
+            <div class="panel-heading">
                 <span>充值</span>
             </div>
-            <div class="cost-table">
+            <div class="cost-table" id="recharge">
                 <div>
                     <span>用户手机号:</span>
-                    <input class="form-control" ng-model="recharge.phone" type="text" />
+                    <input class="form-control" require="number(11)" ng-model="recharge.phone" type="text" />
                 </div>
                 <div>
-                    <span>卡号确认:</span>
-                    <input class="form-control" ng-model="recharge.phoneAgain" type="text" />
+                    <span>手机号确认:</span>
+                    <input class="form-control" require="number(11)" ng-model="recharge.phoneAgain" type="text" />
                 </div>
                 <div>
                     <span>充值金额:</span>
-                    <input class="form-control" ng-model="recharge.money" type="text" />
+                    <input class="form-control" require="number" ng-model="recharge.money" type="text" />
                 </div>
                 <div style="text-align:center;margin-top: 25px;">
                     <span class="btn btn-primary">清除</span>
@@ -72,30 +72,30 @@
                 </div>
             </div>
         </div>
-        <div class="business-block faka border" ng-show="currentBusiness=='faka'">
-            <div class="title block-title">
+        <div class="business-block faka panel panel-primary" ng-show="currentBusiness=='faka'">
+            <div class="panel-heading">
                 <span>发卡</span>
             </div>
-            <div class="cost-table">
+            <div class="cost-table" id="faka">
                 <div>
                     <span>姓名:</span>
-                    <input class="form-control"  type="text" ng-model="faka.user.name"/>
+                    <input class="form-control" require="notEmpty"  type="text" ng-model="faka.user.name"/>
                 </div>
                 <div>
                     <span>手机号:</span>
-                    <input class="form-control"  type="text" ng-model="faka.user.phone"/>
+                    <input class="form-control" require="number(11)"  type="text" ng-model="faka.user.phone"/>
                 </div>
                 <div>
                     <span>身份证号:</span>
-                    <input class="form-control"  type="text" ng-model="faka.user.idcard"/>
+                    <input class="form-control" require="number(18)" type="text" ng-model="faka.user.idcard"/>
                 </div>
                 <div>
                     <span>车牌号:</span>
-                    <input class="form-control"  type="text" ng-model="faka.car.number"/>
+                    <input class="form-control" require="notEmpty" type="text" ng-model="faka.car.number"/>
                 </div>
                 <div>
                     <span>车类型:</span>
-                    <select class="form-control"  ng-model="faka.car.typeid">
+                    <select class="form-control" require="notEmpty"  ng-model="faka.car.typeid">
                         <option ng-repeat="type in faka.cartypes" value="{{type.id}}">{{type.name}}</option>
                     </select>
                 </div>
@@ -105,88 +105,93 @@
                 </div>
             </div>
         </div>
-        <div class="business-block guashi border" ng-show="currentBusiness=='guashi'">
-            <div class="title block-title">
+        <div class="business-block guashi panel panel-primary" ng-show="currentBusiness=='guashi'">
+            <div class="panel-heading">
                 <span>管理卡</span>
             </div>
-            <div class="control-group form-horizontal">
+            <div class="control-group form-horizontal search">
                 <span>身份证号:</span>
                 <input class="" ng-model="guashi.idcard" type="text" />
-                <span class="btn btn-primary" ng-click="guashi.findCard()">查询</span>
+                <span class="btn btn-primary btn-xs" ng-click="guashi.findCard()">查询</span>
             </div>
-            <div class="search-result" ng-show="guashi.card">
-                <ul>
-                    <li>
-                        <span class="col1">用户名</span>
-                        <span class="col2">{{guashi.user.name}}</span>
-                    </li>
-                    <li>
-                        <span class="col1">手机号</span>
-                        <span class="col2">{{guashi.user.number}}</span>
-                    </li>
-                    <li>
-                        <span class="col1">车牌号</span>
-                        <span class="col2">{{guashi.user.car.carNumber}}</span>
-                    </li>
-                    <li>
-                        <span class="col1">余额</span>
-                        <span class="col2">{{guashi.card.balance}}</span>
-                    </li>
-                    <li>
-                        <span class="col1">卡类型</span>
-                        <span class="col2">{{guashi.card.type.name}}</span>
-                    </li>
-                    <li>
-                        <span class="col1">卡状态</span>
-                        <span class="col2">{{guashi.card.state.name}}</span>
-                    </li>
-                </ul>
-                <span class="btn" ng-click="guashi.changeCardState(guashi.card.id)">{{guashi.card.state.name=='挂失'?'激活':'挂失'}}</span>
+            <div ng-show="guashi.card">
+                <table class="table table-striped table-hover">
+	                <thead>
+	                    <tr>
+	                        <th class="t_center">用户名</th>
+	                        <th class="t_center">手机号</th>
+	                        <th class="t_center">车牌号</th>
+	                        <th class="t_center">余额</th>
+	                        <th class="t_center">卡类型</th>
+	                        <th class="t_center">卡状态</th>
+	                        <th class="t_center">操作</th>
+	                    </tr>
+	                </thead>
+	                <tbody>
+	                    <tr>
+	                        <td class="t_center">{{guashi.user.name}}</td>
+	                        <td class="t_center">{{guashi.user.number}}</td>
+	                        <td class="t_center">{{guashi.user.car.carNumber}}</td>
+	                        <td class="t_center">{{guashi.card.balance}}</td>
+	                        <td class="t_center">{{guashi.card.type.name}}</td>
+	                        <td class="t_center">{{guashi.card.state.name}}</td>
+	                        <td class="t_center">
+                                <span class="btn btn-danger btn-xs" ng-click="guashi.changeCardState(guashi.card.id)">{{guashi.card.state.name=='挂失'?'激活':'挂失'}}</span>
+	                        </td>
+	                    </tr>
+	                </tbody>
+	            </table>
             </div>
         </div>
-        <div class="business-block qrcode border" ng-show="currentBusiness=='qrcode'">
-            <div class="title block-title">
+        <div class="business-block qrcode panel panel-primary" ng-show="currentBusiness=='qrcode'">
+            <div class="panel-heading">
                 <span>公司二维码</span>
             </div>
-            <div>
+            <div style="text-align:center;">
                 <img src="/img/qrcode.jpg" />
             </div>
         </div>
-        <div class="business-block cardlist border" ng-show="currentBusiness=='cardlist'">
-            <div class="title block-title">
+        <div class="business-block cardlist panel panel-primary" ng-show="currentBusiness=='cardlist'">
+            <div class="panel-heading">
                 <span>列表</span>
             </div>
-            <div class="table">
-                <ul>
-                    <li class="col1">卡号</li>
-                    <li class="col2">用户名</li>
-                    <li class="col3">手机号</li>
-                    <li class="col4">车牌号</li>
-                    <li class="col5">余额</li>
-                    <li class="col6">卡类型</li>
-                    <li class="col7">卡状态</li>
-                    <li class="col8">操作</li>
-                </ul>
-                <ul class="table-item" ng-repeat="card in cardlist.cards">
-                    <li class="col1">{{card.id}}</li>
-                    <li class="col2">{{card.user.name}}</li>
-                    <li class="col3">{{card.user.phone}}</li>
-                    <li class="col4">{{card.user.car.carNumber}}</li>
-                    <li class="col5">{{card.balance}}</li>
-                    <li class="col6">{{card.type.name}}</li>
-                    <li class="col7">{{card.state.name}}</li>
-                    <li class="col8">
-                        <a ng-click="cardlist.banCard(card.id)">禁用</a>
-                        <a ng-click="cardlist.unbanCard(card.id)">激活</a>
-                    </li>
-                </ul>
-            </div>
-            <pagenation go-page="cardlist.gotoPage(page)" total-pages="cardlist.totalPages" change-size="changeRowNums(num)"></pagenation>
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th class="t_center">卡号</th>
+                        <th class="t_center">用户名</th>
+                        <th class="t_center">手机号</th>
+                        <th class="t_center">车牌号</th>
+                        <th class="t_center">余额</th>
+                        <th class="t_center">卡类型</th>
+                        <th class="t_center">卡状态</th>
+                        <th class="t_center">操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="card in cardlist.cards">
+                        <td class="t_center">{{card.id}}</td>
+                        <td class="t_center">{{card.user.name}}</td>
+                        <td class="t_center">{{card.user.phone}}</td>
+                        <td class="t_center">{{card.user.car.carNumber}}</td>
+                        <td class="t_center">{{card.balance}}</td>
+                        <td class="t_center">{{card.type.name}}</td>
+                        <td class="t_center">{{card.state.name}}</td>
+                        <td class="t_center">
+                            <a ng-click="cardlist.banCard(card.id)">禁用</a>
+                            <a ng-click="cardlist.unbanCard(card.id)">激活</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <pagenation go-page="cardlist.gotoPage(page)" total-pages="cardlist.totalPages" change-size="changeRowNums(num)" style="position: absolute;right: 0;bottom: 0;"></pagenation>
         </div>
+        <div class="alert alert-dismissible alert-success operate-result ng-hide" ng-show="result">操作成功.</div>
     </div>
 </div>
 <script type="text/javascript" src="/js/jquery.min.js"></script>
 <script type="text/javascript" src="/js/common.js"></script>
+<script type="text/javascript" src="/js/validation.js"></script>
 <script type="text/javascript" src="/js/business.js"></script>
 </body>
 </html>

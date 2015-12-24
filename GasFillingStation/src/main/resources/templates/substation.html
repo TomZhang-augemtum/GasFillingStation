@@ -10,41 +10,47 @@
 <div th:include="header" style="width:100%;"></div>
 <div class="substation" ng-controller="substation">
     <div class="main">
-        <div class="employee-list border">
-            <div class="table">
-                <div class="title block-title">
-                    <span class="ng-cloak">站点总数:<strong>{{totalCount}}</strong></span>
-                    <span class="addUserBtn btn" ng-click="addSubStationPopup()">添加子站</span>
-                </div>
-                <ul class="table-title">
-                    <li class="col col1 underline" ng-click="changeSort('name')">公司名</li>
-                    <li class="col col2 underline" ng-click="changeSort('location')">位置</li>
-                    <li class="col col3">负责人</li>
-                    <li class="col col4">手机号</li>
-                    <li class="col col5 underline" ng-click="changeSort('freeGasNumber')">剩余气体量</li>
-                    <li class="col col6">操作</li>
-                </ul>
-                <ul class="table-content ng-cloak" ng-repeat="company in companys">
-                    <li class="col col1 underline"><a href="javascript:void(0)" ng-click="changePage('detail')">{{company.name}}</a></li>
-                    <li class="col col2">{{company.location}}</li>
-                    <li class="col col3">{{company.leader}}</li>
-                    <li class="col col4">{{company.phone}}</li>
-                    <li class="col col5">{{company.freeGasNumber}}</li>
-                    <li class="col col6">
-                        <span class="glyphicon glyphicon-edit" ng-click="editCompany(company.id)"></span>
-                        <span class="glyphicon glyphicon-remove" style="margin-left: 5px;"  ng-click="deleteCompany(company.id)"></span>
-                    </li>
-                </ul>
+        <div class="employee-list panel panel-primary">
+            <div class="panel-heading">
+                <span class="ng-cloak">站点总数:<strong>{{totalCount}}</strong></span>
+                <span class="right btn-white btn btn-xs btn-title" ng-click="addSubStationPopup()">添加子站</span>
+            </div>
+            <div class="content">
+                <table class="table table-striped table-hover ">
+	              <thead>
+	                <tr>
+	                    <th class="underline"><span ng-click="changeSort('name')">公司名</span></th>
+	                    <th class="underline"><span ng-click="changeSort('location')">位置</span></th>
+	                    <th><span>负责人</span></th>
+	                    <th><span>手机号</span></th>
+	                    <th class="underline"><span ng-click="changeSort('freeGasNumber')">剩余气体量</span></th>
+	                    <th><span>操作</span></th>
+	                </tr>
+	              </thead>
+	              <tbody>
+	                <tr ng-repeat="company in companys">
+	                    <td><a href="javascript:void(0)" ng-click="changePage('detail')">{{company.name}}</a></td>
+	                    <td>{{company.location}}</td>
+	                    <td>{{company.leader}}</td>
+	                    <td>{{company.phone}}</td>
+	                    <td>{{company.freeGasNumber}}</td>
+	                    <td>
+	                        <span class="glyphicon glyphicon-edit" ng-click="editCompany(company.id)"  style="cursor: pointer"></span>
+                            <span class="glyphicon glyphicon-remove" style="margin-left: 5px; cursor: pointer"  ng-click="deleteCompany(company.id)"></span>
+	                    </td>
+	                </tr>
+	              </tbody>
+	             </table>
             </div>
             <pagenation go-page="gotoPage(page)" total-pages="totalPages" change-size="changeRowNums(num)"></pagenation>
         </div>
     </div>
     <div class="addSubStation ng-hide" ng-show="showAddSubStation">
         <div class="addSubStationMask"></div>
-        <div class="table">
-                <div class="title block-title-backcolor">
+        <div class="content panel panel-primary">
+                <div class="panel-heading" style="margin-bottom: 10px;">
                     <span style="font-size: 14pt;">添加子站</span>
-                    <span class="close right btn" ng-click="closeaddSubStationPopup()">X</span>
+                    <span class="close right btn" ng-click="closeaddSubStationPopup()" style="position: absolute;top: 0;right: 0;">X</span>
                 </div>
                 <div class="item">
                     <span class="col col1">子站名:</span>

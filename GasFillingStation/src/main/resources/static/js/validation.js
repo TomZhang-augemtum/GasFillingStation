@@ -30,6 +30,9 @@
   function validate(ele) {
     var flag = true;
     ele.val(ele.val().replace(/(^\s*)|(\s*$)/g, ''));
+    if (!ele.val().length){
+      return false;
+    } 
     if (validateType[ele.attr('require')]) {
       validateType[ele.attr('require')](ele.val()) || (flag=false);
     } else if (ele.attr('require').indexOf('(') != -1){
@@ -48,12 +51,13 @@
     result = true;
     $(ele).find("[require]").each(function(){
       $(this).removeClass('validation-error');
-      result = validate($(this));
-      (result || ($(this).addClass('validation-error'), function(ele){
+      var flag = validate($(this));
+      (flag || ($(this).addClass('validation-error'), function(ele){
         ele.one('blur', function() {
           validate(ele) && ele.removeClass('validation-error');
         });
       }($(this))));
+      result = result && flag;
     })
   }
   validation.prototype = {

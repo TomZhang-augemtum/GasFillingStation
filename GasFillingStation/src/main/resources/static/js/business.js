@@ -1,4 +1,4 @@
-app && app.controller('business', function($scope, $http) {
+app && app.controller('business', function($scope, $http, $timeout) {
   $scope.currentBusiness = 'cost';
   $scope.faka = {};
   $scope.cost = {};
@@ -14,20 +14,36 @@ app && app.controller('business', function($scope, $http) {
   
   $scope.faka.init = function() {
     $.get("/api/cartype/list").success(function(data){
-      $scope.$apply($scope.faka.cartypes = data);
+      $scope.$apply(function(){
+          $scope.faka.cartypes = data;
+          $scope.faka.car = {
+              'typeid': '1'
+          };
+        }
+      );
     })
   }
 
   $scope.faka.submit = function() {
-    console.log($scope.faka.car.typeid);
-    $.post("/api/card/save",{
-      "name": $scope.faka.user.name,
-      "phone": $scope.faka.user.phone,
-      "number": $scope.faka.user.phone,
-      "idcard": $scope.faka.user.idcard,
-      "carNumber": $scope.faka.car.number,
-      "type.id": $scope.faka.car.typeid
-    }).success(function(data){
+    validation($('#faka')).success(function(){
+      $.post("/api/card/save",{
+        "name": $scope.faka.user.name,
+        "phone": $scope.faka.user.phone,
+        "number": $scope.faka.user.phone,
+        "idcard": $scope.faka.user.idcard,
+        "carNumber": $scope.faka.car.number,
+        "type.id": $scope.faka.car.typeid
+      }).success(function(data){
+        $scope.$apply(function(){
+          $scope.result = true;
+          $scope.faka.car = {
+              'typeid': '1'
+          };
+          $timeout(function(){
+            $scope.result = false;
+          }, 2000);
+        })
+      })
     })
   }
   
@@ -43,6 +59,10 @@ app && app.controller('business', function($scope, $http) {
   $scope.guashi.banCard = function(id) {
     $.get("/api/card/ban?id=" + id).success(function(data){
       $scope.$apply(function(){
+        $scope.result=true;
+        $timeout(function(){
+          $scope.result=false;
+        },2000)
         $scope.guashi.findCard();
       });
     })
@@ -61,6 +81,10 @@ app && app.controller('business', function($scope, $http) {
   $scope.jihuo.unbanCard = function(id) {
     $.get("/api/card/unban?id=" + id).success(function(data){
       $scope.$apply(function(){
+        $scope.result=true;
+        $timeout(function(){
+          $scope.result=false;
+        },2000)
         $scope.guashi.findCard();
       });
     })
@@ -81,6 +105,10 @@ app && app.controller('business', function($scope, $http) {
     $.get("/api/card/ban?id=" + id).success(function(data){
       $scope.$apply(function(){
         $scope.cardlist._loadData();
+        $scope.result = true;
+        $timeout(function(){
+          $scope.result = false;
+        },2000);
       });
     })
   }
@@ -88,6 +116,10 @@ app && app.controller('business', function($scope, $http) {
     $.get("/api/card/unban?id=" + id).success(function(data){
       $scope.$apply(function(){
         $scope.cardlist._loadData();
+        $scope.result = true;
+        $timeout(function(){
+          $scope.result = false;
+        },2000);
       });
     })
   }
@@ -96,30 +128,35 @@ app && app.controller('business', function($scope, $http) {
   }
   
   $scope.cost.submit = function() {
-    $.post("/api/card/cost",{
-      "gasAmount": $scope.cost.gasAmount,
-      "price": $scope.cost.price,
-      "phone": $scope.cost.phoneNumber
-    }).success(function(data){
-      console.log(data);
-    }).error(function(data){
-      console.log("error");
+    validation($('#cost')).success(function(){
+      $.post("/api/card/cost",{
+        "gasAmount": $scope.cost.gasAmount,
+        "price": $scope.cost.price,
+        "phone": $scope.cost.phoneNumber
+      }).success(function(data){
+        alert(data.message);
+      }).error(function(data){
+        console.log("error");
+      })
     })
   }
   
   $scope.recharge.submit = function() {
-    if($scope.recharge.phone === $scope.recharge.phoneAgain){
-      $.post("/api/card/recharge",{
-        "phone": $scope.recharge.phone,
-        "money": $scope.recharge.money
-      }).success(function(data){
-        console.log(data);
-      }).error(function(data){
-        console.log("error");
-      })
-    } else {
-      alert("两次不一致");
-    }
+    validation($('#recharge')).success(function(){
+      if($scope.recharge.phone === $scope.recharge.phoneAgain){
+        $.post("/api/card/recharge",{
+          "phone": $scope.recharge.phone,
+          "money": $scope.recharge.money
+        }).success(function(data){
+          console.log(data);
+          alert(data.message);
+        }).error(function(data){
+          console.log("error");
+        })
+      } else {
+        alert("两次不一致");
+      }
+    })
   }
   
   $scope.$watch('cost.price',function(val){

@@ -3,27 +3,32 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link th:href="@{/css/common.css}" rel="stylesheet" />
+<link th:href="@{/css/flatly.css}" rel="stylesheet" />
 <title>加气站管理系统</title>
 <script type="text/javascript" src="/js/angular.min.js"></script>
 </head>
 <body ng-app="gas" >
-    <div th:fragment="header" id="header" ng-controller="header"> 
-        <div class="userinfo">
-            <div class="photo"></div>
-            <div class="info">
-                <span class="username" th:text="${session.user.name}"></span> <span
-                    class="role" th:text="${session.user.role.name}"></span>
-            </div>
-        </div>
+    <nav th:fragment="header" id="header" class="navbar navbar-default" ng-controller="header"> 
+        <div class="container-fluid">
+	        <div class="navbar-header">
+	            <div class="userinfo">
+	                <div class="photo"></div>
+	                <div class="info">
+	                    <span class="username">admin</span> <span class="role">Admin</span>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
         <div class="logout">
             <a href="#">登出</a>
         </div>
-        <div class="navigation">
-            <ul class="display-title">
+        <div class="navigation navbar-collapse collapse">
+            <ul class="display-title nav navbar-nav">
                 <li class="display-title-item" th:each="menu,userStat:${session.user.role.menus}"><a th:href="@{${menu.url}}" th:text="${menu.name}"></a></li>
             </ul>
         </div>
-    </div>
+    </nav>
+
     <script type="text/javascript" src="/js/jquery.min.js"></script>
     <script type="text/javascript" src="/js/common.js"></script>
     <script type="text/javascript" src="/js/header.js"></script>

@@ -10,55 +10,68 @@
 <div th:include="header" style="width:100%;"></div>
 <div class="data" ng-controller="data">
     <div class="main">
-        <div class="company-list border" ng-show="currentTag == 'company'">
-            <div class="table">
-                <div class="title block-title">
-                    <span class="ng-cloak">销售业绩</span>
-                    <span class="right search glyphicon glyphicon-search"></span>
-                    <input class="right" type="date" />
-                    <span class="right">到</span>
-                    <input class="right" type="date" />
-                    <span class="right">从</span>
-                </div>
-                <ul class="table-title">
-                    <li class="col col1 underline">子站名</li>
-                    <li class="col col2 underline">位置</li>
-                    <li class="col col3 underline" ng-click="changeSort('gas')">总销气量</li>
-                    <li class="col col4 underline" ng-click="changeSort('money')">总营业额</li>
-                    <li class="col col5" ng-click="exportCompany()"><span class="btn btn-primary">导出csv</span></li>
-                </ul>
-                <ul class="table-title ng-cloak" ng-repeat="data in company.saleDatas">
-                    <li class="col col1 underline" ng-click="company.showEmployee(data.id, data.name)">{{data.name}}</li>
-                    <li class="col col2 underline">{{data.location}}</li>
-                    <li class="col col3 underline">{{data.gasTotalNum}}</li>
-                    <li class="col col4 underline">{{data.moneyTotalNum}}</li>
-                </ul>
+        <div class="company-list panel panel-primary" ng-show="currentTag == 'company'">
+            <div class="panel-heading">
+                <span class="ng-cloak">销售业绩</span>
+                <span class="right search glyphicon glyphicon-search"></span>
+                <input class="right" type="date" />
+                <span class="right">到</span>
+                <input class="right" type="date" />
+                <span class="right">从</span>
+            </div>
+            <div class="content">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+		                    <th class="underline t_center">子站名</th>
+		                    <th class="underline t_center">位置</th>
+		                    <th class="underline t_center" ng-click="changeSort('gas')">总销气量</th>
+		                    <th class="underline t_center" ng-click="changeSort('money')">总营业额</th>
+		                    <th class="t_center" ng-click="exportCompany()"><span class="btn btn-primary btn-sm">导出csv</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+		                <tr class="ng-cloak" ng-repeat="data in company.saleDatas">
+		                    <td class="underline t_center" ng-click="company.showEmployee(data.id, data.name)" style="cursor:pointer;">{{data.name}}</td>
+		                    <td class="t_center">{{data.location}}</td>
+		                    <td class="t_center">{{data.gasTotalNum}}</td>
+		                    <td class="t_center">{{data.moneyTotalNum}}</td>
+		                    <td></td>
+		                </tr>
+                    </tbody>
+                </table>
             </div>
             <pagenation go-page="company.gotoPage(page)" total-pages="company.totalPages" change-size="company.changeRowNums(num)"></pagenation>
         </div>
-        <div class="employee-list border" ng-show="currentTag == 'employee'">
-            <div class="table">
-                <div class="title block-title">
-                    <span class="ng-cloak">员工销售业绩(<a ng-click="closeEmployeeList()">{{employee.company}}</a>)</span>
-                    <span class="right search">查询</span>
-                    <input class="right" type="date" />
-                    <span class="right">到</span>
-                    <input class="right" type="date" />
-                    <span class="right">从</span>
-                </div>
-                <ul class="table-title">
-                    <li class="col col1 underline">员工名</li>
-                    <li class="col col2 underline">员工工号</li>
-                    <li class="col col3 underline" ng-click="changeSort('gas')">总销气量</li>
-                    <li class="col col4 underline" ng-click="changeSort('money')">总营业额</li>
-                    <li class="col col5" ng-click="exportEmployee()"><span class="btn btn-primary">导出csv</span></li>
-                </ul>
-                <ul class="table-title ng-cloak" ng-repeat="data in employee.saleDatas">
-                    <li class="col col1 underline">{{data.name}}</li>
-                    <li class="col col2 underline">{{data.number}}</li>
-                    <li class="col col3 underline">{{data.gasTotalNum}}</li>
-                    <li class="col col4 underline">{{data.moneyTotalNum}}</li>
-                </ul>
+        <div class="employee-list panel panel-primary" ng-show="currentTag == 'employee'">
+            <div class="panel-heading">
+                <span class="ng-cloak">员工销售业绩(<a ng-click="closeEmployeeList()">{{employee.company}}</a>)</span>
+                <span class="right search glyphicon glyphicon-search"></span>
+                <input class="right" type="date" />
+                <span class="right">到</span>
+                <input class="right" type="date" />
+                <span class="right">从</span>
+            </div>
+            <div class="content">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th class="underline t_center">员工名</th>
+                            <th class="underline t_center">员工工号</th>
+                            <th class="underline t_center" ng-click="changeSort('gas')">总销气量</th>
+                            <th class="underline t_center" ng-click="changeSort('money')">总营业额</th>
+                            <th class="t_center" ng-click="exportEmployee()"><span class="btn btn-primary btn-sm">导出csv</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="ng-cloak" ng-repeat="data in employee.saleDatas">
+                            <td class="t_center">{{data.name}}</td>
+                            <td class="t_center">{{data.number}}</td>
+                            <td class="t_center">{{data.gasTotalNum}}</td>
+                            <td class="t_center">{{data.moneyTotalNum}}</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
             <pagenation go-page="employee.gotoPage(page)" total-pages="employee.totalPages" change-size="employee.changeRowNums(num)"></pagenation>
         </div>

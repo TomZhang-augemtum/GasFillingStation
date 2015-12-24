@@ -3,57 +3,65 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link th:href="@{/css/permission.css}" rel="stylesheet" />
-<link th:href="@{/bootstrap-3.3.4-dist/css/bootstrap.min.css}" rel="stylesheet" />
-<link th:href="@{/bootstrap-3.3.4-dist/css/bootstrap-theme.min.css}" rel="stylesheet" />
 <title>加气站管理系统</title>
 </head>
 <body>
 <div th:include="header" style="width:100%;"></div>
 <div class="permission" ng-controller="permission">
     <div class="main">
-        <div class="employee-list border" ng-show="currentPermission == 'menuPermission'">
-            <div class="table">
-                <div class="title block-title">
-                    <span class="ng-cloak">权限管理</span>
-                    <span class="operate" ng-show="showResult"><span style="background-color: green;padding: 5px 10px;">操作成功</span></span>
-                    <span class="addUserBtn btn" ng-click="showUserRoleManage('userRoleManage')">角色管理</span>
-                </div>
-                <ul class="table-title">
-                    <li class="col"></li>
-                    <li class="col repeat-done" ng-repeat="menu in menus">{{menu.name}}</li>
-                </ul>
-                <ul class="table-content ng-cloak" ng-repeat="role in roles">
-                    <li class="col">{{role.name}}</li>
-                    <li class="col" ng-repeat="menu in menus"><input type="checkbox" ng-checked="checkRoleHasMenu(role, menu)" ng-click="changePermission(role, menu)"/></li>
-                </ul>
+        <div class="employee-list panel panel-primary" ng-show="currentPermission == 'menuPermission'">
+            <div class="panel-heading">
+                <span class="ng-cloak">权限管理</span>
+                <span class="operate ng-cloak" ng-show="showResult"><span style="background-color: green;padding: 5px 10px;">操作成功</span></span>
+                <span class="btn btn-default btn-xs right" ng-click="showUserRoleManage('userRoleManage')">角色管理</span>
+            </div>
+            <div class="content">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th class="t_center repeat-done" ng-repeat="menu in menus">{{menu.name}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="ng-cloak" ng-repeat="role in roles">
+                            <td class="t_right">{{role.name}}</td>
+                            <td class="t_center" ng-repeat="menu in menus"><input type="checkbox" ng-checked="checkRoleHasMenu(role, menu)" ng-click="changePermission(role, menu)"/></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
-        <div class="user-role border" ng-show="currentPermission == 'userRoleManage'">
-            <div class="table">
-                <div class="title block-title">
-                    <span class="ng-cloak">权限管理</span>
-                    <span class="operate" ng-show="showResult"><span style="background-color: green;padding: 5px 10px;">操作成功</span></span>
-                    <span class="titleBtn btn btn-small" ng-click="showUserRoleManage('menuPermission')">菜单管理</span>
-                </div>
-                <ul class="table-title">
-                    <li class="col col1">用户名</li>
-                    <li class="col col2">电话</li>
-                    <li class="col col3">身份证</li>
-                    <li class="col col4">角色</li>
-                </ul>
-                <ul class="table-content ng-cloak" ng-repeat="user in users">
-                    <li class="col col1"><a ng-click="showChangeRolePage(user)">{{user.name}}</a></li>
-                    <li class="col col2">{{user.phone}}</li>
-                    <li class="col col3">{{user.idcard}}</li>
-                    <li class="col col4">{{user.role.name}}</li>
-                </ul>
+        <div class="user-role panel panel-primary" ng-show="currentPermission == 'userRoleManage'">
+            <div class="panel-heading">
+                <span class="ng-cloak">权限管理</span>
+                <span class="operate ng-cloak" ng-show="showResult"><span style="background-color: green;padding: 5px 10px;">操作成功</span></span>
+                <span class="btn btn-xs btn-default right" ng-click="showUserRoleManage('menuPermission')">菜单管理</span>
             </div>
-            <pagenation go-page="gotoPage(page)" total-pages="totalPages" change-size="changeRowNums(num)"></pagenation>
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th class="t_center">用户名</th>
+                        <th class="t_center">电话</th>
+                        <th class="t_center">身份证</th>
+                        <th class="t_center">角色</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="ng-cloak" ng-repeat="user in users">
+                        <td class="t_center"><a ng-click="showChangeRolePage(user)" style="cursor:pointer;">{{user.name}}</a></td>
+	                    <td class="t_center">{{user.phone}}</td>
+	                    <td class="t_center">{{user.idcard}}</td>
+	                    <td class="t_center">{{user.role.name}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <pagenation go-page="gotoPage(page)" total-pages="totalPages" change-size="changeRowNums(num)" style="position: absolute;bottom: 0;right: 0;"></pagenation>
         </div>
         <div class="addUser ng-hide" ng-show="showChangeRole">
             <div class="addUserMask"></div>
-            <div class="table">
-                <div class="title block-title-backcolor">
+            <div class="content panel panel-primary">
+                <div class="panel-heading">
                     <span style="font-size: 14pt;">修改权限</span>
                     <span class="close right" ng-click="closeShowChangeRolePopup()">X</span>
                 </div>
@@ -72,8 +80,8 @@
                     </select>
                 </div>
                 <div class="btngroup">
-                    <span class="btn btn-reset btn-primary" ng-click="closeShowChangeRolePopup()">取消</span>
-                    <span class="btn btn-submit btn-primary" ng-click="submitChangeRole()">提交</span>
+                    <span class="btn btn-reset btn-primary btn-sm" ng-click="closeShowChangeRolePopup()">取消</span>
+                    <span class="btn btn-submit btn-primary btn-sm" ng-click="submitChangeRole()">提交</span>
                 </div>
             </div>
         </div>

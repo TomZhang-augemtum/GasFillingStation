@@ -36,7 +36,7 @@
 .substation .main .employee-list{
     min-height: 750px;
 }
-.substation .main .table{
+.substation .main .content{
     min-height: 750px;
 }
 .substation .main .employee-list .title{
@@ -55,36 +55,6 @@
     cursor: pointer;
     padding: 0px;
 }
-.substation .main .employee-list .col{
-    display: inline-block;
-    text-align: center;
-    line-height: 30px;
-}
-.substation .main .employee-list .col1{
-    width: 15%;
-    cursor: pointer;
-}
-.substation .main .employee-list .col2{
-    width: 10%;
-    cursor: pointer;
-}
-.substation .main .employee-list .col3{
-    width: 15%;
-}
-.substation .main .employee-list .col4{
-    width: 140px;
-}
-.substation .main .employee-list .col5{
-    width: 170px;
-    cursor: pointer;
-}
-.substation .main .employee-list .col6{
-    width: 150px;
-}
-.substation .main .employee-list .col6 span{
-    cursor: pointer;
-}
-
 /* --------------add substation css ------------------ */
 .substation .addSubStation .addSubStationMask{
     position: absolute;
@@ -95,48 +65,45 @@
     background-color: black;
     opacity: 0.5;
 }
-.substation .addSubStation .table{
+.substation .addSubStation .content{
     display: inline-block;
     background-color: white;
     width: 400px;
     position: absolute;
     top: 30%;
-    left: 30%;
+    left: 35%;
 }
-.substation .addSubStation .table .title{
+.substation .addSubStation .content .title{
     line-height: 40px;
     text-align: left;
     padding-left: 20px;
 }
-.substation .addSubStation .table .col{
+.substation .addSubStation .content .col{
     display: inline-block;
     height: 30px;
     margin-top: 10px;
 }
-.substation .addSubStation .table .col1{
+.substation .addSubStation .content .col1{
     width: 130px;
     text-align: right;
 }
-.substation .addSubStation .table .col2{
+.substation .addSubStation .content .col2{
     width: 200px;
     box-sizing: border-box;
 }
-.substation .addSubStation .table .btngroup{
+.substation .addSubStation .content .btngroup{
     margin-top: 30px;
     margin-bottom: 20px;
 }
-.substation .addSubStation .table .btngroup .btn{
-    border: 1px solid;
-    line-height: 30px;
-    display: inline-block;
-    width: 120px;
-    text-align: center;
+.substation .addSubStation .content .btngroup .btn{
+    line-height: 10px;
+    width: 110px;
 }
-.substation .addSubStation .table .btngroup .btn-reset{
+.substation .addSubStation .content .btngroup .btn-reset{
     margin-left: 50px;
     cursor: pointer;
 }
-.substation .addSubStation .table .btngroup .btn-submit{
+.substation .addSubStation .content .btngroup .btn-submit{
     float: right;
     margin-right: 50px;
     cursor: pointer;

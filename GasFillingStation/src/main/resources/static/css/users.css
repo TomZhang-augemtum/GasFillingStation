@@ -36,9 +36,6 @@
 .users .main .employee-list{
     min-height: 750px;
 }
-.users .main .table{
-    min-height: 750px;
-}
 .users .main .employee-list .title{
     padding-left: 10px;
     padding-top: 5px;
@@ -55,30 +52,6 @@
     cursor: pointer;
     padding: 0;
 }
-.users .main .employee-list .col{
-    display: inline-block;
-    text-align: center;
-    line-height: 30px;
-}
-.users .main .employee-list .col1{
-    width: 15%;
-    cursor: pointer;
-}
-.users .main .employee-list .col2{
-    width: 10%;
-}
-.users .main .employee-list .col3{
-    width: 15%;
-}
-.users .main .employee-list .col4{
-    width: 140px;
-}
-.users .main .employee-list .col5{
-    width: 170px;
-}
-.users .main .employee-list .col6{
-    width: 150px;
-}
 .users .main .employee-list .col6 span{
     cursor: pointer;
 }
@@ -93,48 +66,45 @@
     background-color: black;
     opacity: 0.5;
 }
-.users .addUser .table{
+.users .addUser .content{
     display: inline-block;
     background-color: white;
     width: 400px;
     position: absolute;
     top: 30%;
-    left: 30%;
+    left: 35%;
 }
-.users .addUser .table .title{
-    line-height: 40px;
+.users .addUser .content .title{
+    line-height: 25px;
     text-align: left;
     padding-left: 20px;
 }
-.users .addUser .table .col{
+.users .addUser .content .col{
     display: inline-block;
     height: 30px;
     margin-top: 10px;
 }
-.users .addUser .table .col1{
+.users .addUser .content .col1{
     width: 130px;
     text-align: right;
 }
-.users .addUser .table .col2{
-    width: 200px;
+.users .addUser .content .col2{
+    width: 190px;
     box-sizing: border-box;
 }
-.users .addUser .table .btngroup{
+.users .addUser .content .btngroup{
     margin-top: 30px;
     margin-bottom: 20px;
 }
-.users .addUser .table .btngroup .btn{
-    border: 1px solid;
-    line-height: 30px;
-    display: inline-block;
-    width: 120px;
-    text-align: center;
+.users .addUser .content .btngroup .btn{
+    width: 110px;
+    line-height: 10px;
 }
-.users .addUser .table .btngroup .btn-reset{
+.users .addUser .content .btngroup .btn-reset{
     margin-left: 50px;
     cursor: pointer;
 }
-.users .addUser .table .btngroup .btn-submit{
+.users .addUser .content .btngroup .btn-submit{
     float: right;
     margin-right: 50px;
     cursor: pointer;

@@ -36,119 +36,29 @@
 .data .main .company-list{
     min-height: 750px;
 }
-.data .main .table{
+.data .main .content{
     min-height: 750px;
 }
-.data .main .company-list .title{
-    padding-left: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
-.data .main .company-list .table .title input{
+.data .main .panel-heading input{
     line-height: 18px;
     position: relative;
     top: -2px;
-    
+    color: black;
 }
-.data .main .company-list .title .search{
+.data .main .panel-heading .search{
     margin-right: 20px;
     cursor: pointer;
 }
-.data .main .company-list .title span{
+.data .main .panel-heading span{
     margin-right: 10px;
     margin-left: 10px;
 }
-.data .main .company-list .addUserBtn{
-    width: 100px;
-    border: 1px solid;
-    display: inline-block;
-    text-align: center;
-    background-color: white;
-    float: right;
-    margin-right: 20px;
-    cursor: pointer;
-}
-.data .main .company-list .col{
-    display: inline-block;
-    text-align: center;
-    line-height: 30px;
-}
-.data .main .company-list .col1{
-    width: 15%;
-    cursor: pointer;
-}
-.data .main .company-list .col2{
-    width: 10%;
-}
-.data .main .company-list .col3{
-    width: 15%;
-}
-.data .main .company-list .col4{
-    width: 140px;
-}
-.data .main .company-list .col5{
-    float: right;
-    margin-right: 30px;
-    margin-top: 10px;
-}
+
 /* -------------- employee list css ------------------ */
 .data .main .employee-list{
     min-height: 750px;
 }
-.data .main .table{
-    min-height: 750px;
-}
-.data .main .employee-list .table .title input{
-    line-height: 18px;
-    position: relative;
-    top: -2px;
-    
-}
-.data .main .employee-list .title{
-    padding-left: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
-.data .main .employee-list .title .search{
-    margin-right: 20px;
-}
-.data .main .employee-list .title span{
-    margin-right: 10px;
-    margin-left: 10px;
-}
-.data .main .employee-list .addUserBtn{
-    width: 100px;
-    border: 1px solid;
-    display: inline-block;
-    text-align: center;
-    background-color: white;
-    float: right;
-    margin-right: 20px;
-    cursor: pointer;
-}
-.data .main .employee-list .col{
-    display: inline-block;
-    text-align: center;
-    line-height: 30px;
-}
-.data .main .employee-list .col1{
-    width: 15%;
-    cursor: pointer;
-}
-.data .main .employee-list .col2{
-    width: 10%;
-}
-.data .main .employee-list .col3{
-    width: 15%;
-}
-.data .main .employee-list .col4{
-    width: 140px;
-}
-.data .main .employee-list .col5{
-    float: right;
-    margin-right: 30px;
-    margin-top: 10px;
-}
+
 /* ----------------    ------------------- */
 .data .addUser .addUserMask{
     position: fixed;
