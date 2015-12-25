@@ -13,20 +13,20 @@
         <div class="company-list panel panel-primary" ng-show="currentTag == 'company'">
             <div class="panel-heading">
                 <span class="ng-cloak">销售业绩</span>
-                <span class="right search glyphicon glyphicon-search"></span>
-                <input class="right" type="date" />
+                <span class="right search glyphicon glyphicon-search" ng-click="company.changeData()"></span>
+                <input class="right" type="date" ng-model="company.endDate"/>
                 <span class="right">到</span>
-                <input class="right" type="date" />
+                <input class="right" type="date" ng-model="company.beginDate"/>
                 <span class="right">从</span>
             </div>
             <div class="content">
                 <table class="table table-striped table-hover">
                     <thead>
                         <tr>
-		                    <th class="underline t_center">子站名</th>
-		                    <th class="underline t_center">位置</th>
-		                    <th class="underline t_center" ng-click="changeSort('gas')">总销气量</th>
-		                    <th class="underline t_center" ng-click="changeSort('money')">总营业额</th>
+		                    <th class="t_center">子站名</th>
+		                    <th class="t_center">位置</th>
+		                    <th class="underline t_center" ng-click="company.changeSort('gas')">总销气量</th>
+		                    <th class="underline t_center" ng-click="company.changeSort('money')">总营业额</th>
 		                    <th class="t_center" ng-click="exportCompany()"><span class="btn btn-primary btn-sm">导出csv</span></th>
                         </tr>
                     </thead>
@@ -46,20 +46,20 @@
         <div class="employee-list panel panel-primary" ng-show="currentTag == 'employee'">
             <div class="panel-heading">
                 <span class="ng-cloak">员工销售业绩(<a ng-click="closeEmployeeList()">{{employee.company}}</a>)</span>
-                <span class="right search glyphicon glyphicon-search"></span>
-                <input class="right" type="date" />
+                <span class="right search glyphicon glyphicon-search" ng-click="employee.changeData()"></span>
+                <input class="right" type="date" ng-model="employee.endDate"/>
                 <span class="right">到</span>
-                <input class="right" type="date" />
+                <input class="right" type="date" ng-model="employee.beginDate"/>
                 <span class="right">从</span>
             </div>
             <div class="content">
                 <table class="table table-striped table-hover">
                     <thead>
                         <tr>
-                            <th class="underline t_center">员工名</th>
-                            <th class="underline t_center">员工工号</th>
-                            <th class="underline t_center" ng-click="changeSort('gas')">总销气量</th>
-                            <th class="underline t_center" ng-click="changeSort('money')">总营业额</th>
+                            <th class="t_center">员工名</th>
+                            <th class="t_center">员工工号</th>
+                            <th class="underline t_center" ng-click="employee.changeSort('gas')">总销气量</th>
+                            <th class="underline t_center" ng-click="employee.changeSort('money')">总营业额</th>
                             <th class="t_center" ng-click="exportEmployee()"><span class="btn btn-primary btn-sm">导出csv</span></th>
                         </tr>
                     </thead>
@@ -69,6 +69,7 @@
                             <td class="t_center">{{data.number}}</td>
                             <td class="t_center">{{data.gasTotalNum}}</td>
                             <td class="t_center">{{data.moneyTotalNum}}</td>
+                            <td></td>
                         </tr>
                     </tbody>
                 </table>

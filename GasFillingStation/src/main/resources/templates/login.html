@@ -5,6 +5,9 @@
 	function login(){
 		document.loginForm.submit();
 	}
+	function resetPassword(){
+		var username = document
+	}
 </script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link th:href="@{/css/common.css}" rel="stylesheet"/>
@@ -19,8 +22,8 @@
 		</div>
 		<div id="login-input">
 			<div>
-                <span th:text="${errorMessage}"></span>
 				<span>&nbsp;&nbsp;Name</span>
+                <span th:if="${errorMessage}" style="color: red;">用户名密码不正确</span>
 				<input type="text" name="name" maxlength="30" height="40" />
 			</div>
 			<div>
@@ -28,7 +31,7 @@
 				<input type="password" name="password" maxlength="30" height="40" />
 			</div>
 			<div class="font-size12">
-				Forgot Password? <a href="/kiosk/admin/resendpassword.action">Reset Password</a>						
+				Forgot Password? <a onclick="resetPassword()">Reset Password</a>						
 			</div>
 		</div>
 		<div id="login-button">

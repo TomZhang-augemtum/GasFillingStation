@@ -40,4 +40,10 @@ public class LoginController {
         request.getSession().removeAttribute("user");
         return "login";
     }
+
+    @RequestMapping(value = "/resetpassword", method = RequestMethod.GET)
+    public String reset(HttpServletRequest request) {
+        request.getSession().removeAttribute("user");
+        return "login";
+    }
 }

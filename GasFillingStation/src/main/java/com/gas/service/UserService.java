@@ -36,7 +36,7 @@ public class UserService {
             throw new ServiceException("用户名不存在");
         }
 
-        if (!user.getPassword().equals(user.getPassword())) {
+        if (!user.getPassword().equals(dataAdmin.getPassword())) {
             throw new ServiceException("密码输入错误");
         }
         return dataAdmin;

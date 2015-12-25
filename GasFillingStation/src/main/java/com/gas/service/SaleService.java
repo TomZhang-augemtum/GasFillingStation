@@ -44,7 +44,7 @@ public class SaleService {
                 cb.sum(root.<Double> get("gasAmount")).alias("gasTotalNum"),
                 cb.sum(root.<Double> get("total")).alias("moneyTotalNum"));
         query.groupBy(root.get("companyid"));
-        String orderColumn = "gas".equals(pageAndSort.getOrderColumn()) ? "gasAmount" : "moneyTotalNum";
+        String orderColumn = "gas".equals(pageAndSort.getOrderColumn()) ? "gasAmount" : "total";
         if ("desc".equals(pageAndSort.getOrder())){
             query.orderBy(cb.desc(cb.sum(root.<Double> get(orderColumn))));
         } else {
@@ -107,7 +107,7 @@ public class SaleService {
         query.multiselect(root.get("userid").alias("id"), cb.sum(root.<Double> get("gasAmount")).alias("gasTotalNum"),
                 cb.sum(root.<Double> get("total")).alias("moneyTotalNum"));
         query.groupBy(root.get("userid"));
-        String orderColumn = "gas".equals(pageAndSort.getOrderColumn()) ? "gasAmount" : "moneyTotalNum";
+        String orderColumn = "gas".equals(pageAndSort.getOrderColumn()) ? "gasAmount" : "total";
         if ("desc".equals(pageAndSort.getOrder())) {
             query.orderBy(cb.desc(cb.sum(root.<Double> get(orderColumn))));
         } else {

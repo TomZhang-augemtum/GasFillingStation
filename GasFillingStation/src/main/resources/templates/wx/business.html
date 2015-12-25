@@ -4,24 +4,25 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link th:href="@{/css/wx/business.css}" rel="stylesheet" />
+<link th:href="@{/css/flatly.css}" rel="stylesheet" />
 <title>加气站管理系统</title>
 </head>
 <body ng-app="gas">
 <div class="business" ng-controller="wxbusiness">
     <div>
-        <span>单价</span>
-        <input ng-model="price" type="text" />
+        <span class="col1">单价</span>
+        <input class="form-control" ng-model="price" type="text" />
     </div>
     <div>
-        <span>加气量</span>
-        <input ng-model="totalNum" type="text" />
+        <span class="col1">加气量</span>
+        <input class="form-control" ng-model="totalNum" type="text" />
     </div>
     <div>
-        <span>总价</span>
-        <input ng-model="totalPrice" readonly="readonly" type="text" />
+        <span class="col1">总价</span>
+        <input class="form-control" ng-model="totalPrice" readonly="readonly" type="text" />
     </div>
     <div>
-        <span ng-click="submit()">扫码确认</span>
+        <span class="btn btn-primary form-control" ng-click="submit()">扫码确认</span>
     </div>
 </div>
 <script type="text/javascript" src="/js/jquery.min.js"></script>
