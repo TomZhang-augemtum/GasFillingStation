@@ -80,4 +80,12 @@ public class UserController {
         userService.changeUserPhone(userid, phone);
         return true;
     }
+
+    @RequestMapping("/wx/user/change/password")
+    public boolean wxchangeUserPass(HttpServletRequest request, String username, String password) {
+        User user = userService.findByName(username);
+        user.setPassword(password);
+        userService.changePassword(user);
+        return true;
+    }
 }

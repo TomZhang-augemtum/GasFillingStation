@@ -46,7 +46,6 @@ public class UserService {
         return userDao.findAll(page);
     }
 
-
     public Page<User> getEmployeeListByPagenation(int page, int size, String sort) {
         String[] tmp = sort.split(" ");
         Pageable pageable = new PageRequest(page, size, new Sort(Direction.fromString(tmp[1]), tmp[0]));
@@ -63,6 +62,10 @@ public class UserService {
 
     public User saveUser(User user) {
         user.setPassword(user.getIdcard().substring(user.getIdcard().length() - 6, user.getIdcard().length()));
+        return userDao.save(user);
+    }
+
+    public User changePassword(User user) {
         return userDao.save(user);
     }
 
@@ -89,5 +92,9 @@ public class UserService {
         user.setPhone(phone);
         userDao.save(user);
 
+    }
+
+    public User findByName(String username) {
+        return userDao.findByName(username);
     }
 }

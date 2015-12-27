@@ -1,5 +1,7 @@
 package com.gas.controller;
 
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.hibernate.service.spi.ServiceException;
@@ -10,7 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.gas.model.User;
+import com.gas.model.WechatConfig;
 import com.gas.service.UserService;
+
+import me.chanjar.weixin.common.exception.WxErrorException;
+import me.chanjar.weixin.cp.bean.WxCpMessage;
 
 @Controller
 public class LoginController {
@@ -42,8 +48,20 @@ public class LoginController {
     }
 
     @RequestMapping(value = "/resetpassword", method = RequestMethod.GET)
-    public String reset(HttpServletRequest request) {
-        request.getSession().removeAttribute("user");
+    public String reset(HttpServletRequest request, String username) {
+        User user = userService.findByName(username);
+        Map<String, String> settings = WechatConfig.getWechatConfig().getSettings();
+        WxCpMessage message = WxCpMessage.TEXT()
+                .agentId(WechatConfig.getWechatConfig().getWxCpInMemoryConfigStorage().getAgentId()) // 企业号应用ID
+                .toUser(user.getNumber())
+                .content("<a href='" + settings.get("domain") + "/wx/reset/password'>点此重置密码</a>")
+                .build();
+
+        try {
+            WechatConfig.getWechatConfig().getWxCpService().messageSend(message);
+        } catch (WxErrorException e) {
+            e.printStackTrace();
+        }
         return "login";
     }
 }

@@ -9,6 +9,7 @@ app && app.controller('substation', function($scope, $http) {
     $http.get("/api/company/list/Pagenation" + "?offset=" + ($scope.currentPage - 1) + "&limit=" + $scope.pageSize + "&sort=" + $scope.sort).success(function(data){
       $scope.totalPages = data.totalPages;
       $scope.companys = data.content;
+      $scope.totalCount = data.totalElements;
     })    
   };
   $scope.changeSort = function(sort) {

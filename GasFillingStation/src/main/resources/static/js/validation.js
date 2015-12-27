@@ -22,8 +22,8 @@
     var value = args[0];
     (args.length == 2) && ((value + '').length != args[1]) && (flag = false);
     (args.length == 3) && !(
-        (value.length >= args[1] && value.length >= args[2])
-        || (value.length >= args[2] && value.length >= args[1])
+        (value.length >= args[1] && value.length <= args[2])
+        || (value.length >= args[2] && value.length <= args[1])
     ) && (flag = false); 
     return flag;
   }
@@ -39,7 +39,7 @@
       if(!ele.val()) {
         flag = false;
       } else {
-        var type = ele.attr('require').replace(/([^\(]*\()/g,'$1' + ele.val() + ',');
+        var type = ele.attr('require').replace(/([^\(]*\()/g,'$1' +"'" + ele.val() + "',");
         flag = eval('validateType.'+type);
       }
     } else {

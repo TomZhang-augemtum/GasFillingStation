@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link th:href="@{/css/wx/reset.css}" rel="stylesheet" />
+<link th:href="@{/bootstrap-3.3.4-dist/css/bootstrap.min.css}" rel="stylesheet" />
+<title>加气站管理系统</title>
+</head>
+<body ng-app="gas">
+<div class="reset" ng-controller="reset">
+    <div>
+        <span class="col1">姓名</span>
+        <input class="form-control" ng-model="user.name" readonly="readonly" type="text" />
+    </div>
+    <div>
+        <span class="col1">新密码(长度6-16位)</span>
+        <input class="form-control" ng-model="password" require="notEmpty(6,16)"  type="password" />
+    </div>
+    <div>
+        <span class="col1">新密码确认(长度6-16位)</span>
+        <input class="form-control" require="notEmpty(6,16)" ng-model="passwordagain"  type="password" />
+    </div>
+    <div>
+        <span class="submitbtn form-control btn btn-primary" ng-click="submit()">提交修改</span>
+    </div>
+</div>
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript" src="/js/angular.min.js"></script>
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript" src="/js/common.js"></script>
+<script type="text/javascript" src="/js/validation.js"></script>
+<script type="text/javascript" src="/js/wx/reset.js"></script>
+</body>
+</html>

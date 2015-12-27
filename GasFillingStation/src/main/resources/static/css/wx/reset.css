@@ -1,0 +1,26 @@
+.reset .submitbtn{
+    margin-top: 20px;
+}
+.reset .small-qrcode{
+    width: 80px;
+}
+.t_center{
+    text-align: center;
+}
+/* ------------ history ------------- */
+.reset .closeBtn {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    color: black;
+    padding: 5px;
+}
+.recharge {
+    color: green;
+}
+.cost {
+    color: red;
+}
+.validation-error {
+    border-color: red !important;
+}

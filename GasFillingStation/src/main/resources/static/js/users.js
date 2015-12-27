@@ -9,6 +9,8 @@ app && app.controller('users', function($scope, $http) {
   _loadUsers = function() {
     $.get("/api/employee/list/Pagenation" + "?offset=" + ($scope.currentPage -1) + "&limit=" + $scope.pageSize + "&sort=" + $scope.sort).success(function(data){
       $scope.$apply(function(){
+        
+          $scope.totalCount = data.totalElements;
         $scope.totalPages = data.totalPages;
         $scope.users = data.content;
       })
