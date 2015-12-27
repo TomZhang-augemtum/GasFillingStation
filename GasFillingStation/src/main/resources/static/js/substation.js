@@ -31,6 +31,7 @@ app && app.controller('substation', function($scope, $http) {
   };
   $scope.addSubStationPopup = function() {
     $scope.addSubStation = {};
+    $scope.popupTitle = '添加子站';
     $scope.showAddSubStation = true;
   }
   $scope.closeaddSubStationPopup = function() {
@@ -45,6 +46,7 @@ app && app.controller('substation', function($scope, $http) {
       "freeGasNumber": $scope.addSubStation.freeGasNumber
     }).success(function(data){
       $scope.showAddSubStation = false;
+      alert('操作成功');
       _loadCompanys();
     })
   }
@@ -52,6 +54,7 @@ app && app.controller('substation', function($scope, $http) {
     $scope.addSubStation = {};
   }
   $scope.deleteCompany = function(id) {
+    confirm('是否删除子站？') &&
     $.get("/api/company/delete",{
       "id": id
     }).success(function(data){
@@ -62,6 +65,7 @@ app && app.controller('substation', function($scope, $http) {
     $scope.companys.forEach(function(company){
       company.id == id && ($scope.addSubStation = company);
     })
+    $scope.popupTitle = '编辑子站';
     $scope.showAddSubStation = true;
   }
   _loadCompanys();

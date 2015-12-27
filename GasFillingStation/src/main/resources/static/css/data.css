@@ -121,3 +121,28 @@
     margin-right: 50px;
     cursor: pointer;
 }
+
+.data .chart .panel-heading select{
+    color: black;
+    width: 120px;
+    margin-right: 20px;
+}
+.data .chart .content{
+    padding: 20px 10px;
+}
+.data .chart .color-style{
+    margin-top: 40px;
+}
+.data .chart .color{
+    display:inline-block;
+    width: 60px;
+    margin-left: 10px;
+    position: relative;
+    top: -4px;
+}
+.data .chart .money-color{
+    border: 1px solid rgba(220,220,220,1);
+}
+.data .chart .gas-color{
+    border: 1px solid rgba(151,187,205,1);
+}

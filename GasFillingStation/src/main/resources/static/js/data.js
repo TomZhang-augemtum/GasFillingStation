@@ -1,6 +1,7 @@
 app && app.controller("data", function($scope, $http){
   $scope.company = {};
   $scope.employee = {};
+  $scope.chart = {};
   $scope.currentTag = "company";
   $scope.company.currentPage = 1;
   $scope.company.pageSize = 20;
@@ -106,4 +107,53 @@ app && app.controller("data", function($scope, $http){
   $scope.exportEmployee = function(){
     $scope.showTimePicker = true;
   }
+  
+  $scope.catData = function() {
+    $scope.currentTag = "company";
+  }
+  $scope.catChart = function() {
+    $scope.currentTag = "chart";
+  }
+  $scope.chart.init = function() {
+    $.get('/api/chart/company/list').success(function(data){
+      $scope.$apply(function(){
+        $scope.chart.companys = data;
+        $scope.chart.currentCompany = "1" +'';
+        $scope.chart.loadData();
+      });
+    })
+  }
+  $scope.chart.changeCompany = function() {
+    $scope.chart.loadData();
+  }
+  $scope.chart.loadData = function(){
+    $.get('/api/chart/data?companyid='+$scope.chart.currentCompany).success(function(data){
+      console.log(data);
+      $scope.$apply(function(){
+        var datas = {
+            labels : ["January","February","March","April","May","June","July"],
+            datasets : [
+              {
+                fillColor : "rgba(0,0,0,0)",
+                strokeColor : "rgba(220,220,220,1)",
+                pointColor : "rgba(220,220,220,1)",
+                pointStrokeColor : "#fff",
+                data : [65,59,90,81,56,55,40]
+              },
+              {
+                fillColor : "rgba(0,0,0,0)",
+                strokeColor : "rgba(151,187,205,1)",
+                pointColor : "rgba(0,0,0,0)",
+                pointStrokeColor : "#fff",
+                data : [28,48,40,19,96,27,100]
+              }
+            ]
+          }
+        $scope.chart.data=data;
+        console.log(datas)
+      })
+    })
+    
+  }
+  $scope.catChart();
 })

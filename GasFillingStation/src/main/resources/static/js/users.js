@@ -35,6 +35,7 @@ app && app.controller('users', function($scope, $http) {
   };
   $scope.showAddUserPopup = function() {
     $scope.adduser = {};
+    $scope.popupTitle = "添加员工";
     $scope.showAddUser = true;
   }
   $scope.closeAddUserPopup = function() {
@@ -50,6 +51,7 @@ app && app.controller('users', function($scope, $http) {
       "company.id": $scope.adduser.company.id
     }).success(function(data){
       $scope.showAddUser = false;
+      alert('操作成功');
       _loadUsers();
     })
   }
@@ -57,6 +59,7 @@ app && app.controller('users', function($scope, $http) {
     $scope.adduser = {};
   }
   $scope.deleteUser = function(id) {
+    confirm("是否删除员工") && 
     $.get("/api/user/delete",{
       "id": id
     }).success(function(data){
@@ -68,6 +71,7 @@ app && app.controller('users', function($scope, $http) {
       user.id == id && ($scope.adduser = user);
     })
     $scope.adduser.company.id += "";
+    $scope.popupTitle = "编辑员工";
     $scope.showAddUser = true;
   }
   _loadUsers();

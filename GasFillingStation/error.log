@@ -24520,3 +24520,309 @@ org.springframework.expression.spel.SpelEvaluationException: EL1007E:(pos 13): P
 2015-12-25 20:47:33.578  WARN 4780 --- [main] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.gas.model.RoleMenuID
 2015-12-25 20:47:36.998  INFO 4780 --- [main] com.gas.GasFillingStationApplication     : Started GasFillingStationApplication in 11.085 seconds (JVM running for 11.841)
 2015-12-25 20:47:52.162  INFO 4780 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2015-12-27 10:45:40.457  INFO 888 --- [main] com.gas.GasFillingStationApplication     : Starting GasFillingStationApplication on YT00522-206 with PID 888 (D:\GasFillingStation\GasFillingStation\target\classes started by Tom.Zhang in D:\GasFillingStation\GasFillingStation)
+2015-12-27 10:45:40.464  INFO 888 --- [main] com.gas.GasFillingStationApplication     : No profiles are active
+2015-12-27 10:45:50.413  INFO 888 --- [main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2015-12-27 10:45:50.416  INFO 888 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.0.28
+2015-12-27 10:45:50.707  INFO 888 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2015-12-27 10:45:54.804  WARN 888 --- [main] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.gas.model.RoleMenuID
+2015-12-27 10:45:54.819  WARN 888 --- [main] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.gas.model.RoleMenuID
+2015-12-27 10:46:00.072  INFO 888 --- [main] com.gas.GasFillingStationApplication     : Started GasFillingStationApplication in 20.872 seconds (JVM running for 22.283)
+2015-12-27 10:46:20.137  INFO 888 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2015-12-27 11:00:45.866  INFO 3768 --- [main] com.gas.GasFillingStationApplication     : Starting GasFillingStationApplication on YT00522-206 with PID 3768 (D:\GasFillingStation\GasFillingStation\target\classes started by Tom.Zhang in D:\GasFillingStation\GasFillingStation)
+2015-12-27 11:00:45.873  INFO 3768 --- [main] com.gas.GasFillingStationApplication     : No profiles are active
+2015-12-27 11:00:50.016  INFO 3768 --- [main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2015-12-27 11:00:50.018  INFO 3768 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.0.28
+2015-12-27 11:00:50.198  INFO 3768 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2015-12-27 11:00:53.898  WARN 3768 --- [main] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.gas.model.RoleMenuID
+2015-12-27 11:00:53.899  WARN 3768 --- [main] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.gas.model.RoleMenuID
+2015-12-27 11:00:58.802  INFO 3768 --- [main] com.gas.GasFillingStationApplication     : Started GasFillingStationApplication in 13.554 seconds (JVM running for 14.229)
+2015-12-27 11:01:21.859  INFO 3768 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2015-12-27 11:01:22.265 ERROR 3768 --- [http-nio-80-exec-1] org.thymeleaf.TemplateEngine             : [THYMELEAF][http-nio-80-exec-1] Exception processing template "data": Exception evaluating SpringEL expression: "session.user.role.menus" (header:27)
+2015-12-27 11:01:22.278 ERROR 3768 --- [http-nio-80-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateProcessingException: Exception evaluating SpringEL expression: "session.user.role.menus" (header:27)] with root cause
+
+org.springframework.expression.spel.SpelEvaluationException: EL1007E:(pos 13): Property or field 'role' cannot be found on null
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.readProperty(PropertyOrFieldReference.java:220) ~[spring-expression-4.2.3.RELEASE.jar:4.2.3.RELEASE]
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.getValueInternal(PropertyOrFieldReference.java:94) ~[spring-expression-4.2.3.RELEASE.jar:4.2.3.RELEASE]
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.getValueInternal(PropertyOrFieldReference.java:81) ~[spring-expression-4.2.3.RELEASE.jar:4.2.3.RELEASE]
+	at org.springframework.expression.spel.ast.CompoundExpression.getValueRef(CompoundExpression.java:57) ~[spring-expression-4.2.3.RELEASE.jar:4.2.3.RELEASE]
+	at org.springframework.expression.spel.ast.CompoundExpression.getValueInternal(CompoundExpression.java:87) ~[spring-expression-4.2.3.RELEASE.jar:4.2.3.RELEASE]
+	at org.springframework.expression.spel.ast.SpelNodeImpl.getValue(SpelNodeImpl.java:120) ~[spring-expression-4.2.3.RELEASE.jar:4.2.3.RELEASE]
+	at org.springframework.expression.spel.standard.SpelExpression.getValue(SpelExpression.java:267) ~[spring-expression-4.2.3.RELEASE.jar:4.2.3.RELEASE]
+	at org.thymeleaf.spring4.expression.SpelVariableExpressionEvaluator.evaluate(SpelVariableExpressionEvaluator.java:139) ~[thymeleaf-spring4-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.standard.expression.VariableExpression.executeVariable(VariableExpression.java:154) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:59) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:103) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:133) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:120) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.standard.processor.attr.AbstractStandardIterationAttrProcessor.getIterationSpec(AbstractStandardIterationAttrProcessor.java:86) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.processor.attr.AbstractIterationAttrProcessor.processAttribute(AbstractIterationAttrProcessor.java:102) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.processor.attr.AbstractAttrProcessor.doProcess(AbstractAttrProcessor.java:87) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.processor.AbstractProcessor.process(AbstractProcessor.java:212) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.dom.Node.applyNextProcessor(Node.java:1017) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.dom.Node.processNode(Node.java:972) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.dom.NestableNode.computeNextChild(NestableNode.java:695) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.dom.NestableNode.doAdditionalProcess(NestableNode.java:668) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.dom.Node.processNode(Node.java:990) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.dom.NestableNode.computeNextChild(NestableNode.java:695) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.dom.NestableNode.doAdditionalProcess(NestableNode.java:668) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.dom.Node.processNode(Node.java:990) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.dom.NestableNode.computeNextChild(NestableNode.java:695) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.dom.NestableNode.doAdditionalProcess(NestableNode.java:668) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.dom.Node.processNode(Node.java:990) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.dom.NestableNode.computeNextChild(NestableNode.java:695) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.dom.NestableNode.doAdditionalProcess(NestableNode.java:668) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.dom.Node.processNode(Node.java:990) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.dom.NestableNode.computeNextChild(NestableNode.java:695) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.dom.NestableNode.doAdditionalProcess(NestableNode.java:668) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.dom.Node.processNode(Node.java:990) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.dom.NestableNode.computeNextChild(NestableNode.java:695) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.dom.NestableNode.doAdditionalProcess(NestableNode.java:668) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.dom.Node.processNode(Node.java:990) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.dom.NestableNode.computeNextChild(NestableNode.java:695) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.dom.NestableNode.doAdditionalProcess(NestableNode.java:668) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.dom.Node.processNode(Node.java:990) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.dom.NestableNode.computeNextChild(NestableNode.java:695) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.dom.NestableNode.doAdditionalProcess(NestableNode.java:668) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.dom.Node.processNode(Node.java:990) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.dom.NestableNode.computeNextChild(NestableNode.java:695) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.dom.NestableNode.doAdditionalProcess(NestableNode.java:668) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.dom.Node.processNode(Node.java:990) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.dom.Document.process(Document.java:93) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1155) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1060) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1011) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.spring4.view.ThymeleafView.renderFragment(ThymeleafView.java:335) ~[thymeleaf-spring4-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.spring4.view.ThymeleafView.render(ThymeleafView.java:190) ~[thymeleaf-spring4-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1244) ~[spring-webmvc-4.2.3.RELEASE.jar:4.2.3.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1027) ~[spring-webmvc-4.2.3.RELEASE.jar:4.2.3.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:971) ~[spring-webmvc-4.2.3.RELEASE.jar:4.2.3.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:893) ~[spring-webmvc-4.2.3.RELEASE.jar:4.2.3.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970) ~[spring-webmvc-4.2.3.RELEASE.jar:4.2.3.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861) ~[spring-webmvc-4.2.3.RELEASE.jar:4.2.3.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:622) ~[tomcat-embed-core-8.0.28.jar:8.0.28]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846) ~[spring-webmvc-4.2.3.RELEASE.jar:4.2.3.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729) ~[tomcat-embed-core-8.0.28.jar:8.0.28]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:291) ~[tomcat-embed-core-8.0.28.jar:8.0.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206) ~[tomcat-embed-core-8.0.28.jar:8.0.28]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52) ~[tomcat-embed-websocket-8.0.28.jar:8.0.28]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239) ~[tomcat-embed-core-8.0.28.jar:8.0.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206) ~[tomcat-embed-core-8.0.28.jar:8.0.28]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:207) ~[spring-security-web-4.0.3.RELEASE.jar:4.0.3.RELEASE]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:176) ~[spring-security-web-4.0.3.RELEASE.jar:4.0.3.RELEASE]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:346) ~[spring-web-4.2.3.RELEASE.jar:4.2.3.RELEASE]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:262) ~[spring-web-4.2.3.RELEASE.jar:4.2.3.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239) ~[tomcat-embed-core-8.0.28.jar:8.0.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206) ~[tomcat-embed-core-8.0.28.jar:8.0.28]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99) ~[spring-web-4.2.3.RELEASE.jar:4.2.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-4.2.3.RELEASE.jar:4.2.3.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239) ~[tomcat-embed-core-8.0.28.jar:8.0.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206) ~[tomcat-embed-core-8.0.28.jar:8.0.28]
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:87) ~[spring-web-4.2.3.RELEASE.jar:4.2.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-4.2.3.RELEASE.jar:4.2.3.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239) ~[tomcat-embed-core-8.0.28.jar:8.0.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206) ~[tomcat-embed-core-8.0.28.jar:8.0.28]
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:77) ~[spring-web-4.2.3.RELEASE.jar:4.2.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-4.2.3.RELEASE.jar:4.2.3.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239) ~[tomcat-embed-core-8.0.28.jar:8.0.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206) ~[tomcat-embed-core-8.0.28.jar:8.0.28]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:121) ~[spring-web-4.2.3.RELEASE.jar:4.2.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-4.2.3.RELEASE.jar:4.2.3.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239) ~[tomcat-embed-core-8.0.28.jar:8.0.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206) ~[tomcat-embed-core-8.0.28.jar:8.0.28]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:217) ~[tomcat-embed-core-8.0.28.jar:8.0.28]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:106) [tomcat-embed-core-8.0.28.jar:8.0.28]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:502) [tomcat-embed-core-8.0.28.jar:8.0.28]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:142) [tomcat-embed-core-8.0.28.jar:8.0.28]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79) [tomcat-embed-core-8.0.28.jar:8.0.28]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:88) [tomcat-embed-core-8.0.28.jar:8.0.28]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:518) [tomcat-embed-core-8.0.28.jar:8.0.28]
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1091) [tomcat-embed-core-8.0.28.jar:8.0.28]
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:673) [tomcat-embed-core-8.0.28.jar:8.0.28]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1500) [tomcat-embed-core-8.0.28.jar:8.0.28]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.run(NioEndpoint.java:1456) [tomcat-embed-core-8.0.28.jar:8.0.28]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) [na:1.8.0_65]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) [na:1.8.0_65]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-8.0.28.jar:8.0.28]
+	at java.lang.Thread.run(Thread.java:745) [na:1.8.0_65]
+
+2015-12-27 11:19:22.065  INFO 7084 --- [main] com.gas.GasFillingStationApplication     : Starting GasFillingStationApplication on YT00522-206 with PID 7084 (D:\GasFillingStation\GasFillingStation\target\classes started by Tom.Zhang in D:\GasFillingStation\GasFillingStation)
+2015-12-27 11:19:22.092  INFO 7084 --- [main] com.gas.GasFillingStationApplication     : No profiles are active
+2015-12-27 11:19:25.508  INFO 7084 --- [main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2015-12-27 11:19:25.511  INFO 7084 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.0.28
+2015-12-27 11:19:25.661  INFO 7084 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2015-12-27 11:19:27.822  WARN 7084 --- [main] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.gas.model.RoleMenuID
+2015-12-27 11:19:27.824  WARN 7084 --- [main] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.gas.model.RoleMenuID
+2015-12-27 11:19:31.345  INFO 7084 --- [main] com.gas.GasFillingStationApplication     : Started GasFillingStationApplication in 9.631 seconds (JVM running for 10.279)
+2015-12-27 11:19:37.983  INFO 7084 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2015-12-27 12:00:25.085  INFO 5188 --- [main] com.gas.GasFillingStationApplication     : Starting GasFillingStationApplication on YT00522-206 with PID 5188 (D:\GasFillingStation\GasFillingStation\target\classes started by Tom.Zhang in D:\GasFillingStation\GasFillingStation)
+2015-12-27 12:00:25.090  INFO 5188 --- [main] com.gas.GasFillingStationApplication     : No profiles are active
+2015-12-27 12:00:28.549  INFO 5188 --- [main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2015-12-27 12:00:28.550  INFO 5188 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.0.28
+2015-12-27 12:00:28.712  INFO 5188 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2015-12-27 12:00:31.255  WARN 5188 --- [main] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.gas.model.RoleMenuID
+2015-12-27 12:00:31.258  WARN 5188 --- [main] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.gas.model.RoleMenuID
+2015-12-27 12:00:35.476  INFO 5188 --- [main] com.gas.GasFillingStationApplication     : Started GasFillingStationApplication in 10.789 seconds (JVM running for 11.485)
+2015-12-27 12:01:49.029  INFO 5188 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2015-12-27 12:06:33.360  INFO 6584 --- [main] com.gas.GasFillingStationApplication     : Starting GasFillingStationApplication on YT00522-206 with PID 6584 (D:\GasFillingStation\GasFillingStation\target\classes started by Tom.Zhang in D:\GasFillingStation\GasFillingStation)
+2015-12-27 12:06:33.364  INFO 6584 --- [main] com.gas.GasFillingStationApplication     : No profiles are active
+2015-12-27 12:06:36.654  INFO 6584 --- [main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2015-12-27 12:06:36.656  INFO 6584 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.0.28
+2015-12-27 12:06:36.806  INFO 6584 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2015-12-27 12:06:39.315  WARN 6584 --- [main] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.gas.model.RoleMenuID
+2015-12-27 12:06:39.317  WARN 6584 --- [main] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.gas.model.RoleMenuID
+2015-12-27 12:06:42.315  INFO 6584 --- [main] com.gas.GasFillingStationApplication     : Started GasFillingStationApplication in 9.322 seconds (JVM running for 10.137)
+2015-12-27 12:06:56.790  INFO 6584 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2015-12-27 12:09:14.782  INFO 6020 --- [main] com.gas.GasFillingStationApplication     : Starting GasFillingStationApplication on YT00522-206 with PID 6020 (D:\GasFillingStation\GasFillingStation\target\classes started by Tom.Zhang in D:\GasFillingStation\GasFillingStation)
+2015-12-27 12:09:14.786  INFO 6020 --- [main] com.gas.GasFillingStationApplication     : No profiles are active
+2015-12-27 12:09:18.360  INFO 6020 --- [main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2015-12-27 12:09:18.362  INFO 6020 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.0.28
+2015-12-27 12:09:18.530  INFO 6020 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2015-12-27 12:09:21.327  WARN 6020 --- [main] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.gas.model.RoleMenuID
+2015-12-27 12:09:21.328  WARN 6020 --- [main] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.gas.model.RoleMenuID
+2015-12-27 12:09:24.222  INFO 6020 --- [main] com.gas.GasFillingStationApplication     : Started GasFillingStationApplication in 9.892 seconds (JVM running for 10.504)
+2015-12-27 12:09:33.423  INFO 6020 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2015-12-27 12:10:56.740  INFO 6272 --- [main] com.gas.GasFillingStationApplication     : Starting GasFillingStationApplication on YT00522-206 with PID 6272 (D:\GasFillingStation\GasFillingStation\target\classes started by Tom.Zhang in D:\GasFillingStation\GasFillingStation)
+2015-12-27 12:10:56.743  INFO 6272 --- [main] com.gas.GasFillingStationApplication     : No profiles are active
+2015-12-27 12:11:00.090  INFO 6272 --- [main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2015-12-27 12:11:00.091  INFO 6272 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.0.28
+2015-12-27 12:11:00.257  INFO 6272 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2015-12-27 12:11:02.759  WARN 6272 --- [main] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.gas.model.RoleMenuID
+2015-12-27 12:11:02.761  WARN 6272 --- [main] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.gas.model.RoleMenuID
+2015-12-27 12:11:05.723  INFO 6272 --- [main] com.gas.GasFillingStationApplication     : Started GasFillingStationApplication in 9.356 seconds (JVM running for 10.056)
+2015-12-27 12:11:13.784  INFO 6272 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2015-12-27 12:17:10.605  INFO 3356 --- [main] com.gas.GasFillingStationApplication     : Starting GasFillingStationApplication on YT00522-206 with PID 3356 (D:\GasFillingStation\GasFillingStation\target\classes started by Tom.Zhang in D:\GasFillingStation\GasFillingStation)
+2015-12-27 12:17:10.609  INFO 3356 --- [main] com.gas.GasFillingStationApplication     : No profiles are active
+2015-12-27 12:17:14.572  INFO 3356 --- [main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2015-12-27 12:17:14.573  INFO 3356 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.0.28
+2015-12-27 12:17:14.703  INFO 3356 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2015-12-27 12:17:17.022  WARN 3356 --- [main] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.gas.model.RoleMenuID
+2015-12-27 12:17:17.024  WARN 3356 --- [main] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.gas.model.RoleMenuID
+2015-12-27 12:17:20.036  INFO 3356 --- [main] com.gas.GasFillingStationApplication     : Started GasFillingStationApplication in 9.865 seconds (JVM running for 10.638)
+2015-12-27 12:17:22.220  INFO 3356 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2015-12-27 12:21:17.716  INFO 5208 --- [main] com.gas.GasFillingStationApplication     : Starting GasFillingStationApplication on YT00522-206 with PID 5208 (D:\GasFillingStation\GasFillingStation\target\classes started by Tom.Zhang in D:\GasFillingStation\GasFillingStation)
+2015-12-27 12:21:17.719  INFO 5208 --- [main] com.gas.GasFillingStationApplication     : No profiles are active
+2015-12-27 12:21:21.046  INFO 5208 --- [main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2015-12-27 12:21:21.048  INFO 5208 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.0.28
+2015-12-27 12:21:21.202  INFO 5208 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2015-12-27 12:21:23.651  WARN 5208 --- [main] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.gas.model.RoleMenuID
+2015-12-27 12:21:23.653  WARN 5208 --- [main] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.gas.model.RoleMenuID
+2015-12-27 12:21:26.445  INFO 5208 --- [main] com.gas.GasFillingStationApplication     : Started GasFillingStationApplication in 9.075 seconds (JVM running for 9.759)
+2015-12-27 12:21:29.960  INFO 5208 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2015-12-27 16:33:59.071  INFO 3824 --- [main] com.gas.GasFillingStationApplication     : Starting GasFillingStationApplication on YT00522-206 with PID 3824 (D:\GasFillingStation\GasFillingStation\target\classes started by Tom.Zhang in D:\GasFillingStation\GasFillingStation)
+2015-12-27 16:33:59.098  INFO 3824 --- [main] com.gas.GasFillingStationApplication     : No profiles are active
+2015-12-27 16:34:04.067  INFO 3824 --- [main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2015-12-27 16:34:04.069  INFO 3824 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.0.28
+2015-12-27 16:34:04.242  INFO 3824 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2015-12-27 16:34:07.788  WARN 3824 --- [main] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.gas.model.RoleMenuID
+2015-12-27 16:34:07.790  WARN 3824 --- [main] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.gas.model.RoleMenuID
+2015-12-27 16:34:12.197  INFO 3824 --- [main] com.gas.GasFillingStationApplication     : Started GasFillingStationApplication in 13.701 seconds (JVM running for 17.003)
+2015-12-27 16:34:14.321  INFO 3824 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2015-12-27 16:34:14.928 ERROR 3824 --- [http-nio-80-exec-1] org.thymeleaf.TemplateEngine             : [THYMELEAF][http-nio-80-exec-1] Exception processing template "users": Exception evaluating SpringEL expression: "session.user.role.menus" (header:27)
+2015-12-27 16:34:14.939 ERROR 3824 --- [http-nio-80-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateProcessingException: Exception evaluating SpringEL expression: "session.user.role.menus" (header:27)] with root cause
+
+org.springframework.expression.spel.SpelEvaluationException: EL1007E:(pos 13): Property or field 'role' cannot be found on null
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.readProperty(PropertyOrFieldReference.java:220) ~[spring-expression-4.2.3.RELEASE.jar:4.2.3.RELEASE]
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.getValueInternal(PropertyOrFieldReference.java:94) ~[spring-expression-4.2.3.RELEASE.jar:4.2.3.RELEASE]
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.getValueInternal(PropertyOrFieldReference.java:81) ~[spring-expression-4.2.3.RELEASE.jar:4.2.3.RELEASE]
+	at org.springframework.expression.spel.ast.CompoundExpression.getValueRef(CompoundExpression.java:57) ~[spring-expression-4.2.3.RELEASE.jar:4.2.3.RELEASE]
+	at org.springframework.expression.spel.ast.CompoundExpression.getValueInternal(CompoundExpression.java:87) ~[spring-expression-4.2.3.RELEASE.jar:4.2.3.RELEASE]
+	at org.springframework.expression.spel.ast.SpelNodeImpl.getValue(SpelNodeImpl.java:120) ~[spring-expression-4.2.3.RELEASE.jar:4.2.3.RELEASE]
+	at org.springframework.expression.spel.standard.SpelExpression.getValue(SpelExpression.java:267) ~[spring-expression-4.2.3.RELEASE.jar:4.2.3.RELEASE]
+	at org.thymeleaf.spring4.expression.SpelVariableExpressionEvaluator.evaluate(SpelVariableExpressionEvaluator.java:139) ~[thymeleaf-spring4-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.standard.expression.VariableExpression.executeVariable(VariableExpression.java:154) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:59) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:103) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:133) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:120) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.standard.processor.attr.AbstractStandardIterationAttrProcessor.getIterationSpec(AbstractStandardIterationAttrProcessor.java:86) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.processor.attr.AbstractIterationAttrProcessor.processAttribute(AbstractIterationAttrProcessor.java:102) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.processor.attr.AbstractAttrProcessor.doProcess(AbstractAttrProcessor.java:87) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.processor.AbstractProcessor.process(AbstractProcessor.java:212) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.dom.Node.applyNextProcessor(Node.java:1017) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.dom.Node.processNode(Node.java:972) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.dom.NestableNode.computeNextChild(NestableNode.java:695) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.dom.NestableNode.doAdditionalProcess(NestableNode.java:668) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.dom.Node.processNode(Node.java:990) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.dom.NestableNode.computeNextChild(NestableNode.java:695) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.dom.NestableNode.doAdditionalProcess(NestableNode.java:668) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.dom.Node.processNode(Node.java:990) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.dom.NestableNode.computeNextChild(NestableNode.java:695) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.dom.NestableNode.doAdditionalProcess(NestableNode.java:668) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.dom.Node.processNode(Node.java:990) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.dom.NestableNode.computeNextChild(NestableNode.java:695) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.dom.NestableNode.doAdditionalProcess(NestableNode.java:668) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.dom.Node.processNode(Node.java:990) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.dom.NestableNode.computeNextChild(NestableNode.java:695) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.dom.NestableNode.doAdditionalProcess(NestableNode.java:668) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.dom.Node.processNode(Node.java:990) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.dom.NestableNode.computeNextChild(NestableNode.java:695) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.dom.NestableNode.doAdditionalProcess(NestableNode.java:668) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.dom.Node.processNode(Node.java:990) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.dom.NestableNode.computeNextChild(NestableNode.java:695) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.dom.NestableNode.doAdditionalProcess(NestableNode.java:668) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.dom.Node.processNode(Node.java:990) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.dom.NestableNode.computeNextChild(NestableNode.java:695) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.dom.NestableNode.doAdditionalProcess(NestableNode.java:668) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.dom.Node.processNode(Node.java:990) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.dom.NestableNode.computeNextChild(NestableNode.java:695) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.dom.NestableNode.doAdditionalProcess(NestableNode.java:668) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.dom.Node.processNode(Node.java:990) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.dom.Document.process(Document.java:93) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1155) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1060) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1011) ~[thymeleaf-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.spring4.view.ThymeleafView.renderFragment(ThymeleafView.java:335) ~[thymeleaf-spring4-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.thymeleaf.spring4.view.ThymeleafView.render(ThymeleafView.java:190) ~[thymeleaf-spring4-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1244) ~[spring-webmvc-4.2.3.RELEASE.jar:4.2.3.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1027) ~[spring-webmvc-4.2.3.RELEASE.jar:4.2.3.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:971) ~[spring-webmvc-4.2.3.RELEASE.jar:4.2.3.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:893) ~[spring-webmvc-4.2.3.RELEASE.jar:4.2.3.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970) ~[spring-webmvc-4.2.3.RELEASE.jar:4.2.3.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861) ~[spring-webmvc-4.2.3.RELEASE.jar:4.2.3.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:622) ~[tomcat-embed-core-8.0.28.jar:8.0.28]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846) ~[spring-webmvc-4.2.3.RELEASE.jar:4.2.3.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729) ~[tomcat-embed-core-8.0.28.jar:8.0.28]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:291) ~[tomcat-embed-core-8.0.28.jar:8.0.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206) ~[tomcat-embed-core-8.0.28.jar:8.0.28]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52) ~[tomcat-embed-websocket-8.0.28.jar:8.0.28]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239) ~[tomcat-embed-core-8.0.28.jar:8.0.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206) ~[tomcat-embed-core-8.0.28.jar:8.0.28]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:207) ~[spring-security-web-4.0.3.RELEASE.jar:4.0.3.RELEASE]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:176) ~[spring-security-web-4.0.3.RELEASE.jar:4.0.3.RELEASE]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:346) ~[spring-web-4.2.3.RELEASE.jar:4.2.3.RELEASE]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:262) ~[spring-web-4.2.3.RELEASE.jar:4.2.3.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239) ~[tomcat-embed-core-8.0.28.jar:8.0.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206) ~[tomcat-embed-core-8.0.28.jar:8.0.28]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99) ~[spring-web-4.2.3.RELEASE.jar:4.2.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-4.2.3.RELEASE.jar:4.2.3.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239) ~[tomcat-embed-core-8.0.28.jar:8.0.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206) ~[tomcat-embed-core-8.0.28.jar:8.0.28]
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:87) ~[spring-web-4.2.3.RELEASE.jar:4.2.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-4.2.3.RELEASE.jar:4.2.3.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239) ~[tomcat-embed-core-8.0.28.jar:8.0.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206) ~[tomcat-embed-core-8.0.28.jar:8.0.28]
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:77) ~[spring-web-4.2.3.RELEASE.jar:4.2.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-4.2.3.RELEASE.jar:4.2.3.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239) ~[tomcat-embed-core-8.0.28.jar:8.0.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206) ~[tomcat-embed-core-8.0.28.jar:8.0.28]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:121) ~[spring-web-4.2.3.RELEASE.jar:4.2.3.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-4.2.3.RELEASE.jar:4.2.3.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:239) ~[tomcat-embed-core-8.0.28.jar:8.0.28]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206) ~[tomcat-embed-core-8.0.28.jar:8.0.28]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:217) ~[tomcat-embed-core-8.0.28.jar:8.0.28]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:106) [tomcat-embed-core-8.0.28.jar:8.0.28]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:502) [tomcat-embed-core-8.0.28.jar:8.0.28]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:142) [tomcat-embed-core-8.0.28.jar:8.0.28]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79) [tomcat-embed-core-8.0.28.jar:8.0.28]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:88) [tomcat-embed-core-8.0.28.jar:8.0.28]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:518) [tomcat-embed-core-8.0.28.jar:8.0.28]
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1091) [tomcat-embed-core-8.0.28.jar:8.0.28]
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:673) [tomcat-embed-core-8.0.28.jar:8.0.28]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1500) [tomcat-embed-core-8.0.28.jar:8.0.28]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.run(NioEndpoint.java:1456) [tomcat-embed-core-8.0.28.jar:8.0.28]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) [na:1.8.0_65]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) [na:1.8.0_65]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-8.0.28.jar:8.0.28]
+	at java.lang.Thread.run(Thread.java:745) [na:1.8.0_65]
+
