@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.gas.dao.SettingDao;
 import com.gas.model.Setting;
+import com.gas.model.SettingVO;
 
 @Service
 public class SettingService {
@@ -22,5 +23,16 @@ public class SettingService {
             maps.put(setting.getKey(), setting.getValue());
         }
         return maps;
+    }
+
+    public boolean update(SettingVO settingvo) {
+        Map<String, String> settings = settingvo.toMap();
+        Setting setting = null;
+        for (String key : settings.keySet()) {
+            setting = settingDao.findByKey(key);
+            setting.setValue(settings.get(key));
+            settingDao.save(setting);
+        }
+        return true;
     }
 }

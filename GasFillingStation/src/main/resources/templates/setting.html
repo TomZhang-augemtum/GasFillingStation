@@ -13,6 +13,10 @@
             <div class="panel-heading">
                 <span class="ng-cloak">系统设置</span>
             </div>
+            <div class="dataset right">
+                <span class="btn btn-primary" ng-click="backup()">备份数据库</span>
+                <span class="btn btn-danger" ng-click="restore()">恢复数据库</span>
+            </div>
             <div class="table">
                 <ul>
                     <li class="col col1">企业号id</li>
@@ -38,7 +42,7 @@
                     <li class="col col1">网站域名</li>
                     <li class="col col2"><input type="text" ng-model="setting.domain" /></li>
                 </ul>
-                <div class="col col1"><span class='update btn-primary'>更新</span></div>
+                <div class="col col1"><span class='update btn-primary' ng-click="update()">更新</span></div>
             </div>
         </div>
     </div>

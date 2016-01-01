@@ -70,3 +70,12 @@
     left: 150px;
     top: 25px;
 }
+
+.setting .dataset {
+    display: inline-block;
+    width: 120px;
+    padding-top: 10px;
+}
+.setting .dataset span{
+    margin-bottom: 10px;
+}
