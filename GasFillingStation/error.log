@@ -25965,3 +25965,12 @@ org.springframework.expression.spel.SpelEvaluationException: EL1007E:(pos 13): P
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-8.0.28.jar:8.0.28]
 	at java.lang.Thread.run(Thread.java:745) [na:1.8.0_65]
 
+2016-01-23 12:39:41.877  INFO 5312 --- [main] com.gas.GasFillingStationApplication     : Starting GasFillingStationApplication on YT00522-206 with PID 5312 (D:\GasFillingStation\GasFillingStation\target\classes started by Tom.Zhang in D:\GasFillingStation\GasFillingStation)
+2016-01-23 12:39:41.908  INFO 5312 --- [main] com.gas.GasFillingStationApplication     : No profiles are active
+2016-01-23 12:39:46.744  INFO 5312 --- [main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2016-01-23 12:39:46.745  INFO 5312 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.0.28
+2016-01-23 12:39:46.979  INFO 5312 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2016-01-23 12:39:50.381  WARN 5312 --- [main] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.gas.model.RoleMenuID
+2016-01-23 12:39:50.381  WARN 5312 --- [main] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.gas.model.RoleMenuID
+2016-01-23 12:39:54.470  INFO 5312 --- [main] com.gas.GasFillingStationApplication     : Started GasFillingStationApplication in 13.577 seconds (JVM running for 15.937)
+2016-01-23 12:43:18.360  INFO 5312 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
