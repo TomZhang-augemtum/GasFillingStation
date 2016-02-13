@@ -25974,3 +25974,12 @@ org.springframework.expression.spel.SpelEvaluationException: EL1007E:(pos 13): P
 2016-01-23 12:39:50.381  WARN 5312 --- [main] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.gas.model.RoleMenuID
 2016-01-23 12:39:54.470  INFO 5312 --- [main] com.gas.GasFillingStationApplication     : Started GasFillingStationApplication in 13.577 seconds (JVM running for 15.937)
 2016-01-23 12:43:18.360  INFO 5312 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2016-02-13 17:09:01.160  INFO 7368 --- [main] com.gas.GasFillingStationApplication     : Starting GasFillingStationApplication on MS-20151203VICX with PID 7368 (E:\GasFillingStation\GasFillingStation\target\classes started by Administrator in E:\GasFillingStation\GasFillingStation)
+2016-02-13 17:09:01.186  INFO 7368 --- [main] com.gas.GasFillingStationApplication     : No profiles are active
+2016-02-13 17:09:07.351  INFO 7368 --- [main] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2016-02-13 17:09:07.354  INFO 7368 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.0.28
+2016-02-13 17:09:07.698  INFO 7368 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2016-02-13 17:09:13.301  WARN 7368 --- [main] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.gas.model.RoleMenuID
+2016-02-13 17:09:13.303  WARN 7368 --- [main] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.gas.model.RoleMenuID
+2016-02-13 17:09:17.953  INFO 7368 --- [main] com.gas.GasFillingStationApplication     : Started GasFillingStationApplication in 17.896 seconds (JVM running for 19.589)
+2016-02-13 17:11:15.593  INFO 7368 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
