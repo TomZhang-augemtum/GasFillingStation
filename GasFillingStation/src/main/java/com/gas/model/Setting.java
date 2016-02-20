@@ -12,15 +12,15 @@ public class Setting implements Serializable {
      */
     private static final long serialVersionUID = 1L;
     @Id
-    private String key;
+    private String settingkey;
     private String value;
 
-    public String getKey() {
-        return key;
+    public String getSettingkey() {
+        return settingkey;
     }
 
-    public void setKey(String key) {
-        this.key = key;
+    public void setSettingkey(String settingkey) {
+        this.settingkey = settingkey;
     }
 
     public String getValue() {

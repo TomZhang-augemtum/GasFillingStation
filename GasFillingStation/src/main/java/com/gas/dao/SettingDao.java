@@ -9,5 +9,5 @@ import com.gas.model.Setting;
 public interface SettingDao extends PagingAndSortingRepository<Setting, Long> {
     List<Setting> findAll();
 
-    Setting findByKey(String key);
+    Setting findBySettingkey(String key);
 }

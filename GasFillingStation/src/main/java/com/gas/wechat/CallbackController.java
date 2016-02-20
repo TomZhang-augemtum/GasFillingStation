@@ -16,12 +16,24 @@ public class CallbackController {
             throws AesException {
 
         String sToken = "LjLEnZTyM24YWQVcMM5peVxaG0p2J9d";
-        String sCorpID = "wx75a40ad206394845";
+        String sCorpID = "wxa5cf25672e5e7688";
         String sEncodingAESKey = "vMpk78HxIOg9sItzl5QeRhVPYnZfiuAXB8NOlcjBeWC";
         WXBizMsgCrypt wxcpt = new WXBizMsgCrypt(sToken, sEncodingAESKey, sCorpID);
 
         String sEchoStr = null;
         System.out.println(msg);
         return null;
+    }
+
+    @RequestMapping("/wechat/verifyurl")
+    public String verify(String msg_signature, String timestamp, String nonce, String echostr) throws AesException {
+
+        String sToken = "LjLEnZTyM24YWQVcMM5peVxaG0p2J9d";
+        String sCorpID = "wxa5cf25672e5e7688";
+        String sEncodingAESKey = "vMpk78HxIOg9sItzl5QeRhVPYnZfiuAXB8NOlcjBeWC";
+        WXBizMsgCrypt wxcpt = new WXBizMsgCrypt(sToken, sEncodingAESKey, sCorpID);
+        String sEchoStr = null;
+        sEchoStr = wxcpt.VerifyURL(msg_signature, timestamp, nonce, echostr);
+        return sEchoStr;
     }
 }

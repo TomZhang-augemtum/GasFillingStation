@@ -20,7 +20,7 @@ public class SettingService {
         List<Setting> settings = settingDao.findAll();
         Map<String, String> maps = new HashMap<>();
         for (Setting setting : settings) {
-            maps.put(setting.getKey(), setting.getValue());
+            maps.put(setting.getSettingkey(), setting.getValue());
         }
         return maps;
     }
@@ -29,7 +29,7 @@ public class SettingService {
         Map<String, String> settings = settingvo.toMap();
         Setting setting = null;
         for (String key : settings.keySet()) {
-            setting = settingDao.findByKey(key);
+            setting = settingDao.findBySettingkey(key);
             setting.setValue(settings.get(key));
             settingDao.save(setting);
         }
